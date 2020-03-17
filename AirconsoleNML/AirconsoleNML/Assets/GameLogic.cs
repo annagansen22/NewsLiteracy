@@ -32,6 +32,7 @@ public class GameLogic : MonoBehaviour
 
     private void OnConnect(int device_id)
     {
+        addTeam(device_id);
         if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0)
         {
             if (AirConsole.instance.GetControllerDeviceIds().Count >= 2)
@@ -75,6 +76,15 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            print("A is pressed");
+            
+        }
+    }
+
+    private void addTeam(int device_id)
+    {
+        GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().addTeam(device_id);
     }
 }

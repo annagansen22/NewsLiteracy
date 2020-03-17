@@ -78,6 +78,8 @@
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
     <Compile Include="Assets\GameL.cs" />
     <Compile Include="Assets\GameLogic.cs" />
+    <Compile Include="Assets\Teams.cs" />
+    <Compile Include="Assets\TeamUI.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

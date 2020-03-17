@@ -7,6 +7,8 @@ using Newtonsoft.Json.Linq;
 
 public class GameL : MonoBehaviour
 {
+    private GameObject teams;
+
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage;
@@ -34,6 +36,8 @@ public class GameL : MonoBehaviour
 
     private void OnConnect(int device_id)
     {
+        print("OnConnect");
+        GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().addTeam(device_id);
         if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0)
         {
             if (AirConsole.instance.GetControllerDeviceIds().Count >= 2)
@@ -58,6 +62,7 @@ public class GameL : MonoBehaviour
     void StartGame()
     {
         Debug.Log("game has started!");
+        teams = GameObject.FindGameObjectWithTag("Teams");
     }
 
     private void OnDestroy()
@@ -77,6 +82,17 @@ public class GameL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            print("Typed 0");
+            int score = (int)Random.Range(0, 100);
+            teams.GetComponent<Teams>().getTeam(0).GetComponent<TeamUI>().setScore(score);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            print("Typed 1");
+            int score = (int)Random.Range(0, 100);
+            teams.GetComponent<Teams>().getTeam(1).GetComponent<TeamUI>().setScore(score);
+        }
     }
 }
