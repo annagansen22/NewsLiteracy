@@ -9,7 +9,7 @@ public class Teams : MonoBehaviour
     public GameObject teamPrefab;
     ArrayList teams = new ArrayList();
     string[] teamNames = {"De Telegraaf", "De Gelderlander", "Algemeen Dagblad",
-    "De Volkskrant", "Trouw", "Tubantia", "Reformatorisch Dagblad", "De Stentor"};
+    "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"};
     int teamCount = 0;
     // Start is called before the first frame update
     void Start()
@@ -52,6 +52,16 @@ public class Teams : MonoBehaviour
             if (team.GetComponent<TeamUI>().getTeamNumber() == teamNumber) return team;
         }
         return null;
+    }
+
+    public int amountOfTeams()
+    {
+        int i = 0;
+        foreach (GameObject team in teams)
+        {
+            i += 1;
+        }
+        return i;
     }
 
 

@@ -78,6 +78,7 @@
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
     <Compile Include="Assets\GameL.cs" />
     <Compile Include="Assets\GameLogic.cs" />
+    <Compile Include="Assets\Progressbar.cs" />
     <Compile Include="Assets\Teams.cs" />
     <Compile Include="Assets\TeamUI.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

@@ -8,12 +8,15 @@ using Newtonsoft.Json.Linq;
 public class GameL : MonoBehaviour
 {
     private GameObject teams;
+    private int followers;
+    private int i;
 
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
+        teams = GameObject.FindGameObjectWithTag("Teams");
     }
 
     private void OnMessage(int device_id, JToken data)
@@ -40,7 +43,7 @@ public class GameL : MonoBehaviour
         GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().addTeam(device_id);
         if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0)
         {
-            if (AirConsole.instance.GetControllerDeviceIds().Count >= 2)
+            if (AirConsole.instance.GetControllerDeviceIds().Count >= 8)
             {
                 StartGame();
             }
@@ -62,7 +65,7 @@ public class GameL : MonoBehaviour
     void StartGame()
     {
         Debug.Log("game has started!");
-        teams = GameObject.FindGameObjectWithTag("Teams");
+        //teams = GameObject.FindGameObjectWithTag("Teams");
     }
 
     private void OnDestroy()
@@ -76,7 +79,8 @@ public class GameL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        followers = 1000;
+        i = 0;
     }
 
     // Update is called once per frame
@@ -93,6 +97,14 @@ public class GameL : MonoBehaviour
             print("Typed 1");
             int score = (int)Random.Range(0, 100);
             teams.GetComponent<Teams>().getTeam(1).GetComponent<TeamUI>().setScore(score);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            print("Typed 2");
+            teams.GetComponent<Teams>().addTeam(i);
+            teams.GetComponent<Teams>().getTeam(i).GetComponent<TeamUI>().setScore(followers);
+            i += 1;
+            followers -= (int)Random.Range(30, 125);
         }
     }
 }
