@@ -6,11 +6,30 @@ using UnityEngine.UI;
 
 public class TeamUI : MonoBehaviour
 {
+    private Image im;
     [SerializeField] private GameObject nameObject;
     //[SerializeField] private TextMeshProUGUI teamObj;
     [SerializeField] private string teamName;
     [SerializeField] private int teamNumber;
     [SerializeField] private int teamScore = 0;
+    [SerializeField] private bool teamReady = false;
+
+    public void Start()
+    {
+        im = gameObject.GetComponent<Image>();
+    }
+
+    public bool getTeamReady()
+    {
+        return teamReady;
+    }
+
+    public void setTeamReady(bool ready)
+    {
+        if (ready) im.color = new Color(0.8f, 0.8f, 0.8f);
+        else im.color = new Color(1f, 1f, 1f);
+        teamReady = ready;
+    }
 
     public void setName(string name)
     {
@@ -22,6 +41,11 @@ public class TeamUI : MonoBehaviour
     {
         teamScore = score;
         updateText();
+    }
+
+    public void addScore(int score)
+    {
+        setScore(teamScore + score);
     }
 
     public int getScore()
@@ -44,8 +68,6 @@ public class TeamUI : MonoBehaviour
     {
         return teamNumber;
     }
-
-
 
     public string getTeamName()
     {

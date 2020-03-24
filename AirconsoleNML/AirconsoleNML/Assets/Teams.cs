@@ -4,6 +4,7 @@ using UnityEngine;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using System;
 
 public class Teams : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Teams : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        updateRanking();
     }
 
     public void addTeam(int device_id)
@@ -91,7 +92,18 @@ public class Teams : MonoBehaviour
         }
     }
 
-   
+    //public float portionOfReadyTeams()
+    //{
+    //    return (float) (amountOfReadyTeams());
+    //}
 
-
+    public int amountOfReadyTeams()
+    {
+        int i = 0;
+        foreach (GameObject team in teams)
+        {
+            if (team.GetComponent<TeamUI>().getTeamReady() == true) i += 1;
+        }
+        return i;
+    }
 }

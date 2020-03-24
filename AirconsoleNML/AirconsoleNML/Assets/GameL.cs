@@ -86,6 +86,7 @@ public class GameL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        teams = GameObject.FindGameObjectWithTag("Teams");
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             print("Typed 0");
@@ -110,6 +111,12 @@ public class GameL : MonoBehaviour
         {
             print("Typed 3");
             teams.GetComponent<Teams>().updateRanking();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            print("Typed 4");
+            int r = Random.Range(0, teams.GetComponent<Teams>().amountOfTeams());
+            teams.GetComponent<Teams>().getTeam(r).GetComponent<TeamUI>().setTeamReady(true);
         }
     }
 }
