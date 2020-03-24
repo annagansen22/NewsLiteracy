@@ -106,5 +106,11 @@ public class GameL : MonoBehaviour
             i += 1;
             followers -= (int)Random.Range(30, 125);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            print("Typed 3");
+            teams.GetComponent<Teams>().updateRanking();
+        }
     }
 }
+

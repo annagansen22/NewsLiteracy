@@ -24,6 +24,11 @@ public class TeamUI : MonoBehaviour
         updateText();
     }
 
+    public int getScore()
+    {
+        return teamScore;
+    }
+
     private void updateText()
     {
         string teamText = "<b> " + teamName + " </b> \n Volgers: " + teamScore;
@@ -40,10 +45,7 @@ public class TeamUI : MonoBehaviour
         return teamNumber;
     }
 
-    public void setTeamScore(int nr)
-    {
-        teamScore = nr;
-    }
+
 
     public string getTeamName()
     {

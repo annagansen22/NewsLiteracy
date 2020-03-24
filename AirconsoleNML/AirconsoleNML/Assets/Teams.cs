@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 public class Teams : MonoBehaviour
 {
     public GameObject teamPrefab;
-    ArrayList teams = new ArrayList();
+    List<GameObject> teams = new List<GameObject>();
     string[] teamNames = {"De Telegraaf", "De Gelderlander", "Algemeen Dagblad",
     "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"};
     int teamCount = 0;
@@ -19,7 +20,7 @@ public class Teams : MonoBehaviour
         for (int i = 0; i < children; ++i)
         {
             print("For loop: " + transform.GetChild(i));
-            teams.Add(transform.GetChild(i));
+            teams.Add(transform.GetChild(i).gameObject);
         }
     }
 
@@ -64,7 +65,33 @@ public class Teams : MonoBehaviour
         return i;
     }
 
+    private class teamSort : IComparer<GameObject>
+    {
+        int IComparer<GameObject>.Compare(GameObject _objA, GameObject _objB)
+        {
+            int t1 = _objA.GetComponent<TeamUI>().getScore();
+            int t2 = _objB.GetComponent<TeamUI>().getScore();
+            return t1.CompareTo(t2);
+        }
+    }
 
+    private static int SortByScore(GameObject o1, GameObject o2)
+    {
+        return o2.GetComponent<TeamUI>().getScore().CompareTo(o1.GetComponent<TeamUI>().getScore());
+    }
+
+    public void updateRanking()
+    {
+        teams.Sort(SortByScore);
+        int i = 0; 
+        foreach (GameObject team in teams)
+        {
+            team.transform.SetSiblingIndex(i);
+            i += 1;
+        }
+    }
+
+   
 
 
 }
