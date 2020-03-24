@@ -87,6 +87,7 @@ public class Teams : MonoBehaviour
         int i = 0; 
         foreach (GameObject team in teams)
         {
+            team.GetComponent<TeamUI>().setTeamRank(i);
             team.transform.SetSiblingIndex(i);
             i += 1;
         }

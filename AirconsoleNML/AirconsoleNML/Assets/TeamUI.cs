@@ -10,13 +10,20 @@ public class TeamUI : MonoBehaviour
     [SerializeField] private GameObject nameObject;
     //[SerializeField] private TextMeshProUGUI teamObj;
     [SerializeField] private string teamName;
-    [SerializeField] private int teamNumber;
+    [SerializeField] private int teamNumber = 0;
+    [SerializeField] private int teamRank = 0;
     [SerializeField] private int teamScore = 0;
     [SerializeField] private bool teamReady = false;
 
     public void Start()
     {
         im = gameObject.GetComponent<Image>();
+    }
+
+    public void setTeamRank(int rank)
+    {
+        teamRank = rank;
+        updateText();
     }
 
     public bool getTeamReady()
@@ -57,6 +64,7 @@ public class TeamUI : MonoBehaviour
     {
         string teamText = "<b> " + teamName + " </b> \n Volgers: " + teamScore;
         gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = teamText;
+        gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = (teamRank+1).ToString();
     }
 
     public void setTeamNumber(int nr)

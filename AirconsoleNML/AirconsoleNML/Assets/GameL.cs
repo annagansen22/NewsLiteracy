@@ -87,17 +87,12 @@ public class GameL : MonoBehaviour
     void Update()
     {
         teams = GameObject.FindGameObjectWithTag("Teams");
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            print("Typed 0");
-            int score = (int)Random.Range(0, 100);
-            teams.GetComponent<Teams>().getTeam(0).GetComponent<TeamUI>().setScore(score);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             print("Typed 1");
-            int score = (int)Random.Range(0, 100);
-            teams.GetComponent<Teams>().getTeam(1).GetComponent<TeamUI>().setScore(score);
+            int r = Random.Range(0, teams.GetComponent<Teams>().amountOfTeams());
+            int score = Random.Range(0, 1000);
+            teams.GetComponent<Teams>().getTeam(r).GetComponent<TeamUI>().setScore(score);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -105,7 +100,7 @@ public class GameL : MonoBehaviour
             teams.GetComponent<Teams>().addTeam(i);
             teams.GetComponent<Teams>().getTeam(i).GetComponent<TeamUI>().setScore(followers);
             i += 1;
-            followers -= (int)Random.Range(30, 125);
+            followers -= Random.Range(30, 125);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
