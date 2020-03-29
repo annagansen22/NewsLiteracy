@@ -17,6 +17,7 @@ public class GameL : MonoBehaviour
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
         teams = GameObject.FindGameObjectWithTag("Teams");
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnMessage(int device_id, JToken data)

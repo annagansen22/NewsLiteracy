@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class TeamUI : MonoBehaviour
 {
     private Image im;
-    [SerializeField] private GameObject nameObject;
-    //[SerializeField] private TextMeshProUGUI teamObj;
+    private GameObject nameObject;
     [SerializeField] private string teamName;
     [SerializeField] private int teamNumber = 0;
     [SerializeField] private int teamRank = 0;
@@ -33,8 +32,11 @@ public class TeamUI : MonoBehaviour
 
     public void setTeamReady(bool ready)
     {
-        if (ready) im.color = new Color(0.8f, 0.8f, 0.8f);
-        else im.color = new Color(1f, 1f, 1f);
+        if (im != null)
+        {
+            if (ready) im.color = new Color(0.8f, 0.8f, 0.8f);
+            else im.color = new Color(1f, 1f, 1f);
+        }
         teamReady = ready;
     }
 

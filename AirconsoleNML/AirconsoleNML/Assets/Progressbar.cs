@@ -15,6 +15,7 @@ public class Progressbar : MonoBehaviour
 
     private int amountOfTeams;
     private int amountOfReadyTeams;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +31,11 @@ public class Progressbar : MonoBehaviour
         amountOfReadyTeams = teams.GetComponent<Teams>().amountOfReadyTeams();
         slider.value = (float) amountOfReadyTeams / amountOfTeams;
         text.text = amountOfReadyTeams + "/" + amountOfTeams + " Teams Ready";
+    }
+    
+    public bool allTeamsReady()
+    {
+        if (amountOfTeams < 1) return false;
+        else return amountOfTeams == amountOfReadyTeams;
     }
 }

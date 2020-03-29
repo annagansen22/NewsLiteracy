@@ -42,9 +42,11 @@ public class Teams : MonoBehaviour
         //teamObject.GetComponent<TeamUI>().setName(teamNames[playerNumber]);
         teamObject.GetComponent<TeamUI>().setTeamNumber(teamCount);
         teamObject.GetComponent<TeamUI>().setName(teamNames[teamCount]);
+
         print("Adding team: " + teamCount + ", with device id: " + device_id +
             ", and player number: " + playerNumber);
         teamCount += 1;
+
         teams.Add(teamObject);
     }
 
