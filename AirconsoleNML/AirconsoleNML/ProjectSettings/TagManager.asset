@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Teams
   - ProgressBar
+  - Screen
+  - WholeScreen
   layers:
   - Default
   - TransparentFX

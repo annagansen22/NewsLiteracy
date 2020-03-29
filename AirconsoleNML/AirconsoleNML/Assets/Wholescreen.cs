@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Wholescreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
     }
 
     // Update is called once per frame
@@ -33,7 +28,7 @@ public class Wholescreen : MonoBehaviour
 
                 if (_instance == null)
                 {
-                    GameObject container = new GameObject("Bicycle");
+                    GameObject container = new GameObject("ScreenContainer");
                     _instance = container.AddComponent<Wholescreen>();
                 }
             }

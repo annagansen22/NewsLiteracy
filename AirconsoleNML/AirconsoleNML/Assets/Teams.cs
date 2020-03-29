@@ -13,6 +13,7 @@ public class Teams : MonoBehaviour
     string[] teamNames = {"De Telegraaf", "De Gelderlander", "Algemeen Dagblad",
     "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"};
     int teamCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class Teams : MonoBehaviour
         //teamObject.GetComponent<TeamUI>().setName(teamNames[playerNumber]);
         teamObject.GetComponent<TeamUI>().setTeamNumber(teamCount);
         teamObject.GetComponent<TeamUI>().setName(teamNames[teamCount]);
+        teamObject.GetComponent<TeamUI>().setTeamReady(true);
 
         print("Adding team: " + teamCount + ", with device id: " + device_id +
             ", and player number: " + playerNumber);
@@ -109,4 +111,14 @@ public class Teams : MonoBehaviour
         }
         return i;
     }
+
+    public void setAllTeamsNotReady()
+    {
+        foreach (GameObject team in teams)
+        {
+            team.GetComponent<TeamUI>().setTeamReady(false);
+        }
+    }
 }
+
+
