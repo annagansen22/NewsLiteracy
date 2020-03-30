@@ -7,8 +7,12 @@ using Newtonsoft.Json.Linq;
 
 public class GameL : MonoBehaviour
 {
+    private int followers;
+    private int i;
+
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
@@ -34,9 +38,11 @@ public class GameL : MonoBehaviour
 
     private void OnConnect(int device_id)
     {
+        print("OnConnect");
+        gameObject.GetComponent<GameStats>().addTeam(0);
         if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0)
         {
-            if (AirConsole.instance.GetControllerDeviceIds().Count >= 2)
+            if (AirConsole.instance.GetControllerDeviceIds().Count >= 8)
             {
                 StartGame();
             }
@@ -58,6 +64,7 @@ public class GameL : MonoBehaviour
     void StartGame()
     {
         Debug.Log("game has started!");
+        //teams = GameObject.FindGameObjectWithTag("Teams");
     }
 
     private void OnDestroy()
@@ -71,12 +78,43 @@ public class GameL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        followers = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameStats gs = gameObject.GetComponent<GameStats>();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            print("Typed 1 -> Randomizing A Teams Followers");
+            int r = Random.Range(0, gs.amountOfTeams());
+            int score = Random.Range(0, 1000);
+            Team selectedTeam = gs.teams[r];
+            selectedTeam.setScore(score);
+            GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().updateTeam(selectedTeam);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            print("Typed 2 -> Adding A Team");
+            int teamNum = gs.addTeam(0);
+            gs.getTeam(teamNum).setScore(followers);
+            followers -= Random.Range(30, 125);
+            gs.updateRanking();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            print("Typed 3 -> Updating Ranking");
+            gs.updateRanking();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            print("Typed 4 -> Setting Random Team To Ready");
+            int r = Random.Range(0, gs.amountOfTeams());
+            Team selectedTeam = gs.teams[r];
+            selectedTeam.setTeamReady(true);
+        }
+          
     }
 }
+
