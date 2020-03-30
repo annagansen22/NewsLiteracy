@@ -13,12 +13,30 @@ public class GameStats : MonoBehaviour
     public List<Team> teams = new List<Team>();
     [SerializeField] private string[] teamNames = {"De Telegraaf", "De Gelderlander", "Algemeen Dagblad",
     "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"};
+    [SerializeField]
+    private string[] topicList = {"Sport", "Politiek", "Actueel Nieuws",
+    "Klimaat", "Beroemdheden", "Misdaad"};
     private int teamCount = 0;
+    private List<Tuple<string, int>> topics = new List<Tuple<string, int>>();
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         teamManager = GameObject.FindGameObjectWithTag("Teams");
+        initializeTopicsList();
+    }
+
+    public string[] getTopics()
+    {
+        return topicList;
+    }
+
+    private void initializeTopicsList()
+    {
+        foreach (string topic in topicList)
+        {
+            topics.Add(new Tuple<string, int>(topic, 0));
+        }
     }
 
     private void OnLevelWasLoaded(int level)

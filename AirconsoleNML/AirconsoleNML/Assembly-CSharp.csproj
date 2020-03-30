@@ -85,6 +85,7 @@
     <Compile Include="Assets\Team.cs" />
     <Compile Include="Assets\Teams.cs" />
     <Compile Include="Assets\TeamUI.cs" />
+    <Compile Include="Assets\TopicChoose.cs" />
     <Compile Include="Assets\UIStayOnTransition.cs" />
     <Compile Include="Assets\Wholescreen.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
