@@ -8,79 +8,42 @@ public class TeamUI : MonoBehaviour
 {
     private Image im;
     private GameObject nameObject;
-    [SerializeField] private string teamName;
-    [SerializeField] private int teamNumber = 0;
-    [SerializeField] private int teamRank = 0;
-    [SerializeField] private int teamScore = 0;
-    [SerializeField] private bool teamReady = false;
+    private string teamName;
 
     public void Start()
     {
         im = gameObject.GetComponent<Image>();
     }
 
-    public void setTeamRank(int rank)
+    public void updateUI(Team t)
     {
-        teamRank = rank;
-        updateText();
-    }
+        // Update Sibling Index / Rank Position
+        transform.SetSiblingIndex(t.getTeamRank());
 
-    public bool getTeamReady()
-    {
-        return teamReady;
-    }
-
-    public void setTeamReady(bool ready)
-    {
+        // Update Ready Color
         if (im != null)
         {
-            if (ready) im.color = new Color(0.8f, 0.8f, 0.8f);
+            if (t.getTeamReady()) im.color = new Color(0.8f, 0.8f, 0.8f);
             else im.color = new Color(1f, 1f, 1f);
         }
-        teamReady = ready;
-    }
 
-    public void setName(string name)
-    {
-        teamName = name;
-        updateText();
-    }
+        // Update Team Name
+        teamName = t.getTeamName();
 
-    public void setScore(int score)
-    {
-        teamScore = score;
-        updateText();
-    }
-
-    public void addScore(int score)
-    {
-        setScore(teamScore + score);
-    }
-
-    public int getScore()
-    {
-        return teamScore;
-    }
-
-    private void updateText()
-    {
-        string teamText = "<b> " + teamName + " </b> \n Volgers: " + teamScore;
+        // Update Follower Amount + Rank 
+        string teamText = "<b> " + teamName + " </b> \n Volgers: " + t.getScore();
         gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = teamText;
-        gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = (teamRank+1).ToString();
-    }
-
-    public void setTeamNumber(int nr)
-    {
-        teamNumber = nr;
-    }
-
-    public int getTeamNumber()
-    {
-        return teamNumber;
+        gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = (t.getTeamRank() + 1).ToString();
     }
 
     public string getTeamName()
     {
         return teamName;
     }
+
+    public void setTeamName(string name)
+    {
+        teamName = name;
+    }
+
 }

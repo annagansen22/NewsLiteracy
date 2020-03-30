@@ -7,17 +7,15 @@ using Newtonsoft.Json.Linq;
 
 public class GameL : MonoBehaviour
 {
-    private GameObject teams;
     private int followers;
     private int i;
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
-        teams = GameObject.FindGameObjectWithTag("Teams");
-        DontDestroyOnLoad(gameObject);
     }
 
     private void OnMessage(int device_id, JToken data)
@@ -41,7 +39,7 @@ public class GameL : MonoBehaviour
     private void OnConnect(int device_id)
     {
         print("OnConnect");
-        GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().addTeam(device_id);
+        gameObject.GetComponent<GameStats>().addTeam(0);
         if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0)
         {
             if (AirConsole.instance.GetControllerDeviceIds().Count >= 8)
@@ -81,39 +79,42 @@ public class GameL : MonoBehaviour
     void Start()
     {
         followers = 1000;
-        i = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        teams = GameObject.FindGameObjectWithTag("Teams");
+        GameStats gs = gameObject.GetComponent<GameStats>();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            print("Typed 1");
-            int r = Random.Range(0, teams.GetComponent<Teams>().amountOfTeams());
+            print("Typed 1 -> Randomizing A Teams Followers");
+            int r = Random.Range(0, gs.amountOfTeams());
             int score = Random.Range(0, 1000);
-            teams.GetComponent<Teams>().getTeam(r).GetComponent<TeamUI>().setScore(score);
+            Team selectedTeam = gs.teams[r];
+            selectedTeam.setScore(score);
+            GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().updateTeam(selectedTeam);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            print("Typed 2");
-            teams.GetComponent<Teams>().addTeam(i);
-            teams.GetComponent<Teams>().getTeam(i).GetComponent<TeamUI>().setScore(followers);
-            i += 1;
+            print("Typed 2 -> Adding A Team");
+            int teamNum = gs.addTeam(0);
+            gs.getTeam(teamNum).setScore(followers);
             followers -= Random.Range(30, 125);
+            gs.updateRanking();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            print("Typed 3");
-            teams.GetComponent<Teams>().updateRanking();
+            print("Typed 3 -> Updating Ranking");
+            gs.updateRanking();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            print("Typed 4");
-            int r = Random.Range(0, teams.GetComponent<Teams>().amountOfTeams());
-            teams.GetComponent<Teams>().getTeam(r).GetComponent<TeamUI>().setTeamReady(true);
+            print("Typed 4 -> Setting Random Team To Ready");
+            int r = Random.Range(0, gs.amountOfTeams());
+            Team selectedTeam = gs.teams[r];
+            selectedTeam.setTeamReady(true);
         }
+          
     }
 }
 

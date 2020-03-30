@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Progressbar : MonoBehaviour
 {
-    private GameObject teams;
+    private GameObject gameStats;
     public GameObject sliderObject;
     public GameObject textObject;
 
@@ -19,7 +19,7 @@ public class Progressbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        teams = GameObject.FindGameObjectWithTag("Teams");
+        gameStats = GameObject.FindGameObjectWithTag("GameLogic");
         text = textObject.GetComponent<TextMeshProUGUI>();
         slider = sliderObject.GetComponent<Slider>();
     }
@@ -27,8 +27,8 @@ public class Progressbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        amountOfTeams = teams.GetComponent<Teams>().amountOfTeams();
-        amountOfReadyTeams = teams.GetComponent<Teams>().amountOfReadyTeams();
+        amountOfTeams = gameStats.GetComponent<GameStats>().amountOfTeams();
+        amountOfReadyTeams = gameStats.GetComponent<GameStats>().amountOfReadyTeams();
         slider.value = (float) amountOfReadyTeams / amountOfTeams;
         text.text = amountOfReadyTeams + "/" + amountOfTeams + " Teams Ready";
     }

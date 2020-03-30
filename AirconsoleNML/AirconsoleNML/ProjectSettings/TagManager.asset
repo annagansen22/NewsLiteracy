@@ -8,6 +8,8 @@ TagManager:
   - ProgressBar
   - Screen
   - WholeScreen
+  - ScreenObjects
+  - GameLogic
   layers:
   - Default
   - TransparentFX

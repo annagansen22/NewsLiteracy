@@ -8,8 +8,9 @@ public class UIStayOnTransition : MonoBehaviour
     {
         if (transform.parent == null)
         {
-            print(gameObject.name + "is attaching itself to wholescreen");        
-            transform.parent = GameObject.FindGameObjectWithTag("WholeScreen").transform;
+            print(gameObject.name + " is attaching itself to screen");
+            transform.SetParent(GameObject.FindGameObjectWithTag("Screen").transform, false);
+
         }
     }
 }
