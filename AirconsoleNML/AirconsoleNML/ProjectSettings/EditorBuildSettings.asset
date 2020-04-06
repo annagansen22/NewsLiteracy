@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PickTopicsScene.unity
     guid: 070381f6f04470c45a285ed0ae2378d2
+  - enabled: 1
+    path: Assets/Scenes/RealFakeScene.unity
+    guid: 5fec9ad6cf91d5749ac827e5ff4ad440
   m_configObjects: {}

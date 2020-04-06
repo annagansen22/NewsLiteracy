@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -145,8 +146,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338227417}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -225,7 +227,6 @@ GameObject:
   - component: {fileID: 386942831}
   - component: {fileID: 386942830}
   - component: {fileID: 386942829}
-  - component: {fileID: 386942828}
   m_Layer: 5
   m_Name: Whole Screen
   m_TagString: WholeScreen
@@ -233,18 +234,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &386942828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386942827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d8006db27bf394b8f2f67804fa1529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &386942829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +343,7 @@ RectTransform:
   - {fileID: 782858948}
   - {fileID: 1768105169}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1770,6 +1759,13 @@ MonoBehaviour:
   - Tubantia
   - Metro
   - De Stentor
+  topicList:
+  - Sport
+  - Politiek
+  - Actueel Nieuws
+  - Klimaat
+  - Beroemdheden
+  - Misdaad
 --- !u!1 &1708757556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768105168
 GameObject:
@@ -2014,7 +2010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942595796
 GameObject:

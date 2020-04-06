@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameL : MonoBehaviour
 {
@@ -114,7 +115,26 @@ public class GameL : MonoBehaviour
             Team selectedTeam = gs.teams[r];
             selectedTeam.setTeamReady(true);
         }
-          
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            print("Typed P -> Going to picktopics scene");
+            SceneManager.LoadScene("PickTopicsScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            print("Typed F -> Going to picktopics scene");
+            SceneManager.LoadScene("RealFakeScene");
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            print("Typed T -> Printing topics");
+            string[] t = gameObject.GetComponent<GameStats>().getChosenTopics();
+            foreach (string x in t)
+            {
+                print("TOPIC: " + x);
+            }
+        }
+
     }
 }
 

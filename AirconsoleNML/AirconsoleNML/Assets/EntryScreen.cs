@@ -9,8 +9,7 @@ public class EntryScreen : MonoBehaviour
     private Progressbar progressbar;
     // Start is called before the first frame update
     void Awake()
-    {
-        
+    {     
         progressbar = GameObject.FindGameObjectWithTag("ProgressBar").GetComponent<Progressbar>();
     }
 

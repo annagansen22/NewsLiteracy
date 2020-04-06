@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -289,7 +290,6 @@ GameObject:
   - component: {fileID: 496077312}
   - component: {fileID: 496077317}
   - component: {fileID: 496077316}
-  - component: {fileID: 496077318}
   m_Layer: 5
   m_Name: Whole Screen
   m_TagString: Untagged
@@ -413,18 +413,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496077311}
   m_CullTransparentMesh: 0
---- !u!114 &496077318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496077311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d8006db27bf394b8f2f67804fa1529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &510563845
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,8 +732,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10

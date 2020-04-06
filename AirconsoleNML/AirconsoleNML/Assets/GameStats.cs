@@ -18,12 +18,23 @@ public class GameStats : MonoBehaviour
     "Klimaat", "Beroemdheden", "Misdaad"};
     private int teamCount = 0;
     private List<Tuple<string, int>> topics = new List<Tuple<string, int>>();
+    private string[] chosenTopics;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         teamManager = GameObject.FindGameObjectWithTag("Teams");
         initializeTopicsList();
+    }
+
+    public void setChosenTopics(string[] topics)
+    {
+        chosenTopics = topics;
+    }
+
+    public string[] getChosenTopics()
+    {
+        return chosenTopics;
     }
 
     public string[] getTopics()
@@ -43,12 +54,6 @@ public class GameStats : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().instantiateTeams(teams);
         print("Current Level: " + level);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -114,7 +119,6 @@ public class GameStats : MonoBehaviour
             return t1.CompareTo(t2);
         }
     }
-
     private static int SortByScore(Team o1, Team o2)
     {
         return o2.getScore().CompareTo(o1.getScore());
