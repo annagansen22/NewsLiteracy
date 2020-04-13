@@ -110,6 +110,12 @@ public class GameStats : MonoBehaviour
         return i;
     }
 
+    public bool allTeamsReady()
+    {
+        if (amountOfTeams() < 1) return false;
+        else return amountOfTeams() == amountOfReadyTeams();
+    }
+
     private class teamSort : IComparer<Team>
     {
         int IComparer<Team>.Compare(Team _objA, Team _objB)
@@ -154,6 +160,12 @@ public class GameStats : MonoBehaviour
         {
             team.setTeamReady(false);
         }
+    }
+
+    // MAKE THIS WORK AI COMPONENT STYLE
+    public string getRealFakeSentence()
+    {
+        return "Example Sentence";
     }
 }
 

@@ -82,10 +82,24 @@ public class GameL : MonoBehaviour
         followers = 1000;
     }
 
+    public void testInitialization()
+    {
+        GameStats gs = gameObject.GetComponent<GameStats>();
+        for (int i = 0; i<=7; i++)
+        {
+            int teamNum = gs.addTeam(0);
+            gs.getTeam(teamNum).setScore(followers);
+            followers -= Random.Range(30, 125);
+            gs.updateRanking();
+        }
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
         GameStats gs = gameObject.GetComponent<GameStats>();
+        // NUMBERS
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             print("Typed 1 -> Randomizing A Teams Followers");
@@ -115,6 +129,16 @@ public class GameL : MonoBehaviour
             Team selectedTeam = gs.teams[r];
             selectedTeam.setTeamReady(true);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            print("Typed 5 -> Setting All Teams To Ready");
+            for (int i = gs.amountOfTeams()-1; i >= 0; i--)
+            {
+                Team selectedTeam = gs.teams[i];
+                selectedTeam.setTeamReady(true);
+            }
+        }
+        // LETTERS
         else if (Input.GetKeyDown(KeyCode.P))
         {
             print("Typed P -> Going to picktopics scene");
@@ -136,5 +160,8 @@ public class GameL : MonoBehaviour
         }
 
     }
+
+
+
 }
 

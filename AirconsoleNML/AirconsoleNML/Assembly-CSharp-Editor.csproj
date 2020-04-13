@@ -292,14 +292,14 @@
     <Reference Include="UnityEditor.WebGL.Extensions">
       <HintPath>D:/Editors for Unity/2019.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:/Users/iskaj/NewsLiteracy/AirconsoleNML/AirconsoleNML/Assets/AirConsole/plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>C:/Users/iskaj/NewsLiteracy/AirconsoleNML/AirconsoleNML/Assets/AirConsole/plugins/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/iskaj/NewsLiteracy/AirconsoleNML/AirconsoleNML/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

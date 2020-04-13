@@ -10,6 +10,8 @@ TagManager:
   - WholeScreen
   - ScreenObjects
   - GameLogic
+  - ScreenText
+  - RealFakeStamp
   layers:
   - Default
   - TransparentFX

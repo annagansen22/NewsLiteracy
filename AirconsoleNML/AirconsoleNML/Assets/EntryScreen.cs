@@ -7,13 +7,17 @@ public class EntryScreen : MonoBehaviour
 {
 
     private Progressbar progressbar;
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {     
         progressbar = GameObject.FindGameObjectWithTag("ProgressBar").GetComponent<Progressbar>();
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        GameObject gameLogic = GameObject.FindGameObjectWithTag("GameLogic");
+        gameLogic.GetComponent<GameL>().testInitialization();
+    }
+
     void Update()
     {
         // If all teams are ready
