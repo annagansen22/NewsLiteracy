@@ -9,6 +9,17 @@ public class Team
     private int teamRank = 0;
     private int teamScore = 0;
     private bool teamReady = false;
+    private bool boolAnswer;
+
+    public void setBoolAnswer(bool answer)
+    {
+        boolAnswer = answer;
+    }
+
+    public bool getBoolAnswer()
+    {
+        return boolAnswer;
+    }
 
     public Team(string name)
     {
@@ -55,7 +66,6 @@ public class Team
     {
         return teamScore;
     }
-
 
     public int getTeamNumber()
     {

@@ -18,13 +18,18 @@ public class GameStats : MonoBehaviour
     "Klimaat", "Beroemdheden", "Misdaad"};
     private int teamCount = 0;
     private List<Tuple<string, int>> topics = new List<Tuple<string, int>>();
-    private string[] chosenTopics;
+    public string[] chosenTopics;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         teamManager = GameObject.FindGameObjectWithTag("Teams");
         initializeTopicsList();
+    }
+
+    public List<Team> getTeams()
+    {
+        return teams;
     }
 
     public void setChosenTopics(string[] topics)

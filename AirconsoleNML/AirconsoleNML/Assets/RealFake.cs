@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class RealFake : MonoBehaviour
 {
     private bool trueAnswer;
+    private bool onlyDoOnce = true;
     private GameObject gameLogic;
     public GameObject stampObject;
+
     void Start()
     {
         // Initialize some objects
@@ -21,19 +23,26 @@ public class RealFake : MonoBehaviour
         trueAnswer = true;
 
         // Send instructions to controller to change to "Yes or no layout"
-        // TODO
-
+        // TODO  
     }
 
     void Update()
     {
         // Wait for all responses
-        if (gameLogic.GetComponent<GameStats>().allTeamsReady())
+        if (gameLogic.GetComponent<GameStats>().allTeamsReady() && onlyDoOnce)
         {
             // Show answer
             stampObject.GetComponent<StampScript>().showStamp(trueAnswer);
 
+            //Gather answers and give points
+            foreach (Team t in GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams())
+            {
+                bool answer = t.getBoolAnswer();
+                if (answer == trueAnswer) t.addScore(50);
+            }
+
             // Wait for X seconds and go to next screen
+            onlyDoOnce = false;
             StartCoroutine(WaitForSecondsThenSwitchScene(5, "PickTopicsScene"));
         }
     }
