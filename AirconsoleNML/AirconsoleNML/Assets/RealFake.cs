@@ -43,11 +43,11 @@ public class RealFake : MonoBehaviour
 
             // Wait for X seconds and go to next screen
             onlyDoOnce = false;
-            StartCoroutine(WaitForSecondsThenSwitchScene(5, "PickTopicsScene"));
+            StartCoroutine(WaitForSecondsThenSwitchScene(5));
         }
     }
 
-    public IEnumerator WaitForSecondsThenSwitchScene(int sec, string scene)
+    public IEnumerator WaitForSecondsThenSwitchScene(int sec)
     {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);

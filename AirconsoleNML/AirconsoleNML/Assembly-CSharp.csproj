@@ -79,6 +79,7 @@
     <Compile Include="Assets\AirConsole\scripts\Settings.cs" />
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
     <Compile Include="Assets\EntryScreen.cs" />
+    <Compile Include="Assets\Feedback.cs" />
     <Compile Include="Assets\GameL.cs" />
     <Compile Include="Assets\GameLogic.cs" />
     <Compile Include="Assets\GameStats.cs" />

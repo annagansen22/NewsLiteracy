@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RealFakeScene.unity
     guid: 5fec9ad6cf91d5749ac827e5ff4ad440
+  - enabled: 1
+    path: Assets/Scenes/FeedbackScene.unity
+    guid: 9e0c090ba9e616c449cb5f98817d90dc
   m_configObjects: {}
