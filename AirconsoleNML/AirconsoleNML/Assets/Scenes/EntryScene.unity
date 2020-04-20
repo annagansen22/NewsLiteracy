@@ -1703,6 +1703,7 @@ GameObject:
   - component: {fileID: 1291115570}
   - component: {fileID: 1291115569}
   - component: {fileID: 1291115571}
+  - component: {fileID: 1291115572}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: GameLogic
@@ -1766,6 +1767,26 @@ MonoBehaviour:
   - Klimaat
   - Beroemdheden
   - Misdaad
+  chosenTopics: []
+--- !u!114 &1291115572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291115568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76deb7d66e23f2d42a82174f1b822059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameScenes:
+  - RealFakeScene
+  - RealFakeScene
+  - RealFakeScene
+  entryScene: EntryScene
+  feedbackScene: FeedbackScene
+  pickTopicScene: PickTopicsScene
 --- !u!1 &1708757556
 GameObject:
   m_ObjectHideFlags: 0

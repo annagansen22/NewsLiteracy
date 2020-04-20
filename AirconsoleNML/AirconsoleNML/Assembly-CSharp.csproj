@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AIComponent.cs" />
     <Compile Include="Assets\AirConsole\examples\basic\ExampleBasicLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\gamestates\GamestateExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\gyroscope\GyroscopeExampleLogic.cs" />

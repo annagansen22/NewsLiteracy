@@ -30,14 +30,13 @@ public class EntryScreen : MonoBehaviour
     // If the ready button is pressed
     public void startGame()
     {
-        GameObject gameLogic = GameObject.FindGameObjectWithTag("GameLogic");
-        gameLogic.GetComponent<GameStats>().setAllTeamsNotReady();
+        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().nextScene(SceneManager.GetActiveScene().name);
 
-        string sceneToLoad = "";
-        sceneToLoad = "SampleScene";
-        sceneToLoad = "PickTopicsScene";
-        print("Loading " + sceneToLoad);
-        SceneManager.LoadScene(sceneToLoad);
+        //string sceneToLoad = "";
+        //sceneToLoad = "SampleScene";
+        //sceneToLoad = "PickTopicsScene";
+        //print("Loading " + sceneToLoad);
+        //SceneManager.LoadScene(sceneToLoad);
     }
 }
 
