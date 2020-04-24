@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
+using NDream.AirConsole;
 
 public class TopicChoose : MonoBehaviour
 {
@@ -81,4 +85,6 @@ public class TopicChoose : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setChosenTopics(getThreeTopics());
     }
+
+
 }
