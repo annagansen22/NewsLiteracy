@@ -66,3 +66,29 @@ body {
   align-items: stretch;
   margin: auto;*/
 }
+
+.section-view-btn{
+  display: flex;
+  flex-direction: column; 
+}
+
+.section-view-btn .section{
+  height: auto;
+  width: 100%;
+}
+
+h3.section-header{
+  text-align: center;
+  margin: 40px 0;
+  color: white;
+}
+
+.section-view-btn .button-element, .section-view-btn .button-300-150 {
+  position: relative;
+  height: 70%;
+  width: 100%;
+}
+
+.landscape .section.button-cluster{
+  height: 70%;
+}
