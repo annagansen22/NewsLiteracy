@@ -44,16 +44,22 @@ function Button(el, opts) {
   me.container.addEventListener("touchmove", function(e) {
     e.preventDefault();
   });
-  me.container.addEventListener("touchend", function(e) {
-    me.up();
-    e.preventDefault();
+    me.container.addEventListener("touchend", function (e) {
+    if (me.container.disable == false) {
+        me.up();
+        e.preventDefault();
+    }
+
   });
   if (!("ontouchstart" in document.createElement("div"))) {
     me.container.addEventListener("mousedown", function(e) {
       me.down();
     });
     me.container.addEventListener("mouseup", function(e) {
-      me.up();
+      if(me.container.disable == false){
+          me.up();
+      }
+      
     })
   }
 }
@@ -71,5 +77,5 @@ Button.prototype.down = function() {
  */
 Button.prototype.up = function() {
   this.container.className = this.container.className.replace(/ button\-active/g, "");
-  this.up_cb();
+  //this.up_cb();
 };

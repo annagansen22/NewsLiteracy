@@ -2,11 +2,14 @@
   position: relative;
   height: auto;
   width: 100%;
+  font-size: 5vw;
+  text-align: center;
 }
 
 .button-text {
   width: 100%;
   font-size: 3vw;
+  text-align: center;
 }
 
 .button-80 {
