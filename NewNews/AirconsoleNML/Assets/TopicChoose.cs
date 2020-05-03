@@ -10,7 +10,7 @@ public class TopicChoose : MonoBehaviour
 {
     Tuple<string, int> sport = new Tuple<string, int> ("sport", 0 );
     Tuple<string, int> actueel_nieuws = new Tuple<string, int>("actueel_nieuws", 0);
-    Tuple<string, int> beroemdheden = new Tuple<string, int>("beroemdheden", 0);
+    Tuple<string, int> showbusiness = new Tuple<string, int>("showbusiness", 0);
     Tuple<string, int> politiek = new Tuple<string, int>("politiek", 0);
     Tuple<string, int> klimaat = new Tuple<string, int>("klimaat", 0);
     Tuple<string, int> misdaad = new Tuple<string, int>("misdaad", 0);
@@ -25,33 +25,44 @@ public class TopicChoose : MonoBehaviour
     private void OnMessage(int device_id, JToken data)
     {
         //For some reason it is always triggered twice... gotta fix that, stil works though bc doubling does not matter here lol 
-        if (data != null && AirConsole.instance.IsAirConsoleUnityPluginReady())
+        //Always check these things before doing onmessage...
+        if (data != null && AirConsole.instance.IsAirConsoleUnityPluginReady() && data["element"] != null)
         {
-            //A = Sport, B =  Politiek, C =  Actueel Nieuws, D = Klimaat, E = Beroemdhedenm, F = Misdaad
+            //A = Sport, B =  Politiek, C =  Actueel Nieuws, D = Klimaat, E = Showbusiness, F = Misdaad
             string answer = data["data"]["1"].ToString();
-            print("Device ID " + device_id + "answered with " + answer);
-            switch (answer){
-                case "A":
-                    voteSport();
-                    break;
-                case "B":
-                    votePolitiek();
-                    break;
-                case "C":
-                    voteActueel_nieuws();
-                    break;
-                case "D":
-                    voteKlimaat();
-                    break;
-                case "E":
-                    voteBeroemdheden();
-                    break;
-                case "F":
-                    voteMisdaad();
-                    break;
-                default:
-                    break;
+            print("Device ID: " + device_id + ", answered with " + answer);
+            if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).getThreeVotes() > 0)
+            {
+                switch (answer)
+                {
+                    case "A":
+                        voteSport();
+                        break;
+                    case "B":
+                        votePolitiek();
+                        break;
+                    case "C":
+                        voteActueel_nieuws();
+                        break;
+                    case "D":
+                        voteKlimaat();
+                        break;
+                    case "E":
+                        voteShowbusiness();
+                        break;
+                    case "F":
+                        voteMisdaad();
+                        break;
+                    default:
+                        break;
+                }
+                GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).decrementThreeVotes();
+                if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).getThreeVotes() <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
+                }
             }
+            
         }
         printCount();
     }
@@ -66,10 +77,10 @@ public class TopicChoose : MonoBehaviour
         actueel_nieuws = new Tuple<string, int>("actueel_nieuws", i);
     }
 
-    public void voteBeroemdheden()
+    public void voteShowbusiness()
     {
-        int i = beroemdheden.Item2 + 1;
-        beroemdheden = new Tuple<string, int>("beroemdheden", i);
+        int i = showbusiness.Item2 + 1;
+        showbusiness = new Tuple<string, int>("showbusiness", i);
     }
 
     public void votePolitiek()
@@ -94,7 +105,7 @@ public class TopicChoose : MonoBehaviour
     {
         print(printTopic(sport));
         print(printTopic(actueel_nieuws));
-        print(printTopic(beroemdheden));
+        print(printTopic(showbusiness));
         print(printTopic(politiek));
         print(printTopic(klimaat));
         print(printTopic(misdaad));
@@ -107,7 +118,7 @@ public class TopicChoose : MonoBehaviour
 
     public string[] getThreeTopics()
     {
-        List<Tuple<string, int>> voteList = new List<Tuple<string, int>> { sport, actueel_nieuws, beroemdheden, politiek, klimaat, misdaad };
+        List<Tuple<string, int>> voteList = new List<Tuple<string, int>> { sport, actueel_nieuws, showbusiness, politiek, klimaat, misdaad };
         voteList.Sort((a, b) => b.Item2.CompareTo(a.Item2));
         List<Tuple<string, int>> sortedList = new List<Tuple<string, int>> { voteList[0], voteList[1], voteList[2] };
         string[] topicList = new string[3];
@@ -137,6 +148,7 @@ public class TopicChoose : MonoBehaviour
     public void setTopics()
     {
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setChosenTopics(getThreeTopics());
+        AirConsole.instance.onMessage -= OnMessage;
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().nextScene(SceneManager.GetActiveScene().name);
     }
 }

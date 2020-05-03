@@ -10,28 +10,16 @@ using Newtonsoft.Json.Linq;
 
 public class EntryScreen : MonoBehaviour
 {
-    //public int ready_count = 0;
-    //public List<int> ready_devices;// = new List<int>(AirConsole.instance.GetControllerDeviceIds().Count);
-    private Progressbar progressbar;
-
     private void Awake()
     {
-
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
-        //ready_devices = new List<int>(AirConsole.instance.GetControllerDeviceIds().Count); ;
-        progressbar = GameObject.FindGameObjectWithTag("ProgressBar").GetComponent<Progressbar>();
-    }
-
-    private void Start()
-    {
-        GameObject gameLogic = GameObject.FindGameObjectWithTag("GameLogic");
-        //gameLogic.GetComponent<GameL>().testInitialization();
     }
 
     private void OnMessage(int device_id, JToken data)
     {
+        print("testing for duplicates: " + device_id);
         //Sometimes data is null and airconsole has a chance to not be ready yet
         if (data != null && AirConsole.instance.IsAirConsoleUnityPluginReady())
         {
@@ -46,14 +34,11 @@ public class EntryScreen : MonoBehaviour
                     {
                         print("Team " + GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).getTeamName() + " pressed ready (dev id: " + device_id + ")");
                         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
-
                     }
                 }
             }
         }
     }
-
-
 
 
     private void OnConnect(int device_id)
@@ -79,20 +64,6 @@ public class EntryScreen : MonoBehaviour
         }
     }
 
-    public void SetView(string viewName)
-    {
-        //I don't need to replace the entire game state, I can just set the view property
-        AirConsole.instance.SetCustomDeviceState(viewName);
-
-        //the controller listens for the onCustomDeviceStateChanged event. See the  controller-gamestates.html file for how this is handled there. 
-    }
-
-    private void BroadcastMessageToAllDevices()
-    {
-        AirConsole.instance.Broadcast("view-1");
-    }
-
-
     // If the ready button is pressed by the teacher
     public void startGame()
     {
@@ -106,8 +77,8 @@ public class EntryScreen : MonoBehaviour
         print("Start date is: " + System.DateTime.Now);
         DateTime maxTime = System.DateTime.Now.AddMinutes(t);
         print("End date is: " + maxTime);
-        SetView("view-1");
-        //OnDestroy();
+        AirConsole.instance.onMessage -= OnMessage;
+        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().SetView("view-1");
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().setMaxTime(maxTime);
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().nextScene(SceneManager.GetActiveScene().name);
     }

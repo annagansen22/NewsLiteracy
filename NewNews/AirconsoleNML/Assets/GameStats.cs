@@ -15,7 +15,7 @@ public class GameStats : MonoBehaviour
     "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"};
     [SerializeField]
     private string[] topicList = {"Sport", "Politiek", "Actueel Nieuws",
-    "Klimaat", "Beroemdheden", "Misdaad"};
+    "Klimaat", "Showbusiness", "Misdaad"};
     private int teamCount = 0;
     private List<Tuple<string, int>> topics = new List<Tuple<string, int>>();
     public string[] chosenTopics;

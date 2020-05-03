@@ -72,3 +72,24 @@
     color: white;
 }
 
+.button-80.button-active {
+    background-image: url('button-80-active.png');
+}
+
+.button-80.button-active .button-text1 {
+    color: black;
+}
+
+
+.button-80 .button-text1 {
+    color: white;
+}
+
+.button-text1 {
+    width: 100%;
+    top: 50%;
+    margin-top: -0.5em;
+    position: absolute;
+    text-align: center;
+    color: white;
+}

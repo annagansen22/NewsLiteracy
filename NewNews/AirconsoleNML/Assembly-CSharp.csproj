@@ -75,8 +75,10 @@
      <Compile Include="Assets\GameL.cs" />
      <Compile Include="Assets\GameLogic.cs" />
      <Compile Include="Assets\GameStats.cs" />
+     <Compile Include="Assets\GamesData.cs" />
      <Compile Include="Assets\Progressbar.cs" />
      <Compile Include="Assets\RealFake.cs" />
+     <Compile Include="Assets\RealFakeData.cs" />
      <Compile Include="Assets\Screen.cs" />
      <Compile Include="Assets\SourceGame.cs" />
      <Compile Include="Assets\StampScript.cs" />

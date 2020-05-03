@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NDream.AirConsole;
+using Newtonsoft.Json.Linq;
 
 public class AIComponent : MonoBehaviour
 {
@@ -66,5 +68,12 @@ public class AIComponent : MonoBehaviour
         print("Switching from '" + currentScene + "' to '" + nextScene + "'");
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setAllTeamsNotReady();
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void SetView(string viewName)
+    {
+        //I don't need to replace the entire game state, I can just set the view property
+        AirConsole.instance.SetCustomDeviceState(viewName);
+        //the controller listens for the onCustomDeviceStateChanged event. See the  controller-gamestates.html file for how this is handled there. 
     }
 }

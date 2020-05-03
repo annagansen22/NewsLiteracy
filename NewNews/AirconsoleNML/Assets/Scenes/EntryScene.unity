@@ -1111,7 +1111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.022221755}
   m_AnchorMax: {x: 0.7197918, y: 0.84525204}
-  m_AnchoredPosition: {x: 7.499878, y: -2}
+  m_AnchoredPosition: {x: 7.5, y: -2}
   m_SizeDelta: {x: -15, y: 4.0002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782858949
@@ -1666,7 +1666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7296268, y: 0.022221755}
   m_AnchorMax: {x: 1, y: 0.98}
-  m_AnchoredPosition: {x: -8.525024, y: -1.000061}
+  m_AnchoredPosition: {x: -8.525024, y: -1.0001221}
   m_SizeDelta: {x: -14.950001, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119141229
@@ -2032,6 +2032,7 @@ GameObject:
   - component: {fileID: 1291115569}
   - component: {fileID: 1291115571}
   - component: {fileID: 1291115572}
+  - component: {fileID: 1291115573}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: GameLogic
@@ -2110,11 +2111,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameScenes:
   - RealFakeScene
-  - SourceScene
+  - RealFakeScene
   - RealFakeScene
   entryScene: EntryScene
   feedbackScene: FeedbackScene
   pickTopicScene: PickTopicsScene
+--- !u!114 &1291115573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291115568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec787b9346ae2444b6d7082b8c738e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338715053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,8 +2207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a342f331b9e4c4a4e8a8fdd4fc234363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ready_count: 0
-  ready_devices: 
 --- !u!4 &1708757558
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,7 +2259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.87155443}
   m_AnchorMax: {x: 0.2785385, y: 0.98}
-  m_AnchoredPosition: {x: -29.974976, y: -0.57995605}
+  m_AnchoredPosition: {x: -29.975098, y: -0.57995605}
   m_SizeDelta: {x: -90.05, y: 5.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768105170

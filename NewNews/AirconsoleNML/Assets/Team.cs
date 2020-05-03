@@ -6,10 +6,21 @@ public class Team
 {
     private string teamName;
     private int teamDeviceID = 0;
+    private int threeVotes = 6; //should be 3 once the double onMessage is fixed
     private int teamRank = 0;
     private int teamScore = 0;
     private bool teamReady = false;
     private bool boolAnswer;
+
+    public int getThreeVotes()
+    {
+        return threeVotes;
+    }
+
+    public void decrementThreeVotes()
+    {
+        threeVotes -= 1;
+    }
 
     public void setBoolAnswer(bool answer)
     {

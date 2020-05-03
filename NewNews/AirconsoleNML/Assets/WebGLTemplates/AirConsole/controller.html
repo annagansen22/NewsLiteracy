@@ -15,15 +15,13 @@
     <script type="text/javascript">
         function disableButton(btn) {
             var bt = document.getElementById(btn.id);
-            bt.disabled = true;
-            if (btn.id == 'view-0-section-0-element-0') {
-                bt.innerText = "Wacht..."
-                bt.style.color = "white";
-            }
-            else {
-                bt.innerText = ""
-            }
+            bt.style.pointerEvents = "none";
+            bt.firstElementChild.style.color = "#83f52c"
 
+        }
+        function pressButton(btn) {
+            var bt = document.getElementById(btn.id);
+            bt.firstElementChild.style.color = "#83f52c"
         }
     </script>
 </head>
@@ -38,7 +36,7 @@
             <h3 class="section-header">Wacht tot de andere teams verbinding hebben gemaakt</h3>
             <div id="view-0-section-0" class="section">
                 <div id="view-0-section-0-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
-                    <div class="button-text">Ready</div>
+                    <div class="button-text1">Ready</div>
                 </div>
             </div>
         </div>
@@ -80,11 +78,11 @@
         <div id="view-2" class="view" style="display: none;">
             <h3 class="section-header">Choose Real or Fake</h3>
             <div id="view-2-section-0" class="section horizontal height-100">
-                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60">
-                    <div class="button-text">Real</div>
+                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60" >
+                    <div class="button-text1">Real</div>
                 </div>
-                <div id="view-2-section-0-element-1" class="button-300-150 button-element element height-60">
-                    <div class="button-text">Fake</div>
+                <div id="view-2-section-0-element-1" class="button-300-150 button-element element height-60" >
+                    <div class="button-text1">Fake</div>
                 </div>
             </div>
         </div>
