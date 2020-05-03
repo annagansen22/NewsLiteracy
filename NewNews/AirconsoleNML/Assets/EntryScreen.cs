@@ -54,6 +54,8 @@ public class EntryScreen : MonoBehaviour
     }
 
 
+
+
     private void OnConnect(int device_id)
     {
         //If the team is already present don't do anything
@@ -77,6 +79,14 @@ public class EntryScreen : MonoBehaviour
         }
     }
 
+    public void SetView(string viewName)
+    {
+        //I don't need to replace the entire game state, I can just set the view property
+        AirConsole.instance.SetCustomDeviceState(viewName);
+
+        //the controller listens for the onCustomDeviceStateChanged event. See the  controller-gamestates.html file for how this is handled there. 
+    }
+
     private void BroadcastMessageToAllDevices()
     {
         AirConsole.instance.Broadcast("view-1");
@@ -96,7 +106,7 @@ public class EntryScreen : MonoBehaviour
         print("Start date is: " + System.DateTime.Now);
         DateTime maxTime = System.DateTime.Now.AddMinutes(t);
         print("End date is: " + maxTime);
-        BroadcastMessageToAllDevices();
+        SetView("view-1");
         //OnDestroy();
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().setMaxTime(maxTime);
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().nextScene(SceneManager.GetActiveScene().name);

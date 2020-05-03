@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-
+  </div>
     <!-- 3rd Party Libs -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="controller/libs/handlebars-v4.0.5.js"></script>
@@ -114,8 +114,8 @@
         me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
           console.log("onDeviceStateChange", device_id, device_data["view"]);
           if (device_id == AirConsole.SCREEN) {
-            if (device_data["view"] != null) {
-              ViewManager.show(device_data["view"]);
+            if (device_data != null) {
+              ViewManager.show(device_data);
             }
           }
         };
