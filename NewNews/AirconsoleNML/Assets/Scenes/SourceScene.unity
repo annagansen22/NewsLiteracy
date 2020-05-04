@@ -1504,7 +1504,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b> Look for the answer to the following question: </b> \n\n Example Sentence!'
+  m_text: '<b> Bekijk bronnen om antwoord te vinden op de volgende vraag: </b> \n\n
+    Example Sentence!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1573,10 +1574,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2026552953}
-    characterCount: 69
+    characterCount: 81
     spriteCount: 0
-    spaceCount: 14
-    wordCount: 11
+    spaceCount: 16
+    wordCount: 13
     linkCount: 0
     lineCount: 4
     pageCount: 1

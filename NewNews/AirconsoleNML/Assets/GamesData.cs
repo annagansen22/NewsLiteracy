@@ -6,10 +6,12 @@ using UnityEngine;
 public class GamesData : MonoBehaviour
 {
     public List<RealFakeData> realFakeData;
+    public List<RealFakeData> sourceGameData;
 
     private void Start()
     {
-        realFakeData = getHardcodedData();
+        realFakeData = getHardcodedRealFakeData();
+        sourceGameData = getHardcodedSourceGameData();
     }
 
     public List<RealFakeData> getRealFakeData()
@@ -22,7 +24,18 @@ public class GamesData : MonoBehaviour
         realFakeData = data;
     }
 
-    private List<RealFakeData> getHardcodedData()
+
+    public List<RealFakeData> getSourceGameData()
+    {
+        return sourceGameData;
+    }
+
+    public void setSourceGameData(List<RealFakeData> data)
+    {
+        sourceGameData = data;
+    }
+
+    private List<RealFakeData> getHardcodedRealFakeData()
     {
         List<RealFakeData> data = new List<RealFakeData>() {
             new RealFakeData("showbusiness",
@@ -79,6 +92,42 @@ public class GamesData : MonoBehaviour
             "Komt door klimaatverandering het tussenjaar in gevaar?", false),
             new RealFakeData("klimaat",
             "Mannelijke wetenschappers: vrouwen voor 80% verantwoordelijk voor klimaatverandering", false)
+        };
+        return data;
+    }
+
+    private List<RealFakeData> getHardcodedSourceGameData()
+    {
+        List<RealFakeData> data = new List<RealFakeData>() {
+            new RealFakeData("showbusiness",
+            "Klopt het dat je na een deelname aan temptation island niet meer mee mag doen aan programma's zoals ex on the beach? ", false),
+            new RealFakeData("showbusiness",
+            "Mag het Eurovisie songfestival komende jaren nog wel in Nederland gehouden worden vanwege het corona virus?", true),
+
+            new RealFakeData("politics",
+            "Bestaat de harde kern van de PvdA uit laagopgeleide arbeiders?", false),
+            new RealFakeData("politics",
+            "Heeft de PVV linkse standpunten gehad in de afgelopen jaren?", true),
+
+            new RealFakeData("actueel_nieuws",
+            "Wordt het corona virus in stand gehouden door het nieuwe 5G netwerk?", false),
+            new RealFakeData("actueel_nieuws",
+            "Zal de eikenprocessierups dit jaar nog meer overlast veroorzaken dan vorig jaar dankzij het heersende corona virus? ", true),
+
+            new RealFakeData("misdaad",
+            "Misdaad Placeholder", true),
+            new RealFakeData("misdaad",
+            "Misdaad Placeholder", true),
+
+            new RealFakeData("sport",
+            "Sport Placeholder", true),
+            new RealFakeData("sport",
+            "Sport Placeholder", true),
+
+            new RealFakeData("klimaat",
+            "Toppen Himalaya door lockdown voor eerst in decennia weer te zien", true),
+            new RealFakeData("klimaat",
+            "Klimaat Placeholder", true),
         };
         return data;
     }

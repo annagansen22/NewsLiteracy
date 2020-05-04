@@ -15,6 +15,7 @@ public class RealFake : MonoBehaviour
     private bool onlyDoOnce = true;
     private GameObject gameLogic;
     public GameObject stampObject;
+    public int waitTime = 1;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class RealFake : MonoBehaviour
         trueAnswer = data.getTruth();
 
         // Display question
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> REAL OR FAKE? </b> \n\n " + sentence;
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Echt of nep? </b> \n\n " + sentence;
 
         // Send instructions to controller to change to "Yes or no layout"
         gameLogic.GetComponent<AIComponent>().SetView("view-2");
@@ -41,7 +42,6 @@ public class RealFake : MonoBehaviour
     private void OnMessage(int device_id, JToken data)
     {
         //For some reason it is always triggered twice... gotta fix that, stil works though bc doubling does not matter here lol 
-        //Always check these things before doing onmessage...
         if (data != null && AirConsole.instance.IsAirConsoleUnityPluginReady() && data["element"] != null)
         {
             bool answer = false;
@@ -53,14 +53,6 @@ public class RealFake : MonoBehaviour
                     answer = true;
                 }
             }
-            //else if button false is pressed
-            //else if (data["element"] != null && data["element"].ToString() == "view-2-section-0-element-1")
-            //{
-            //    if (data["data"]["pressed"].ToString() == "True")
-            //    {
-            //        answer = false;
-            //    }
-            //}
             gameLogic.GetComponent<GameStats>().getTeam(device_id).setBoolAnswer(answer);
             gameLogic.GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
             print("Device ID: " + device_id + ", answered with " + answer);
@@ -85,7 +77,7 @@ public class RealFake : MonoBehaviour
             // Wait for X seconds and go to next screen
             onlyDoOnce = false;
             AirConsole.instance.onMessage -= OnMessage;
-            StartCoroutine(WaitForSecondsThenSwitchScene(5));
+            StartCoroutine(WaitForSecondsThenSwitchScene(waitTime));
         }
     }
 
@@ -125,27 +117,3 @@ public class RealFake : MonoBehaviour
         return shuffledData;
     }
 }
-
-//data = new List<RealFakeData>() { 
-//    new RealFakeData("showbusiness",
-//    "Klopt het dat je na een deelname aan temptation island niet meer mee mag doen aan programma's zoals ex on the beach?",
-//    false),
-//    new RealFakeData("showbusiness",
-//    "Mag het Eurovisie songfestival komende jaren nog wel in Nederland gehouden worden vanwege het corona virus?",
-//    true),
-//    new RealFakeData("politics",
-//    "Bestaat de harde kern van de PvdA uit laagopgeleide arbeiders?",
-//    false),
-//    new RealFakeData("politics",
-//    "Heeft de PVV linkse standpunten gehad in de afgelopen jaren?",
-//    true),
-//    new RealFakeData("actueel_nieuws",
-//    "Wordt het corona virus in stand gehouden door het nieuwe 5G netwerk?",
-//    false),
-//    new RealFakeData("actueel_nieuws",
-//    "Zal de eikenprocessierups dit jaar nog meer overlast veroorzaken dan vorig jaar dankzij het heersende corona virus? ",
-//    true),
-//    new RealFakeData("klimaat",
-//    "Zijn vliegtuigstrepen 'goed' voor het klimaat?",
-//    false)
-//};

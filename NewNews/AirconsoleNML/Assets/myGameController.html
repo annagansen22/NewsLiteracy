@@ -2,91 +2,79 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0' name='viewport'>
-    <title>AirConsole Controller</title>
-    <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
-    <!-- AirConsole-Controls -->
-    <link rel="stylesheet" type="text/css" href="airconsole-controls/button/button.css">
-    <link rel="stylesheet" type="text/css" href="airconsole-controls/dpad/dpad.css">
-    <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="controller/styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
-    <script type="text/javascript">
-        function disableButton(btn) {
-            var bt = document.getElementById(btn.id);
-            bt.style.pointerEvents = "none";
-            bt.firstElementChild.style.color = "#83f52c"
-
-        }
-        function pressButton(btn) {
-            var bt = document.getElementById(btn.id);
-            bt.firstElementChild.style.color = "#83f52c"
-        }
-    </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0' name='viewport'>
+  <title>AirConsole Controller</title>
+  <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <!-- AirConsole-Controls -->
+  <link rel="stylesheet" type="text/css" href="airconsole-controls/button/button.css">
+  <link rel="stylesheet" type="text/css" href="airconsole-controls/dpad/dpad.css">
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="controller/styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
 </head>
 
 <body onload="window.app = new App()">
 
-    <div id="controller-container">
+  <div id="controller-container">
 
-        <!-- REPLACE_HERE START -->
+    <!-- REPLACE_HERE START -->
 
-        <div id="view-0" class="view section-view-btn">
-            <h3 class="section-header">Wacht tot de andere teams verbinding hebben gemaakt</h3>
-            <div id="view-0-section-0" class="section">
-                <div id="view-0-section-0-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
-                    <div class="button-text1">Ready</div>
-                </div>
-            </div>
+    <div id="view-0" class="view section-view-btn">
+      <h3 class="section-header">Press Ready to begin</h3>
+      <div id="view-0-section-0" class="section">
+        <div id="view-0-section-0-element-0" class="button-300-150 button-element element">
+          <div class="button-text">Ready</div>
         </div>
-
-        <div id="view-1" class="view" style="display: none;">
-            <h3 class="section-header">Kies drie onderwerpen</h3>
-            <div id="view-1-section-0" class="section button-cluster">
-                <div id="view-1-section-1" class="section height-100">
-                    <div id="view-1-section-1-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Sport</div>
-                    </div>
-                    <div id="view-1-section-1-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Klimaat</div>
-                    </div>
-                </div>
-                <div id="view-1-section-2" class="section height-100">
-                    <div id="view-1-section-2-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Politiek</div>
-                    </div>
-                    <div id="view-1-section-2-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Beroemdheden</div>
-                    </div>
-                </div>
-                <div id="view-1-section-3" class="section height-100">
-                    <div id="view-1-section-3-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Actueeel Nieuws</div>
-                    </div>
-                    <div id="view-1-section-3-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
-                        <div class="button-text">Misdaad</div>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-                var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-1","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-1","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[]}},{"id":"view-2-section-0-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[]}}],"classes":["horizontal"]}]}]}';
-            </script>
-            <!-- REPLACE_HERE END -->
-        </div>
-
-        <div id="view-2" class="view" style="display: none;">
-            <h3 class="section-header">Choose Real or Fake</h3>
-            <div id="view-2-section-0" class="section horizontal height-100">
-                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60" >
-                    <div class="button-text1">Real</div>
-                </div>
-                <div id="view-2-section-0-element-1" class="button-300-150 button-element element height-60" >
-                    <div class="button-text1">Fake</div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div id="view-1" class="view" style="display: none;">
+      <h3 class="section-header">Choose 3 topics</h3>
+      <div id="view-1-section-0" class="section button-cluster">
+        <div id="view-1-section-1" class="section height-100">
+          <div id="view-1-section-1-element-0" class="button-300-150 button-element element">
+            <div class="button-text">Sport</div>
+          </div>
+          <div id="view-1-section-1-element-1" class="button-300-150 button-element element">
+            <div class="button-text">Klimaat</div>
+          </div>
+        </div>
+        <div id="view-1-section-2" class="section height-100">
+          <div id="view-1-section-2-element-0" class="button-300-150 button-element element">
+            <div class="button-text">Politiek</div>
+          </div>
+          <div id="view-1-section-2-element-1" class="button-300-150 button-element element">
+            <div class="button-text">Beroemdheden</div>
+          </div>
+        </div>
+        <div id="view-1-section-3" class="section height-100">
+          <div id="view-1-section-3-element-0" class="button-300-150 button-element element">
+            <div class="button-text">Actueeel Nieuws</div>
+          </div>
+          <div id="view-1-section-3-element-1" class="button-300-150 button-element element">
+            <div class="button-text">Misdaad</div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-1","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-1","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[]}},{"id":"view-2-section-0-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[]}}],"classes":["horizontal"]}]}]}';
+      </script>
+      <!-- REPLACE_HERE END -->
+    </div>
+
+    <div id="view-2" class="view" style="display: none;">
+      <h3 class="section-header">Choose Real or Fake</h3>
+      <div id="view-2-section-0" class="section horizontal height-100">
+        <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60">
+          <div class="button-text">Real</div>
+        </div>
+        <div id="view-2-section-0-element-1" class="button-300-150 button-element element height-60">
+          <div class="button-text">Fake</div>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- 3rd Party Libs -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="controller/libs/handlebars-v4.0.5.js"></script>
@@ -103,35 +91,35 @@
     <script type="text/javascript" src="controller/js/controller_generator.js"></script>
     <script type="text/javascript" src="controller/js/main.js"></script>
     <script type="text/javascript">
-        var airconsole;
-        var vm = null;
+      var airconsole;
+      var vm = null;
 
-        function App() {
-            var me = this;
-            me.airconsole = new AirConsole({ "orientation": "landscape", "synchronize_time": "true" });
+      function App() {
+        var me = this;
+        me.airconsole = new AirConsole({ "orientation": "landscape", "synchronize_time": "true" });
 
-            //initialize the view manager and set the first view
-            ViewManager.init();
-            ViewManager.show("view-0");
+        //initialize the view manager and set the first view
+        ViewManager.init();
+        ViewManager.show("view-0");
 
-            me.airconsole.onMessage = function (from, data) {
-                console.log("onMessage", from, data);
-                ViewManager.show(data);
-            };
-
-            me.airconsole.onReady = function (code) {
-                console.log("onReady", code);
-            };
-
-            me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
-                console.log("onDeviceStateChange", device_id, device_data["view"]);
-                if (device_id == AirConsole.SCREEN) {
-                    if (device_data != null) {
-                        ViewManager.show(device_data);
-                    }
-                }
-            };
+        me.airconsole.onMessage = function (from, data) {
+          console.log("onMessage", from, data);
+          ViewManager.show(data);
         };
+
+        me.airconsole.onReady = function (code) {
+          console.log("onReady", code);
+        };
+
+        me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
+          console.log("onDeviceStateChange", device_id, device_data["view"]);
+          if (device_id == AirConsole.SCREEN) {
+            if (device_data != null) {
+              ViewManager.show(device_data);
+            }
+          }
+        };
+      };
     </script>
 </body>
 

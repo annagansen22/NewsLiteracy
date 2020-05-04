@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using UnityScript.Steps;
 
 public class AIComponent : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class AIComponent : MonoBehaviour
     public string feedbackScene;
     public string pickTopicScene;
     private System.DateTime maxTime;
+    private string lastScene;
 
     public void setMaxTime(System.DateTime date)
     {
@@ -30,6 +32,27 @@ public class AIComponent : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void personalizedMessage()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        for ( int i = 0; i < AirConsole.instance.GetControllerDeviceIds().Count; i++)
+        {
+            if (currentScene == feedbackScene && lastScene == "RealFakeScene")
+            {
+                // fetch
+                // message
+                print("FEEDBACK FOR REALFAKE GAME!!!");
+            }
+            else if (currentScene == feedbackScene && lastScene == "SourceScene")
+            {
+                // fetch
+                // message
+                print("FEEDBACK FOR SOURCE GAME!!!");
+            }
+            //can add more here... check public/private variables at the top of this script
+        }
     }
 
     public void nextScene(string currentScene)
@@ -65,6 +88,7 @@ public class AIComponent : MonoBehaviour
 
     private void loadScene(string currentScene, string nextScene)
     {
+        lastScene = currentScene;
         print("Switching from '" + currentScene + "' to '" + nextScene + "'");
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setAllTeamsNotReady();
         SceneManager.LoadScene(nextScene);
@@ -76,4 +100,5 @@ public class AIComponent : MonoBehaviour
         AirConsole.instance.SetCustomDeviceState(viewName);
         //the controller listens for the onCustomDeviceStateChanged event. See the  controller-gamestates.html file for how this is handled there. 
     }
+
 }
