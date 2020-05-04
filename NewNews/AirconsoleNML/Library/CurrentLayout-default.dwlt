@@ -623,19 +623,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 77
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: 77
-  m_LastProjectPath: C:\Users\iskaj\NewNews\AirconsoleNML
+  m_LastProjectPath: C:\Users\nolan\Desktop\new_iskaj\NewsLiteracy\NewNews\AirconsoleNML
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ac350000
-    m_LastClickedID: 13740
+    m_SelectedIDs: 62350000
+    m_LastClickedID: 13666
     m_ExpandedIDs: 0000000060350000623500006435000066350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -689,8 +689,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7e370000
-    m_LastClickedInstanceID: 14206
+    m_SelectedInstanceIDs: 50340000
+    m_LastClickedInstanceID: 13392
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: fc2d00008028000094410000fe3f0000042700002028000088260000903a00009a260000203e0000c23d0000a43d0000342f00008a2c0000b48200004c470000e6d7fefff8380000ca37000000000000
     m_RenameOverlay:
