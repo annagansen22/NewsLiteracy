@@ -45,11 +45,6 @@
             bt.firstElementChild.style.color = "#83f52c"
 
         }
-        function pressButton(btn) {
-            var bt = document.getElementById(btn.id);
-            bt.firstElementChild.style.color = "#83f52c"
-        }
-
 
     </script>
 
@@ -63,7 +58,7 @@
         <div id="view-0" class="view section-view-btn">
             <h3 class="section-header margin-60">Wacht tot de andere teams verbinding hebben gemaakt</h3>
             <div id="view-0-section-0" class="section " style="height: 100%;">
-                <div id="view-0-section-0-element-0" class="button-300-150 button-element element height-50" onclick="disableButton(this)">
+                <div id="view-0-section-0-element-0" class="button-300-150 button-element element " ontouchstart="disableButton(this)">
                     <div class="button-text1">Ready</div>
                 </div>
             </div>
@@ -73,26 +68,26 @@
             <h3 class="section-header">Kies drie onderwerpen</h3>
             <div id="view-1-section-0" class="section button-cluster">
                 <div id="view-1-section-1" class="section height-100">
-                    <div id="view-1-section-1-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-1-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Sport</div>
                     </div>
-                    <div id="view-1-section-1-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-1-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Klimaat</div>
                     </div>
                 </div>
                 <div id="view-1-section-2" class="section height-100">
-                    <div id="view-1-section-2-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-2-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Politiek</div>
                     </div>
-                    <div id="view-1-section-2-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-2-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Beroemdheden</div>
                     </div>
                 </div>
                 <div id="view-1-section-3" class="section height-100">
-                    <div id="view-1-section-3-element-0" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-3-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Actueeel Nieuws</div>
                     </div>
-                    <div id="view-1-section-3-element-1" class="button-300-150 button-element element" onclick="disableButton(this)">
+                    <div id="view-1-section-3-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                         <div class="button-text">Misdaad</div>
                     </div>
                 </div>
@@ -241,13 +236,28 @@
             text_message = function () {
                 var tx = document.getElementById("textfield1");
                 me.airconsole.message(AirConsole.SCREEN, tx.textContent);
-            }
+            };
 
             me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
                 console.log("onDeviceStateChange", device_id, device_data["view"]);
                 if (device_id == AirConsole.SCREEN) {
                     if (device_data != null) {
                         ViewManager.show(device_data);
+                    }
+                }
+            };
+
+            if (!("ontouchstart" in document.createElement("div"))) {
+                var elements = document.getElementsByTagName("*");
+                for (var i = 0; i < elements.length; ++i) {
+                    var element = elements[i];
+                    var ontouchstart = element.getAttribute("ontouchstart");
+                    if (ontouchstart) {
+                        element.setAttribute("onmousedown", ontouchstart);
+                    }
+                    var ontouchend = element.getAttribute("ontouchend");
+                    if (ontouchend) {
+                        element.setAttribute("onmouseup", ontouchend);
                     }
                 }
             };
