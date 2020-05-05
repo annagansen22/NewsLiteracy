@@ -42,7 +42,7 @@
         function disableButton(btn) {
             var bt = document.getElementById(btn.id);
             bt.style.pointerEvents = "none";
-            bt.firstElementChild.style.color = "#83f52c"
+            bt.firstElementChild.style.color = "#ADEE00"
 
         }
 
@@ -56,15 +56,17 @@
         <!-- REPLACE_HERE START -->
 
         <div id="view-0" class="view section-view-btn">
-            <h3 class="section-header margin-60">Wacht tot de andere teams verbinding hebben gemaakt</h3>
+            <h3 class="section-header ">Wacht tot de andere teams verbinding hebben gemaakt</h3>
+            <h3 id="team-name" class="feedback-header"></h3>
             <div id="view-0-section-0" class="section " style="height: 100%;">
-                <div id="view-0-section-0-element-0" class="button-300-150 button-element element " ontouchstart="disableButton(this)">
+                <div id="view-0-section-0-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                     <div class="button-text1">Ready</div>
                 </div>
             </div>
         </div>
 
         <div id="view-1" class="view" style="display: none;">
+            <h3 id="view-1-team-name" class="teamname"></h3>
             <h3 class="section-header">Kies drie onderwerpen</h3>
             <div id="view-1-section-0" class="section button-cluster">
                 <div id="view-1-section-1" class="section height-100">
@@ -96,6 +98,7 @@
 
 
         <div id="view-2" class="view" style="display: none;">
+            <h3 id="view-2-team-name" class="teamname"></h3>
             <h3 class="section-header">Kies of het kopje echt of nep is</h3>
             <div id="view-2-section-0" class="section horizontal height-100">
                 <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60">
@@ -110,7 +113,8 @@
 
 
         <div id="view-3" class="view section-view-btn">
-            <h3 class="section-header margin-60">Feedback</h3>
+            <h3 id="view-3-team-name" class="teamname"></h3>
+            <h3 class="section-header ">Feedback</h3>
             <div id="view-3-section-0" class="section " style="height: 100%;">
                 <div id="view-3-section-0-element-0" class="button-300-150 button-element element height-50">
                     <div class="button-text1">OK</div>
@@ -119,7 +123,8 @@
         </div>
 
         <div id="view-4" class="view" style="display: none;">
-            <h3 class="section-header margin-60">Welke is echt?</h3>
+            <h3 id="view-4-team-name" class="teamname"></h3>
+            <h3 class="section-header ">Welke is echt?</h3>
             <div class="view-content">
                 <div id="view-4-section-0" class="section horizontal height-100">
                     <div id="view-4-section-0-element-0" class="button-300-150 button-element element height-40">
@@ -140,7 +145,8 @@
         </div>
 
         <div id="view-5" class="view" style="display: none;">
-            <h3 class="section-header margin-60">Kies de juiste volgorde!</h3>
+            <h3 id="view-5-team-name" class="teamname"></h3>
+            <h3 class="section-header">Kies de juiste volgorde!</h3>
             <div class="view-content">
                 <div id="view-5-section-0" class="section horizontal height-100">
                     <div id="view-5-section-0-element-0" class="button-300-150 button-element element height-40">
@@ -167,6 +173,7 @@
 
 
         <div id="view-7" class="view" style="display: none;">
+            <h3 id="view-7-team-name" class="teamname"></h3>
             <h3 class="section-header">Kies Waar of Onwaar</h3>
             <div id="view-7-section-0" class="section horizontal height-100">
                 <div id="view-7-section-0-element-0" class="button-300-150 button-element element height-60">
@@ -180,8 +187,9 @@
 
 
         <div id="view-8" class="view" style="display: none;">
-            <h3 class="section-header margin-60">Voer hieronder een titel in</h3>
-            <div class="textfield" id="textfield1"></div>
+            <h3 id="view-8-team-name" class="teamname"></h3>
+            <h3 class="section-header">Voer hieronder een titel in</h3>
+            <div class="textfield-phone" id="textfield1"></div>
             <button class="headline-button button-300-150" onclick="text_message()">OK</button>
             <div id="my_keyboard"></div>
         </div>
@@ -226,7 +234,20 @@
 
             me.airconsole.onMessage = function (from, data) {
                 console.log("onMessage", from, data);
-                ViewManager.show(data);
+                if (from == AirConsole.SCREEN) {
+                    if (data != null) {
+                        TeamName = data;
+                        document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
+                        document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
+                        //document.getElementById("view-6-team-name").textContent = "Team: " + TeamName; dummy scene for future use if needed
+                        document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
+                    }
+                }
             };
 
             me.airconsole.onReady = function (code) {

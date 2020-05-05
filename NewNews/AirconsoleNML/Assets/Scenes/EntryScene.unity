@@ -2117,6 +2117,7 @@ MonoBehaviour:
   entryScene: EntryScene
   feedbackScene: FeedbackScene
   pickTopicScene: PickTopicsScene
+  rankingScene: RankingScene
 --- !u!114 &1291115573
 MonoBehaviour:
   m_ObjectHideFlags: 0

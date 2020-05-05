@@ -19,6 +19,14 @@
   margin: 10px;
 }
 
+.teamname{
+  height: 2px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 1.1em;
+  color: #ADEE00;
+}
+
 .textfield {
   display: inline-block;
   border: 1px solid #888888;
@@ -27,6 +35,19 @@
   height: 25px;
   margin-left: 20px;
   background-color:white;
+}
+
+.textfield-phone {
+  display: inline-block;
+  border: 1px solid #888888;
+  width: 600px;
+  padding: 8px;
+  height: 25px;
+  margin-left: 20px;
+  background-color:white;
+}
+
+.controller {
 }
 
 h3.margin-60{

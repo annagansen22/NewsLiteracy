@@ -77,6 +77,7 @@
      <Compile Include="Assets\GameStats.cs" />
      <Compile Include="Assets\GamesData.cs" />
      <Compile Include="Assets\Progressbar.cs" />
+     <Compile Include="Assets\Ranking.cs" />
      <Compile Include="Assets\RealFake.cs" />
      <Compile Include="Assets\RealFakeData.cs" />
      <Compile Include="Assets\Screen.cs" />

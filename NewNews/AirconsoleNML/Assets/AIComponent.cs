@@ -13,6 +13,9 @@ public class AIComponent : MonoBehaviour
     public string entryScene;
     public string feedbackScene;
     public string pickTopicScene;
+    public string rankingScene;
+
+
     private System.DateTime maxTime;
     private string lastScene;
 
@@ -37,6 +40,7 @@ public class AIComponent : MonoBehaviour
     public void personalizedMessage()
     {
         string currentScene = SceneManager.GetActiveScene().name;
+        print("scene name" + currentScene);
         for ( int i = 0; i < AirConsole.instance.GetControllerDeviceIds().Count; i++)
         {
             if (currentScene == feedbackScene && lastScene == "RealFakeScene")
@@ -53,6 +57,17 @@ public class AIComponent : MonoBehaviour
             }
             //can add more here... check public/private variables at the top of this script
         }
+    }
+
+
+    public void displayTeamName(int device_id, string data)
+    {
+        AirConsole.instance.Message(device_id, data);
+    }
+
+    public string timeLeft()
+    {
+        return (System.DateTime.Now - maxTime).ToString();
     }
 
     public void nextScene(string currentScene)
@@ -83,6 +98,8 @@ public class AIComponent : MonoBehaviour
         else
         {
             //End game
+            print("GAME SHOULD END!!!");
+            loadScene(currentScene, rankingScene);
         }
     }
 

@@ -69,36 +69,36 @@ public class GameL : MonoBehaviour
     {
         GameStats gs = gameObject.GetComponent<GameStats>();
         // NUMBERS
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            print("Typed 1 -> Randomizing A Teams Followers");
-            int r = Random.Range(0, gs.amountOfTeams());
-            int score = Random.Range(0, 1000);
-            Team selectedTeam = gs.teams[r];
-            selectedTeam.setScore(score);
-            GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().updateTeam(selectedTeam);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            print("Typed 2 -> Adding A Team");
-            int teamNum = gs.addTeam(0);
-            gs.getTeam(teamNum).setScore(followers);
-            followers -= Random.Range(30, 125);
-            gs.updateRanking();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            print("Typed 3 -> Updating Ranking");
-            gs.updateRanking();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            print("Typed 4 -> Setting Random Team To Ready");
-            int r = Random.Range(0, gs.amountOfTeams());
-            Team selectedTeam = gs.teams[r];
-            selectedTeam.setTeamReady(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    print("Typed 1 -> Randomizing A Teams Followers");
+        //    int r = Random.Range(0, gs.amountOfTeams());
+        //    int score = Random.Range(0, 1000);
+        //    Team selectedTeam = gs.teams[r];
+        //    selectedTeam.setScore(score);
+        //    GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().updateTeam(selectedTeam);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    print("Typed 2 -> Adding A Team");
+        //    int teamNum = gs.addTeam(0);
+        //    gs.getTeam(teamNum).setScore(followers);
+        //    followers -= Random.Range(30, 125);
+        //    gs.updateRanking();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    print("Typed 3 -> Updating Ranking");
+        //    gs.updateRanking();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    print("Typed 4 -> Setting Random Team To Ready");
+        //    int r = Random.Range(0, gs.amountOfTeams());
+        //    Team selectedTeam = gs.teams[r];
+        //    selectedTeam.setTeamReady(true);
+        //}
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             print("Typed 5 -> Setting All Teams To Ready");
             for (int i = gs.amountOfTeams()-1; i >= 0; i--)
@@ -134,6 +134,10 @@ public class GameL : MonoBehaviour
             {
                 print("TOPIC: " + x);
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            print("Time left: " + GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().timeLeft());
         }
 
     }

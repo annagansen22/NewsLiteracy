@@ -79,8 +79,15 @@ body {
 
 h3.section-header{
   text-align: center;
-  margin: 40px 0;
+  padding-top: 20px;
   color: white;
+  font-size: 4vw
+}
+
+h3.feedback-header{
+  text-align: center;
+  color: #ADEE00;
+  font-size: 3.5vw
 }
 
 .section-view-btn .button-element, .section-view-btn .button-300-150 {
