@@ -37,6 +37,40 @@ public class AIComponent : MonoBehaviour
         
     }
 
+
+    public void AssignTeamNames(int device_id, string teamname)
+    {
+
+        if (!AirConsole.instance.IsAirConsoleUnityPluginReady())
+        {
+            Debug.LogWarning("can't assign team names until plugin is ready");
+            return;
+        }
+
+        AirConsole.instance.SetCustomDeviceStateProperty("teamnames", UpdateTeamNames(device_id, teamname));
+    }
+
+    public static JToken UpdateTeamNames(int deviceId, string teamName)
+    {
+
+        //make TeamNameData and store it as a JObject 
+        JObject TeamNameData = new JObject();
+        TeamNameData.Add(deviceId.ToString(), teamName);
+
+        //logging and returning the TeamNameData
+        Debug.Log("AssignTeamName for device " + deviceId + " returning new TeamNameData: " + TeamNameData);
+        return TeamNameData;
+    }
+
+
+
+    public void SetView(string viewname)
+    {
+        AirConsole.instance.SetCustomDeviceState(viewname);
+    }
+
+
+
     public void personalizedMessage()
     {
         string currentScene = SceneManager.GetActiveScene().name;
@@ -111,11 +145,6 @@ public class AIComponent : MonoBehaviour
         SceneManager.LoadScene(nextScene);
     }
 
-    public void SetView(string viewName)
-    {
-        //I don't need to replace the entire game state, I can just set the view property
-        AirConsole.instance.SetCustomDeviceState(viewName);
-        //the controller listens for the onCustomDeviceStateChanged event. See the  controller-gamestates.html file for how this is handled there. 
-    }
+
 
 }

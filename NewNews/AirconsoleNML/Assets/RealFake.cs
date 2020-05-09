@@ -70,8 +70,18 @@ public class RealFake : MonoBehaviour
             //Gather answers and give points
             foreach (Team t in GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams())
             {
+                string feedback = "false";
                 bool answer = t.getBoolAnswer();
-                if (answer == trueAnswer) t.addScore(100);
+                if (answer == trueAnswer)
+                {
+                    t.addScore(100);
+                    feedback = "true";
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedback);
+                }
+                else
+                {
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedback);
+                }
             }
 
             // Wait for X seconds and go to next screen
@@ -116,4 +126,6 @@ public class RealFake : MonoBehaviour
         }    
         return shuffledData;
     }
+
 }
+

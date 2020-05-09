@@ -83,7 +83,7 @@ public class GameStats : MonoBehaviour
         //int teamNumnber = device_id;
         //int teamNumnber = player_id;
         Team t = new Team(teamNames[teamCount], device_id);
-        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().displayTeamName(device_id, teamNames[teamCount]);
+        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().AssignTeamNames(device_id, teamNames[teamCount]);
         teams.Add(t);
         teamManager.GetComponent<Teams>().instantiateTeam(t);
         teamCount += 1;

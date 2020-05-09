@@ -15,7 +15,11 @@
     <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
     <link rel="stylesheet" href="airconsole-controls/keyboard/airconsole-keyboard.css">
     <script type="text/javascript">
+        var TeamName;
+        var TeamNames = ["De Telegraaf", "De Gelderlander", "Algemeen Dagblad","De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"]
         var keyboard;
+        var feedback_positive = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?","Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?","Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
+        var feedback_negative = ["Check de bron om erachter te komen of nieuws echt of nep is!","Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
             keyboard.bind("textfield1", {
@@ -114,7 +118,7 @@
 
         <div id="view-3" class="view section-view-btn">
             <h3 id="view-3-team-name" class="teamname"></h3>
-            <h3 class="section-header ">Feedback</h3>
+            <h3 id="feedback-header" class="section-header "></h3>
             <div id="view-3-section-0" class="section " style="height: 100%;">
                 <div id="view-3-section-0-element-0" class="button-300-150 button-element element height-50">
                     <div class="button-text1">OK</div>
@@ -236,16 +240,13 @@
                 console.log("onMessage", from, data);
                 if (from == AirConsole.SCREEN) {
                     if (data != null) {
-                        TeamName = data;
-                        document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
-                        document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
-                        //document.getElementById("view-6-team-name").textContent = "Team: " + TeamName; dummy scene for future use if needed
-                        document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
+                        if (data == "true") {
+                            document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
+                        }
+                        else if (data == "false") {
+                            document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
+                        }
+
                     }
                 }
             };
@@ -257,15 +258,41 @@
             text_message = function () {
                 var tx = document.getElementById("textfield1");
                 me.airconsole.message(AirConsole.SCREEN, tx.textContent);
-            };
+            }
+
 
             me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
-                console.log("onDeviceStateChange", device_id, device_data["view"]);
+                console.log("onDeviceStateChange", device_id, device_data);
                 if (device_id == AirConsole.SCREEN) {
-                    if (device_data != null) {
+                    if (device_data != null && device_data != "" && device_data["teamnames"] == null) {
                         ViewManager.show(device_data);
                     }
-                }
+                    if (device_data['teamnames'] != null) {
+                        if (device_data['teamnames'][me.airconsole.getDeviceId()] != null) {
+                            TeamName = device_data['teamnames'][me.airconsole.getDeviceId()];
+                            document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
+                            document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
+                            //document.getElementById("view-6-team-name").textContent = "Team: " + TeamName; dummy scene for future use if needed
+                            document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
+                        }
+                    };
+                    if (device_data['feedback'] != null) {
+                        if (device_data['feedback'][me.airconsole.getDeviceId()] != null) {
+                            feedback = device_data['feedback'][me.airconsole.getDeviceId()];
+                            if (feedback == "true") {
+                                document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
+                            }
+                            else if (feedback == "false") {
+                                document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
+                            }
+                        }
+                    };
+                };
             };
 
             if (!("ontouchstart" in document.createElement("div"))) {
@@ -283,6 +310,7 @@
                 }
             };
         };
+
     </script>
 </body>
 </html>
