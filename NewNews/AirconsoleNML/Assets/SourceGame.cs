@@ -16,6 +16,7 @@ public class SourceGame : MonoBehaviour
     private GameObject gameLogic;
     public GameObject stampObject;
     public int waitTime = 1;
+    private JObject feedbackData = new JObject();
 
     void Start()
     {
@@ -70,8 +71,34 @@ public class SourceGame : MonoBehaviour
             //Gather answers and give points
             foreach (Team t in GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams())
             {
+                string feedback = "false";
                 bool answer = t.getBoolAnswer();
-                if (answer == trueAnswer) t.addScore(100);
+                if (answer == trueAnswer)
+                {
+                    t.addScore(100);
+                    feedback = "true";
+                    if (feedbackData["source"] == null)
+                    {
+                        feedbackData.Add("source", feedback);
+                    }
+                    else
+                    {
+                        feedbackData["source"] = feedback;
+                    }
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedbackData);
+                }
+                else
+                {
+                    if (feedbackData["source"] == null)
+                    {
+                        feedbackData.Add("source", feedback);
+                    }
+                    else
+                    {
+                        feedbackData["source"] = feedback;
+                    }
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedbackData);
+                }
             }
 
             // Wait for X seconds and go to next screen

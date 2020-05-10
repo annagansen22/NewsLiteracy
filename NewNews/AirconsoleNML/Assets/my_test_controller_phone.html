@@ -15,11 +15,14 @@
     <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
     <link rel="stylesheet" href="airconsole-controls/keyboard/airconsole-keyboard.css">
     <script type="text/javascript">
-        var TeamName;
-        var TeamNames = ["De Telegraaf", "De Gelderlander", "Algemeen Dagblad","De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"]
+       var TeamName;
+        var TeamNames = ["De Telegraaf", "De Gelderlander", "Algemeen Dagblad", "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"]
         var keyboard;
-        var feedback_positive = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?","Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?","Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
-        var feedback_negative = ["Check de bron om erachter te komen of nieuws echt of nep is!","Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
+        var feedback;
+        var rf_pf = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?", "Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?", "Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
+        var rf_nf = ["Check de bron om erachter te komen of nieuws echt of nep is!", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
+        var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ","Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ","Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
+        var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!","Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
             keyboard.bind("textfield1", {
@@ -239,14 +242,26 @@
             me.airconsole.onMessage = function (from, data) {
                 console.log("onMessage", from, data);
                 if (from == AirConsole.SCREEN) {
-                    if (data != null) {
-                        if (data == "true") {
-                            document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
+                    if (data != null)
+                    {
+                        if (data['realfake']) {
+                            if (data['realfake'] == "true") {
+                                document.getElementById("feedback-header").textContent = rf_pf[Math.floor(Math.random()*rf_pf.length)]
                         }
-                        else if (data == "false") {
-                            document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
+                            else if (data['realfake'] == "false") {
+                                document.getElementById("feedback-header").textContent = rf_nf[Math.floor(Math.random()*rf_nf.length)]
                         }
-
+                        }
+                        else if (data['source']) {
+                            if (data['source'] == "true") {
+                                document.getElementById("feedback-header").textContent = s_pf[Math.floor(Math.random()*s_pf.length)]
+                        }
+                            else if (data['source'] == "false") {
+                                document.getElementById("feedback-header").textContent = s_nf[Math.floor(Math.random()*s_nf.length)]
+                        }
+                        }
+    
+                        
                     }
                 }
             };
@@ -281,17 +296,17 @@
                             document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
                         }
                     };
-                    if (device_data['feedback'] != null) {
-                        if (device_data['feedback'][me.airconsole.getDeviceId()] != null) {
-                            feedback = device_data['feedback'][me.airconsole.getDeviceId()];
-                            if (feedback == "true") {
-                                document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
-                            }
-                            else if (feedback == "false") {
-                                document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
-                            }
-                        }
-                    };
+                    //if (device_data['feedback'] != null) {
+                    //    if (device_data['feedback'][me.airconsole.getDeviceId()] != null) {
+                    //        feedback = device_data['feedback'][me.airconsole.getDeviceId()];
+                    //        if (feedback == "true") {
+                    //            document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
+                    //        }
+                    //        else if (feedback == "false") {
+                    //            document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
+                    //        }
+                    //    }
+                    //};
                 };
             };
 

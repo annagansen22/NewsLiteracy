@@ -16,6 +16,7 @@ public class RealFake : MonoBehaviour
     private GameObject gameLogic;
     public GameObject stampObject;
     public int waitTime = 1;
+    private JObject feedbackData = new JObject();
 
     void Start()
     {
@@ -76,11 +77,27 @@ public class RealFake : MonoBehaviour
                 {
                     t.addScore(100);
                     feedback = "true";
-                    AirConsole.instance.Message(t.getTeamDeviceID(), feedback);
+                    if (feedbackData["realfake"] == null)
+                    {
+                        feedbackData.Add("realfake", feedback);
+                    }
+                    else
+                    {
+                        feedbackData["realfake"] = feedback;
+                    }
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedbackData);
                 }
                 else
                 {
-                    AirConsole.instance.Message(t.getTeamDeviceID(), feedback);
+                    if (feedbackData["realfake"] == null)
+                    {
+                        feedbackData.Add("realfake", feedback);
+                    }
+                    else
+                    {
+                        feedbackData["realfake"] = feedback;
+                    }                
+                    AirConsole.instance.Message(t.getTeamDeviceID(), feedbackData);
                 }
             }
 
