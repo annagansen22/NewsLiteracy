@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
@@ -7,13 +8,37 @@ public class GamesData : MonoBehaviour
 {
     public List<RealFakeData> realFakeData;
     public List<RealFakeData> sourceGameData;
+    public List<HeadlineData> headlineData;
+    public List<string> reflectionData;
+    public List<InformationData> informationData;
 
     private void Start()
     {
         realFakeData = getHardcodedRealFakeData();
         sourceGameData = getHardcodedSourceGameData();
+        headlineData = getHardcodedHeadlineData();
+        reflectionData = getHardcodedReflectionData();
+        informationData = getHardcodedInformationData();
     }
 
+    public List<string> getReflectionData()
+    {
+        return reflectionData;
+    }
+
+    public void setReflectionData(List<string> data)
+    {
+        reflectionData = data;
+    }
+    public List<InformationData> getInformationData()
+    {
+        return informationData;
+    }
+
+    public void setInformationData(List<InformationData> data)
+    {
+        informationData = data;
+    }
     public List<RealFakeData> getRealFakeData()
     {
         return realFakeData;
@@ -33,6 +58,16 @@ public class GamesData : MonoBehaviour
     public void setSourceGameData(List<RealFakeData> data)
     {
         sourceGameData = data;
+    }
+
+    public List<HeadlineData> getHeadlineData()
+    {
+        return headlineData;
+    }
+
+    public void setHeadlineData(List<HeadlineData> data)
+    {
+        headlineData = data;
     }
 
     private List<RealFakeData> getHardcodedRealFakeData()
@@ -96,6 +131,36 @@ public class GamesData : MonoBehaviour
         return data;
     }
 
+    private List<string> getHardcodedReflectionData()
+    {
+        List<string> data = new List<string>() { 
+            "Hoe vonden jullie deze minigame gaan?", 
+            "Welke strategie hebben jullie gebruikt bij het beantwoorden van de vragen?",
+            "Heeft iedereen meegewerkt in het beantwoorden van de vragen?"};
+        return data;
+    }
+
+    private List<InformationData> getHardcodedInformationData()
+    {
+        List<InformationData> data = new List<InformationData>() {
+            new InformationData("RealFakeScene", "Check de bron om erachter te komen of nieuws echt of nep is!"),
+            new InformationData("RealFakeScene", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"),
+
+            new InformationData("HeadlinesScene", "Een goede titel is niet te lang (niet meer dan 10 woorden)"),
+            new InformationData("HeadlinesScene", "Een goede titel spreekt aan om het artikel te gaan lezen"),
+            new InformationData("HeadlinesScene", "Als jullie doel is om te informeren, dan geeft een goede titel de belangrijkste informatie uit het artikel weer."),
+
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+
+            new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen")
+
+        };
+        return data;
+    }
+
     private List<RealFakeData> getHardcodedSourceGameData()
     {
         List<RealFakeData> data = new List<RealFakeData>() {
@@ -128,6 +193,24 @@ public class GamesData : MonoBehaviour
             "Toppen Himalaya door lockdown voor eerst in decennia weer te zien", true),
             new RealFakeData("klimaat",
             "Klimaat Placeholder", true),
+        };
+        return data;
+    }
+
+    private List<HeadlineData> getHardcodedHeadlineData()
+    {
+        List<HeadlineData> data = new List<HeadlineData>() {
+            new HeadlineData("showbusiness", "Olcay Gulsen", "Komt er nu al een einde aan Shownieuws-avontuur Olcay Gulsen?"),
+
+            new HeadlineData("politics", "Kuzu", "Kuzu (DENK) beschuldigt 'strijdmakker' Özturk van 'politieke broedermoord'"),
+
+            new HeadlineData("actueel_nieuws", "Trumps naam", "Trumps naam komt op 'coronacheques' die Amerikanen ontvangen"),
+
+            new HeadlineData("misdaad", "puzzelstukjes", "530 xtc-pillen tussen de puzzelstukjes"),
+
+            new HeadlineData("sport", "Lokomotiv", "Lokomotiv Moskou-speler Samochvalov (22) overleden tijdens training"),
+
+            new HeadlineData("klimaat", "Himalaya", "Toppen Himalaya door lockdown voor eerst in decennia weer te zien")
         };
         return data;
     }

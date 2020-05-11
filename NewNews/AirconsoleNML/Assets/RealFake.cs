@@ -96,7 +96,7 @@ public class RealFake : MonoBehaviour
                     else
                     {
                         feedbackData["realfake"] = feedback;
-                    }                
+                    }
                     AirConsole.instance.Message(t.getTeamDeviceID(), feedbackData);
                 }
             }
@@ -143,6 +143,4 @@ public class RealFake : MonoBehaviour
         }    
         return shuffledData;
     }
-
 }
-

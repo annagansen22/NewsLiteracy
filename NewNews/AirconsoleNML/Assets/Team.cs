@@ -11,6 +11,7 @@ public class Team
     private int teamScore = 0;
     private bool teamReady = false;
     private bool boolAnswer;
+    private string stringAnswer;
 
     public int getThreeVotes()
     {
@@ -32,6 +33,15 @@ public class Team
         return boolAnswer;
     }
 
+    public string getStringAnswer()
+    {
+        return stringAnswer;
+    }
+
+    public void setStringAnswer(string answer)
+    {
+        stringAnswer = answer;
+    }
 
     public Team(string name)
     {

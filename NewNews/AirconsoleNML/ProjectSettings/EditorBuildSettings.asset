@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RankingScene.unity
     guid: b2a6b9333b7376d41b700c410cb1c384
+  - enabled: 1
+    path: Assets/Scenes/HeadlinesScene.unity
+    guid: 0d234ecd8ffb7654eaab0cc60be4136f
+  - enabled: 1
+    path: Assets/Scenes/MatchingScene.unity
+    guid: 3fc19209a3f115b40a7db7879e309fd7
+  - enabled: 1
+    path: Assets/Scenes/ReflectionScene.unity
+    guid: 45f0eda4a2bc5ba47942f1f0ff35a370
+  - enabled: 1
+    path: Assets/Scenes/InformationScene.unity
+    guid: edc9a0847d4773d4b8ef6bdf69810cb6
   m_configObjects: {}

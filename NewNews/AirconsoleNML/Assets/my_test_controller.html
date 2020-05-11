@@ -22,6 +22,9 @@
         var rf_nf = ["Check de bron om erachter te komen of nieuws echt of nep is!", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
         var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ","Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ","Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
         var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!","Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
+        var h_pf = ["Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Jullie hebben flink jullie best gedaan, goed hoor!"]
+        var h_nf = ["Denk in het volgende spel eraan dat iedereen van jullie team mee blijft doen!", "Was het lastig om de echte en neppe titels van elkaar te onderscheiden? Volgende keer beter!", "Let erop dat je genoeg met je teamleden blijft overleggen!", "Hoe ziet er echte titel er vaak uit? Bespreek het in jullie groepje."]
+        var h_ff = ["Veel groepjes zijn erin getrapt! Jullie hadden een goede titel!"]
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
             keyboard.bind("textfield1", {
@@ -134,21 +137,38 @@
 
         <div id="view-4" class="view" style="display: none;">
             <h3 id="view-4-team-name" class="teamname"></h3>
-            <h3 class="section-header ">Welke is echt?</h3>
             <div class="view-content">
-                <div id="view-4-section-0" class="section horizontal height-100">
-                    <div id="view-4-section-0-element-0" class="button-300-150 button-element element height-40">
+                <div id="view-4-section-0" class="section height-100">
+                    <div id="view-4-1" class="button-300-150 button-element element">
                         <div class="button-text1">A</div>
                     </div>
-                </div>
-                <div id="view-4-section-1" class="section " style="height: 100%;">
-                    <div id="view-4-section-1-element-0" class="button-300-150 button-element element height-40">
-                        <div class="button-text1">B</div>
+                    <div id="view-4-4" class="button-300-150 button-element element">
+                        <div class="button-text1">D</div>
+                    </div>
+                    <div id="view-4-7" class="button-300-150 button-element element">
+                        <div class="button-text1">G</div>
                     </div>
                 </div>
-                <div id="view-4-section-2" class="section " style="height: 100%;">
-                    <div id="view-4-section-2-element-0" class="button-300-150 button-element element height-40">
+                <div id="view-4-section-1" class="section height-100">
+                    <div id="view-4-2" class="button-300-150 button-element element">
+                        <div class="button-text1">B</div>
+                    </div>
+                    <div id="view-4-5" class="button-300-150 button-element element">
+                        <div class="button-text1">E</div>
+                    </div>
+                    <div id="view-4-8" class="button-300-150 button-element element">
+                        <div class="button-text1">H</div>
+                    </div>
+                </div>
+                <div id="view-4-section-2" class="section height-100">
+                    <div id="view-4-3" class="button-300-150 button-element element">
                         <div class="button-text1">C</div>
+                    </div>
+                    <div id="view-4-6" class="button-300-150 button-element element">
+                        <div class="button-text1">F</div>
+                    </div>
+                    <div id="view-4-9" class="button-300-150 button-element element">
+                        <div class="button-text1">I</div>
                     </div>
                 </div>
             </div>
@@ -200,13 +220,23 @@
             <h3 id="view-8-team-name" class="teamname"></h3>
             <h3 class="section-header">Voer hieronder een titel in</h3>
             <div class="textfield" id="textfield1"></div>
-            <button class="headline-button button-300-150" onclick="text_message()">OK</button>
+            <button class="headline-button button-300-150" id="headlineOK" onclick="text_message()">OK</button>
             <div id="my_keyboard"></div>
+        </div>
+
+        <div id="view-9" class="view section-view-btn">
+            <h3 id="view-9-team-name" class="teamname"></h3>
+            <h3 class="section-header">Heeft iedereen meegewerkt in het beantwoorden van de vragen?</h3>
+            <div id="view-9-section-0" class="section " style="height: 100%;">
+                <div id="view-9-section-0-element-0" class="button-300-150 button-element element height-50">
+                    <div class="button-text1">OK</div>
+                </div>
+            </div>
         </div>
 
 
         <script type="text/javascript">
-            var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-0","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-3","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[{"key":"1","value":"Real"}]}}],"classes":[]},{"id":"view-2-section-1","elements":[{"id":"view-2-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[{"key":"1","value":"Fake"}]}}],"classes":[]}]},{"id":"view-7","sections":[{"id":"view-7-section-0","elements":[{"id":"view-7-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Waar","send_onrelease":false,"message_data":[{"key":"1","value":"Waar"}]}}],"classes":[]},{"id":"view-7-section-1","elements":[{"id":"view-7-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Onwaar","send_onrelease":false,"message_data":[{"key":"1","value":"Onwaar"}]}}],"classes":[]}]},{"id":"view-3","sections":[{"id":"view-3-section-0","elements":[{"id":"view-3-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-4","sections":[{"id":"view-4-section-0","elements":[{"id":"view-4-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}}],"classes":[]},{"id":"view-4-section-1","elements":[{"id":"view-4-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}}],"classes":[]},{"id":"view-4-section-2","elements":[{"id":"view-4-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}}],"classes":[]}]},{"id":"view-5","sections":[{"id":"view-5-section-0","elements":[{"id":"view-5-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron A","send_onrelease":false,"message_data":[{"key":"1","value":"BronA"}]}}],"classes":[]},{"id":"view-5-section-1","elements":[{"id":"view-5-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron B","send_onrelease":false,"message_data":[{"key":"1","value":"BronB"}]}}],"classes":[]},{"id":"view-5-section-2","elements":[{"id":"view-5-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron C","send_onrelease":false,"message_data":[{"key":"1","value":"BronC"}]}}],"classes":[]}]},{"id":"view-6","sections":[{"id":"view-6-section-0","elements":[],"classes":[]}]}]}';
+            var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-0","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-3","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[{"key":"1","value":"Real"}]}}],"classes":[]},{"id":"view-2-section-1","elements":[{"id":"view-2-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[{"key":"1","value":"Fake"}]}}],"classes":[]}]},{"id":"view-7","sections":[{"id":"view-7-section-0","elements":[{"id":"view-7-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Waar","send_onrelease":false,"message_data":[{"key":"1","value":"Waar"}]}}],"classes":[]},{"id":"view-7-section-1","elements":[{"id":"view-7-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Onwaar","send_onrelease":false,"message_data":[{"key":"1","value":"Onwaar"}]}}],"classes":[]}]},{"id":"view-3","sections":[{"id":"view-3-section-0","elements":[{"id":"view-3-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-4","sections":[{"id":"view-4-section-0","elements":[{"id":"view-4-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}}, {"id":"view-4-4","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-4","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}, {"id":"view-4-7","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-7","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"G","send_onrelease":false,"message_data":[{"key":"1","value":"G"}]}}],"classes":[]},{"id":"view-4-section-1","elements":[{"id":"view-4-2","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-2","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}}, {"id":"view-4-5","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-5","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}, {"id":"view-4-8","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-8","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"H","send_onrelease":false,"message_data":[{"key":"1","value":"H"}]}}],"classes":[]},{"id":"view-4-section-2","elements":[{"id":"view-4-3","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-3","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}}, {"id":"view-4-6","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-6","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}, {"id":"view-4-9","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-9","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"I","send_onrelease":false,"message_data":[{"key":"1","value":"I"}]}}],"classes":[]}]},{"id":"view-5","sections":[{"id":"view-5-section-0","elements":[{"id":"view-5-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron A","send_onrelease":false,"message_data":[{"key":"1","value":"BronA"}]}}],"classes":[]},{"id":"view-5-section-1","elements":[{"id":"view-5-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron B","send_onrelease":false,"message_data":[{"key":"1","value":"BronB"}]}}],"classes":[]},{"id":"view-5-section-2","elements":[{"id":"view-5-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron C","send_onrelease":false,"message_data":[{"key":"1","value":"BronC"}]}}],"classes":[]}]},{"id":"view-9","sections":[{"id":"view-9-section-0","elements":[{"id":"view-9-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-9-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-6","sections":[{"id":"view-6-section-0","elements":[],"classes":[]}]}]}';
         </script>
 
 
@@ -249,21 +279,35 @@
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
                                 document.getElementById("feedback-header").textContent = rf_pf[Math.floor(Math.random()*rf_pf.length)]
-                        }
+                            }
                             else if (data['realfake'] == "false") {
                                 document.getElementById("feedback-header").textContent = rf_nf[Math.floor(Math.random()*rf_nf.length)]
-                        }
+                            }
                         }
                         else if (data['source']) {
                             if (data['source'] == "true") {
                                 document.getElementById("feedback-header").textContent = s_pf[Math.floor(Math.random()*s_pf.length)]
-                        }
+                            }
                             else if (data['source'] == "false") {
                                 document.getElementById("feedback-header").textContent = s_nf[Math.floor(Math.random()*s_nf.length)]
+                            }
                         }
+                        else if (data['headlines']) {
+                            if (data['headlines'] == "true") {
+                                document.getElementById("feedback-header").textContent = h_pf[Math.floor(Math.random()*s_pf.length)]
+                            }
+                            else if (data['headlines'] == "false") {
+                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random()*s_nf.length)]
+                            }
+                            else if (data['headlines'] == "fooled") {
+                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random()*h_ff.length)]
+                            }
                         }
-    
-                        
+                        else if (data['buttonNr']) {
+                            for (i = 9; i > data['buttonNr']; i--) {
+                                document.getElementById('view-4-' + i).style.visibility = 'hidden';
+							}
+                        }
                     }
                 }
             };
@@ -274,9 +318,13 @@
 
             text_message = function () {
                 var tx = document.getElementById("textfield1");
-                me.airconsole.message(AirConsole.SCREEN, tx.textContent);
+                var message = {
+                    'headline': tx.textContent
+                }
+                me.airconsole.message(AirConsole.SCREEN, message);
+                tx.textContent = "";
+                document.getElementById("headlineOK").disableButton;
             }
-
 
             me.airconsole.onCustomDeviceStateChange = function (device_id, device_data) {
                 console.log("onDeviceStateChange", device_id, device_data);
@@ -296,6 +344,7 @@
                             //document.getElementById("view-6-team-name").textContent = "Team: " + TeamName; dummy scene for future use if needed
                             document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
+                            document.getElementById("view-9-team-name").textContent = "Team: " + TeamName;
                         }
                     };
                     //if (device_data['realfake'] != null) {
@@ -327,7 +376,6 @@
                 }
             };
         };
-
     </script>
 </body>
 </html>

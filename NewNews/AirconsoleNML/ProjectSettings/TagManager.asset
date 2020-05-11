@@ -12,6 +12,24 @@ TagManager:
   - GameLogic
   - ScreenText
   - RealFakeStamp
+  - Button 1
+  - Button 2
+  - Button 3
+  - Button 4
+  - Button 5
+  - Button 6
+  - Button 7
+  - Button 8
+  - Button 9
+  - Headline 1
+  - Headline 2
+  - Headline 3
+  - Headline 4
+  - Source A
+  - Source B
+  - Source C
+  - Source D
+  - InformationText
   layers:
   - Default
   - TransparentFX

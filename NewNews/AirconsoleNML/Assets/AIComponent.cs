@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
-using UnityScript.Steps;
 
 public class AIComponent : MonoBehaviour
 {
@@ -14,11 +13,13 @@ public class AIComponent : MonoBehaviour
     public string feedbackScene;
     public string pickTopicScene;
     public string rankingScene;
+    public string reflectionScene;
+    public string informationScene;
 
 
     private System.DateTime maxTime;
+    private string lastGameScene;
     private string lastScene;
-
     public void setMaxTime(System.DateTime date)
     {
         maxTime = date;
@@ -36,7 +37,6 @@ public class AIComponent : MonoBehaviour
     {
         
     }
-
 
     public void AssignTeamNames(int device_id, string teamname)
     {
@@ -62,20 +62,11 @@ public class AIComponent : MonoBehaviour
         return TeamNameData;
     }
 
-
-
-    public void SetView(string viewname)
-    {
-        AirConsole.instance.SetCustomDeviceState(viewname);
-    }
-
-
-
     public void personalizedMessage()
     {
         string currentScene = SceneManager.GetActiveScene().name;
         print("scene name" + currentScene);
-        for ( int i = 0; i < AirConsole.instance.GetControllerDeviceIds().Count; i++)
+        for (int i = 0; i < AirConsole.instance.GetControllerDeviceIds().Count; i++)
         {
             if (currentScene == feedbackScene && lastScene == "RealFakeScene")
             {
@@ -91,6 +82,11 @@ public class AIComponent : MonoBehaviour
             }
             //can add more here... check public/private variables at the top of this script
         }
+    }
+
+    public string getLastGameScene()
+    {
+        return lastGameScene;
     }
 
 
@@ -120,6 +116,15 @@ public class AIComponent : MonoBehaviour
                 if (scene == currentScene)
                 {
                     nextScene = feedbackScene;
+                    lastGameScene = scene;
+                }
+                if (feedbackScene == currentScene)
+                {
+                    nextScene = reflectionScene;
+                }
+                if (reflectionScene == currentScene)
+                {
+                    nextScene = informationScene;
                 }
             }
             // OTHERWISE!!!
@@ -145,6 +150,9 @@ public class AIComponent : MonoBehaviour
         SceneManager.LoadScene(nextScene);
     }
 
-
+    public void SetView(string viewName)
+    {
+        AirConsole.instance.SetCustomDeviceState(viewName);
+    }
 
 }
