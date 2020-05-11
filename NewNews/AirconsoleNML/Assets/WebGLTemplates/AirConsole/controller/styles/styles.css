@@ -84,6 +84,7 @@ h3.section-header{
   font-size: 4vw
 }
 
+
 h3.feedback-header{
   text-align: center;
   color: #ADEE00;
@@ -102,4 +103,10 @@ h3.feedback-header{
 
 .landscape .section.button-cluster{
   height: 60%;
+}
+
+h3.headline-header{
+  text-align: center;
+  color: white;
+  font-size: 3.5vw
 }

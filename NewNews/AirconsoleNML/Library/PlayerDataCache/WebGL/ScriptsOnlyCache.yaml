@@ -1369,4 +1369,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MatchingScene.unity
   - Assets/Scenes/ReflectionScene.unity
   - Assets/Scenes/InformationScene.unity
-  playerPath: D:/unity stuff
+  playerPath: D:/NewsLitBuild

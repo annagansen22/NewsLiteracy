@@ -37,7 +37,7 @@ public class SourceGame : MonoBehaviour
         GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Bekijk bronnen om antwoord te vinden op de volgende vraag: </b> \n\n " + sentence;
 
         // Send instructions to controller to change to "Yes or no layout"
-        gameLogic.GetComponent<AIComponent>().SetView("view-2");
+        gameLogic.GetComponent<AIComponent>().SetView("view-7");
     }
 
     private void OnMessage(int device_id, JToken data)
@@ -47,7 +47,7 @@ public class SourceGame : MonoBehaviour
         {
             bool answer = false;
             //if button true is pressed
-            if (data["element"] != null && data["element"].ToString() == "view-2-section-0-element-0")
+            if (data["element"] != null && data["element"].ToString() == "view-7-section-0-element-0")
             {
                 if (data["data"]["pressed"].ToString() == "True")
                 {

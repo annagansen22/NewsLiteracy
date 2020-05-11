@@ -180,9 +180,9 @@ public class GamesData : MonoBehaviour
             "Zal de eikenprocessierups dit jaar nog meer overlast veroorzaken dan vorig jaar dankzij het heersende corona virus? ", true),
 
             new RealFakeData("misdaad",
-            "Misdaad Placeholder", true),
+            "Kunnen mensen tussen de 16 en 23 jaar zowel als kind als volwassene beoordeeld worden bij een strafrechtelijk proces ", true),
             new RealFakeData("misdaad",
-            "Misdaad Placeholder", true),
+            "Gökmen Tanis heeft levenslang gekregen voor het schietincident in een tram in Utrecht. Klopt het dat levenslang in Nederland eigenlijk betekent dat je 20 jaar de gevangenis in moet? ", true),
 
             new RealFakeData("sport",
             "Sport Placeholder", true),

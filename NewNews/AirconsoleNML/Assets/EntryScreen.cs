@@ -34,6 +34,8 @@ public class EntryScreen : MonoBehaviour
                     {
                         print("Team " + GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).getTeamName() + " pressed ready (dev id: " + device_id + ")");
                         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
+
+                        if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().allTeamsReady()) startGame();
                     }
                 }
             }
@@ -70,7 +72,8 @@ public class EntryScreen : MonoBehaviour
         //AirConsole.instance.SetActivePlayers();
         AirConsole.instance.SetCustomDeviceState(1);
         int t = 30;
-        string time = FindObjectOfType<TMP_InputField>().text;
+        string time = "";
+        //time = FindObjectOfType<TMP_InputField>().text;
         print(time);
         if (time != "") t = int.Parse(time);
         print("Timer set to " + t + " minutes");

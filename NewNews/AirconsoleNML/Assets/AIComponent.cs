@@ -15,6 +15,7 @@ public class AIComponent : MonoBehaviour
     public string rankingScene;
     public string reflectionScene;
     public string informationScene;
+    private int hardCodeMiniGame = 0;
 
 
     private System.DateTime maxTime;
@@ -130,7 +131,31 @@ public class AIComponent : MonoBehaviour
             // OTHERWISE!!!
             // After entryscene do picktopics
             if (currentScene == entryScene) nextScene = pickTopicScene;
-            else if (nextScene == "") nextScene = minigameScenes[Random.Range(0, minigameScenes.Count)];
+            //else if (nextScene == "") nextScene = minigameScenes[Random.Range(0, minigameScenes.Count)];
+            else if (nextScene == "")
+            {
+                switch (hardCodeMiniGame)
+                {
+                    case 0:
+                        nextScene = "RealFakeScene";
+                        break;
+                    case 1:
+                        nextScene = "SourceScene";
+                        break;
+                    case 2:
+                        nextScene = "HeadLinesScene";
+                        break;
+                    case 3:
+                        nextScene = "RealFakeScene";
+                        break;
+                    /////////////////////////////////////////////
+                    default:
+                        nextScene = "RealFakeScene";
+                        break;
+                }
+                hardCodeMiniGame++;
+                if (hardCodeMiniGame >= 3) hardCodeMiniGame = 0;
+            }
             print(Random.Range(0, minigameScenes.Count));
             loadScene(currentScene, nextScene);
         }
