@@ -20,8 +20,8 @@
         var feedback;
         var rf_pf = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?", "Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?", "Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
         var rf_nf = ["Check de bron om erachter te komen of nieuws echt of nep is!", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
-        var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ","Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ","Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
-        var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!","Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
+        var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ", "Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ", "Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
+        var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
         var h_pf = ["Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Jullie hebben flink jullie best gedaan, goed hoor!"]
         var h_nf = ["Denk in het volgende spel eraan dat iedereen van jullie team mee blijft doen!", "Was het lastig om de echte en neppe titels van elkaar te onderscheiden? Volgende keer beter!", "Let erop dat je genoeg met je teamleden blijft overleggen!", "Hoe ziet er echte titel er vaak uit? Bespreek het in jullie groepje."]
         var h_ff = ["Veel groepjes zijn erin getrapt! Jullie hadden een goede titel!"]
@@ -49,6 +49,10 @@
             dbt.firstElementChild.style.color = "#ADEE00"
         }
 
+        function pressed(btn) {
+            var dbt = document.getElementById(btn.id);
+            dbt.firstElementChild.style.color = "#ADEE00"
+        }
 
         function start() {
             window.app = new App();
@@ -70,7 +74,7 @@
 
         <div id="view-0" class="view section-view-btn">
             <h3 class="section-header ">Wacht tot de andere teams verbinding hebben gemaakt</h3>
-            <h3 id="team-name" class="feedback-header"></h3>
+            <h3 id="team-name" class="teamname-header"></h3>
             <div id="view-0-section-0" class="section " style="height: 100%;">
                 <div id="view-0-section-0-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
                     <div class="button-text1">Ready</div>
@@ -114,10 +118,10 @@
             <h3 id="view-2-team-name" class="teamname"></h3>
             <h3 class="section-header">Kies of deze nieuwskop afkomstig van een echt nieuwsartikel of niet</h3>
             <div id="view-2-section-0" class="section horizontal height-100">
-                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-60">
+                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Echt</div>
                 </div>
-                <div id="view-2-section-1-element-0" class="button-300-150 button-element element height-60">
+                <div id="view-2-section-1-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Nep</div>
                 </div>
             </div>
@@ -127,11 +131,8 @@
 
         <div id="view-3" class="view section-view-btn">
             <h3 id="view-3-team-name" class="teamname"></h3>
-            <h3 id="feedback-header" class="section-header "></h3>
             <div id="view-3-section-0" class="section " style="height: 100%;">
-                <div id="view-3-section-0-element-0" class="button-300-150 button-element element height-50">
-                    <div class="button-text1">OK</div>
-                </div>
+                <h3 id="feedback-header" class="feedback-header "></h3>
             </div>
         </div>
 
@@ -139,35 +140,35 @@
             <h3 id="view-4-team-name" class="teamname"></h3>
             <div class="view-content">
                 <div id="view-4-section-0" class="section height-100">
-                    <div id="view-4-1" class="button-300-150 button-element element">
+                    <div id="view-4-1" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">A</div>
                     </div>
-                    <div id="view-4-4" class="button-300-150 button-element element">
+                    <div id="view-4-4" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">D</div>
                     </div>
-                    <div id="view-4-7" class="button-300-150 button-element element">
+                    <div id="view-4-7" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">G</div>
                     </div>
                 </div>
                 <div id="view-4-section-1" class="section height-100">
-                    <div id="view-4-2" class="button-300-150 button-element element">
+                    <div id="view-4-2" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">B</div>
                     </div>
-                    <div id="view-4-5" class="button-300-150 button-element element">
+                    <div id="view-4-5" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">E</div>
                     </div>
-                    <div id="view-4-8" class="button-300-150 button-element element">
+                    <div id="view-4-8" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">H</div>
                     </div>
                 </div>
                 <div id="view-4-section-2" class="section height-100">
-                    <div id="view-4-3" class="button-300-150 button-element element">
+                    <div id="view-4-3" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">C</div>
                     </div>
-                    <div id="view-4-6" class="button-300-150 button-element element">
+                    <div id="view-4-6" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">F</div>
                     </div>
-                    <div id="view-4-9" class="button-300-150 button-element element">
+                    <div id="view-4-9" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                         <div class="button-text1">I</div>
                     </div>
                 </div>
@@ -196,8 +197,10 @@
             </div>
         </div>
 
-        <div id="view-6" class="view" style="display: none;">
-            <div id="view-6-section-0" class="section " style="height: 100%;">
+        <div id="view-6" class="view section-view-btn">
+            <h3 id="view-6-team-name" class="teamname"></h3>
+            <div id="view-6-section-0" class="section " style="height: 100%">
+                <h3 class="feedback-header1 ">Lees het scherm voor een handige tip!</h3>
             </div>
         </div>
 
@@ -206,10 +209,10 @@
             <h3 id="view-7-team-name" class="teamname"></h3>
             <h3 class="section-header">Zoek op het internet voor bronnen om het antwoord te vinden op de vraag op het scherm</h3>
             <div id="view-7-section-0" class="section horizontal height-100">
-                <div id="view-7-section-0-element-0" class="button-300-150 button-element element height-60">
+                <div id="view-7-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Waar</div>
                 </div>
-                <div id="view-7-section-1-element-0" class="button-300-150 button-element element height-60">
+                <div id="view-7-section-1-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Onwaar</div>
                 </div>
             </div>
@@ -227,8 +230,8 @@
         <div id="view-9" class="view section-view-btn">
             <h3 id="view-9-team-name" class="teamname"></h3>
             <h3 class="section-header">Discussieer de vraag op het scherm met je team</h3>
-            <div id="view-9-section-0" class="section " style="height: 100%;">
-                <div id="view-9-section-0-element-0" class="button-300-150 button-element element height-50">
+            <div id="view-9-section-0" class="section1 " style="height: 70%;">
+                <div id="view-9-section-0-element-0" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                     <div class="button-text1">OK</div>
                 </div>
             </div>
@@ -236,7 +239,7 @@
 
 
         <script type="text/javascript">
-            var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-0","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-3","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[{"key":"1","value":"Real"}]}}],"classes":[]},{"id":"view-2-section-1","elements":[{"id":"view-2-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[{"key":"1","value":"Fake"}]}}],"classes":[]}]},{"id":"view-7","sections":[{"id":"view-7-section-0","elements":[{"id":"view-7-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Waar","send_onrelease":false,"message_data":[{"key":"1","value":"Waar"}]}}],"classes":[]},{"id":"view-7-section-1","elements":[{"id":"view-7-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Onwaar","send_onrelease":false,"message_data":[{"key":"1","value":"Onwaar"}]}}],"classes":[]}]},{"id":"view-3","sections":[{"id":"view-3-section-0","elements":[{"id":"view-3-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-4","sections":[{"id":"view-4-section-0","elements":[{"id":"view-4-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}}, {"id":"view-4-4","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-4","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}, {"id":"view-4-7","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-7","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"G","send_onrelease":false,"message_data":[{"key":"1","value":"G"}]}}],"classes":[]},{"id":"view-4-section-1","elements":[{"id":"view-4-2","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-2","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}}, {"id":"view-4-5","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-5","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}, {"id":"view-4-8","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-8","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"H","send_onrelease":false,"message_data":[{"key":"1","value":"H"}]}}],"classes":[]},{"id":"view-4-section-2","elements":[{"id":"view-4-3","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-3","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}}, {"id":"view-4-6","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-6","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}, {"id":"view-4-9","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-9","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"I","send_onrelease":false,"message_data":[{"key":"1","value":"I"}]}}],"classes":[]}]},{"id":"view-5","sections":[{"id":"view-5-section-0","elements":[{"id":"view-5-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron A","send_onrelease":false,"message_data":[{"key":"1","value":"BronA"}]}}],"classes":[]},{"id":"view-5-section-1","elements":[{"id":"view-5-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron B","send_onrelease":false,"message_data":[{"key":"1","value":"BronB"}]}}],"classes":[]},{"id":"view-5-section-2","elements":[{"id":"view-5-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron C","send_onrelease":false,"message_data":[{"key":"1","value":"BronC"}]}}],"classes":[]}]},{"id":"view-9","sections":[{"id":"view-9-section-0","elements":[{"id":"view-9-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-9-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-6","sections":[{"id":"view-6-section-0","elements":[],"classes":[]}]}]}';
+            var ctrl_data = '{"orientation":"landscape","selected_view_id":"view-0","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"view-0-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[{"key":"1","value":"Ready"}]}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-0","elements":[{"id":"view-1-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}},{"id":"view-1-section-1-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}],"classes":[]},{"id":"view-1-section-2","elements":[{"id":"view-1-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}},{"id":"view-1-section-2-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-2-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}],"classes":[]},{"id":"view-1-section-3","elements":[{"id":"view-1-section-3-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}},{"id":"view-1-section-3-element-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"view-2-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Real","send_onrelease":false,"message_data":[{"key":"1","value":"Real"}]}}],"classes":[]},{"id":"view-2-section-1","elements":[{"id":"view-2-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Fake","send_onrelease":false,"message_data":[{"key":"1","value":"Fake"}]}}],"classes":[]}]},{"id":"view-7","sections":[{"id":"view-7-section-0","elements":[{"id":"view-7-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Waar","send_onrelease":false,"message_data":[{"key":"1","value":"Waar"}]}}],"classes":[]},{"id":"view-7-section-1","elements":[{"id":"view-7-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-7-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Onwaar","send_onrelease":false,"message_data":[{"key":"1","value":"Onwaar"}]}}],"classes":[]}]},{"id":"view-3","sections":[{"id":"view-3-section-0","elements":[],"classes":[]}]},{"id":"view-4","sections":[{"id":"view-4-section-0","elements":[{"id":"view-4-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-1","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"A","send_onrelease":false,"message_data":[{"key":"1","value":"A"}]}}, {"id":"view-4-4","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-4","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"D","send_onrelease":false,"message_data":[{"key":"1","value":"D"}]}}, {"id":"view-4-7","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-7","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"G","send_onrelease":false,"message_data":[{"key":"1","value":"G"}]}}],"classes":[]},{"id":"view-4-section-1","elements":[{"id":"view-4-2","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-2","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"B","send_onrelease":false,"message_data":[{"key":"1","value":"B"}]}}, {"id":"view-4-5","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-5","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"E","send_onrelease":false,"message_data":[{"key":"1","value":"E"}]}}, {"id":"view-4-8","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-8","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"H","send_onrelease":false,"message_data":[{"key":"1","value":"H"}]}}],"classes":[]},{"id":"view-4-section-2","elements":[{"id":"view-4-3","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-3","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"C","send_onrelease":false,"message_data":[{"key":"1","value":"C"}]}}, {"id":"view-4-6","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-6","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"F","send_onrelease":false,"message_data":[{"key":"1","value":"F"}]}}, {"id":"view-4-9","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-4-9","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"I","send_onrelease":false,"message_data":[{"key":"1","value":"I"}]}}],"classes":[]}]},{"id":"view-5","sections":[{"id":"view-5-section-0","elements":[{"id":"view-5-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron A","send_onrelease":false,"message_data":[{"key":"1","value":"BronA"}]}}],"classes":[]},{"id":"view-5-section-1","elements":[{"id":"view-5-section-1-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-1-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron B","send_onrelease":false,"message_data":[{"key":"1","value":"BronB"}]}}],"classes":[]},{"id":"view-5-section-2","elements":[{"id":"view-5-section-2-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-5-section-2-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Bron C","send_onrelease":false,"message_data":[{"key":"1","value":"BronC"}]}}],"classes":[]}]},{"id":"view-9","sections":[{"id":"view-9-section-0","elements":[{"id":"view-9-section-0-element-0","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-9-section-0-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"OK","send_onrelease":false,"message_data":[{"key":"1","value":"OK"}]}}],"classes":[]}]},{"id":"view-6","sections":[{"id":"view-6-section-0","elements":[],"classes":[]}]}]}';
         </script>
 
 
@@ -274,39 +277,41 @@
             me.airconsole.onMessage = function (from, data) {
                 console.log("onMessage", from, data);
                 if (from == AirConsole.SCREEN) {
-                    if (data != null)
-                    {
+                    if (data != null) {
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
-                                document.getElementById("feedback-header").textContent = rf_pf[Math.floor(Math.random()*rf_pf.length)]
+                                document.getElementById("feedback-header").textContent = rf_pf[Math.floor(Math.random() * rf_pf.length)]
                             }
                             else if (data['realfake'] == "false") {
-                                document.getElementById("feedback-header").textContent = rf_nf[Math.floor(Math.random()*rf_nf.length)]
+                                document.getElementById("feedback-header").textContent = rf_nf[Math.floor(Math.random() * rf_nf.length)]
                             }
                         }
                         else if (data['source']) {
                             if (data['source'] == "true") {
-                                document.getElementById("feedback-header").textContent = s_pf[Math.floor(Math.random()*s_pf.length)]
+                                document.getElementById("feedback-header").textContent = s_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['source'] == "false") {
-                                document.getElementById("feedback-header").textContent = s_nf[Math.floor(Math.random()*s_nf.length)]
+                                document.getElementById("feedback-header").textContent = s_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                         }
                         else if (data['headlines']) {
                             if (data['headlines'] == "true") {
-                                document.getElementById("feedback-header").textContent = h_pf[Math.floor(Math.random()*s_pf.length)]
+                                document.getElementById("feedback-header").textContent = h_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['headlines'] == "false") {
-                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random()*s_nf.length)]
+                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                             else if (data['headlines'] == "fooled") {
-                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random()*h_ff.length)]
+                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random() * h_ff.length)]
                             }
                         }
                         else if (data['buttonNr']) {
                             for (i = 9; i > data['buttonNr']; i--) {
                                 document.getElementById('view-4-' + i).style.visibility = 'hidden';
-							}
+                            }
+                            for (j = 1; j <= data['buttonNr']; j++) {
+                                document.getElementById('view-4-' + j).firstElementChild.style.color = "white";
+                            }
                         }
                     }
                 }
@@ -318,6 +323,7 @@
 
             text_message = function () {
                 var tx = document.getElementById("textfield1");
+                document.getElementById("headlineOK").style.color = "#ADEE00"
                 var message = {
                     'headline': tx.textContent
                 }
@@ -330,6 +336,20 @@
                 console.log("onDeviceStateChange", device_id, device_data);
                 if (device_id == AirConsole.SCREEN) {
                     if (device_data != null && device_data != "" && device_data["teamnames"] == null) {
+                        if (device_data == "view-2") {
+                            document.getElementById("view-2-section-0-element-0").firstElementChild.style.color = "white";
+                            document.getElementById("view-2-section-1-element-0").firstElementChild.style.color = "white";
+                        }
+                        else if (device_data == "view-7") {
+                            document.getElementById("view-7-section-0-element-0").firstElementChild.style.color = "white";
+                            document.getElementById("view-7-section-1-element-0").firstElementChild.style.color = "white";
+                        }
+                        else if (device_data == "view-9") {
+                            document.getElementById("view-9-section-0-element-0").firstElementChild.style.color = "white";
+                        }
+                        else if (device_data == "view-6") {
+                            document.getElementById("headlineOK").style.color = "white";
+                        }
                         ViewManager.show(device_data);
                     }
                     if (device_data['teamnames'] != null) {
@@ -341,7 +361,7 @@
                             document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
-                            //document.getElementById("view-6-team-name").textContent = "Team: " + TeamName; dummy scene for future use if needed
+                            document.getElementById("view-6-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
                             document.getElementById("view-9-team-name").textContent = "Team: " + TeamName;

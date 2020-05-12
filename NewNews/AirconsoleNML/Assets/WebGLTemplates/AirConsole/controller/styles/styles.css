@@ -30,6 +30,7 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 .portrait .view {
@@ -45,6 +46,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 0 1%;
+}
+
+.section1 {
+  flex-grow: 1;
+  flex-basis: auto;
+  align-items: stretch;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
 }
 
 .section.horizontal {
@@ -85,10 +96,29 @@ h3.section-header{
 }
 
 
-h3.feedback-header{
+h3.teamname-header{
   text-align: center;
   color: #ADEE00;
-  font-size: 3.5vw
+  font-size: 4vw
+  padding-bottom: 30px;
+}
+
+h3.feedback-header{
+  text-align: center;
+  padding-top: 100px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: white;
+  font-size: 4vw;
+}
+
+h3.feedback-header1{
+  text-align: center;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  font-size: 5vw;
 }
 
 .section-view-btn .button-element, .section-view-btn .button-300-150 {

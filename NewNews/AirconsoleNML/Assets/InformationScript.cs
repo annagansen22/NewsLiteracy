@@ -30,7 +30,7 @@ public class InformationScript : MonoBehaviour
         GameObject.FindGameObjectWithTag("InformationText").GetComponent<TextMeshProUGUI>().text = "<b> Tip:  </b>\n" + data.getInformation();
 
         // Set Controller View
-        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().SetView("view-9");
+        GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().SetView("view-6");
 
         //If this is uncommented, the scene works on a 5 sec timer instead of when all teams pressed okay
         StartCoroutine(WaitForSecondsThenSwitchScene(10));
