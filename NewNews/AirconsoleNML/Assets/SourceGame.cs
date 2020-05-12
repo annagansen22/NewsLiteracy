@@ -34,7 +34,7 @@ public class SourceGame : MonoBehaviour
         trueAnswer = data.getTruth();
 
         // Display question
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Bekijk bronnen om antwoord te vinden op de volgende vraag: </b> \n\n " + sentence;
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Zoek de bron </b> \n\n " + sentence;
 
         // Send instructions to controller to change to "Yes or no layout"
         gameLogic.GetComponent<AIComponent>().SetView("view-7");

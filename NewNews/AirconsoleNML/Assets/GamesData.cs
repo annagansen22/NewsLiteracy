@@ -145,18 +145,60 @@ public class GamesData : MonoBehaviour
         List<InformationData> data = new List<InformationData>() {
             new InformationData("RealFakeScene", "Check de bron om erachter te komen of nieuws echt of nep is!"),
             new InformationData("RealFakeScene", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"),
+            //BUFFER DATA:
+            new InformationData("RealFakeScene", "Check de bron om erachter te komen of nieuws echt of nep is!"),
+            new InformationData("RealFakeScene", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"),
+            new InformationData("RealFakeScene", "Check de bron om erachter te komen of nieuws echt of nep is!"),
+            new InformationData("RealFakeScene", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"),
+            new InformationData("RealFakeScene", "Check de bron om erachter te komen of nieuws echt of nep is!"),
+            new InformationData("RealFakeScene", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"),
 
+            new InformationData("HeadlinesScene", "Een goede titel is niet te lang (niet meer dan 10 woorden)"),
+            new InformationData("HeadlinesScene", "Een goede titel spreekt aan om het artikel te gaan lezen"),
+            new InformationData("HeadlinesScene", "Als jullie doel is om te informeren, dan geeft een goede titel de belangrijkste informatie uit het artikel weer."),
+            //BUFFER DATA:
+            new InformationData("HeadlinesScene", "Een goede titel is niet te lang (niet meer dan 10 woorden)"),
+            new InformationData("HeadlinesScene", "Een goede titel spreekt aan om het artikel te gaan lezen"),
+            new InformationData("HeadlinesScene", "Als jullie doel is om te informeren, dan geeft een goede titel de belangrijkste informatie uit het artikel weer."),
+            new InformationData("HeadlinesScene", "Een goede titel is niet te lang (niet meer dan 10 woorden)"),
+            new InformationData("HeadlinesScene", "Een goede titel spreekt aan om het artikel te gaan lezen"),
+            new InformationData("HeadlinesScene", "Als jullie doel is om te informeren, dan geeft een goede titel de belangrijkste informatie uit het artikel weer."),
             new InformationData("HeadlinesScene", "Een goede titel is niet te lang (niet meer dan 10 woorden)"),
             new InformationData("HeadlinesScene", "Een goede titel spreekt aan om het artikel te gaan lezen"),
             new InformationData("HeadlinesScene", "Als jullie doel is om te informeren, dan geeft een goede titel de belangrijkste informatie uit het artikel weer."),
 
             new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
             new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            //BUFFER DATA:
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
+            new InformationData("SourceScene", "https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!"),
+            new InformationData("SourceScene", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."),
 
             new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
             new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen"),
+            //BUFFER DATA:
+            new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een krant is meestal om te informeren"),
+            new InformationData("MatchingScene", "Het belangrijkste doel van een tijdschrift is meestal om te vermaken"),
             new InformationData("MatchingScene", "Het belangrijkste doel van een opinieblog is meestal om te overtuigen")
-
         };
         return data;
     }
@@ -185,9 +227,9 @@ public class GamesData : MonoBehaviour
             "Gökmen Tanis heeft levenslang gekregen voor het schietincident in een tram in Utrecht. Klopt het dat levenslang in Nederland eigenlijk betekent dat je 20 jaar de gevangenis in moet? ", true),
 
             new RealFakeData("sport",
-            "Sport Placeholder", true),
+            "Heeft het uitstellen van de olympische spelen in 2020 effect hebben op de olympische spelen in parijs?", false),
             new RealFakeData("sport",
-            "Sport Placeholder", true),
+            "Kan je topsport niveau bereiken zonder dat je vlees eet of supplementen gebruikt?", true),
 
             new RealFakeData("klimaat",
             "Toppen Himalaya door lockdown voor eerst in decennia weer te zien", true),

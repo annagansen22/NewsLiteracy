@@ -116,14 +116,14 @@ public class AIComponent : MonoBehaviour
             {
                 if (scene == currentScene)
                 {
-                    nextScene = feedbackScene;
+                    nextScene = reflectionScene;
                     lastGameScene = scene;
                 }
-                if (feedbackScene == currentScene)
-                {
-                    nextScene = reflectionScene;
-                }
                 if (reflectionScene == currentScene)
+                {
+                    nextScene = feedbackScene;
+                }
+                if (feedbackScene == currentScene)
                 {
                     nextScene = informationScene;
                 }

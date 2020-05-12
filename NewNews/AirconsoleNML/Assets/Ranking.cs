@@ -9,6 +9,6 @@ public class Ranking : MonoBehaviour
     {
         string teamName = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().teams[0].getTeamName();
         string teamFollowers = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().teams[0].getScore().ToString();
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b>" + teamName +" has won with " + teamFollowers +" followers!</b>";
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b>" + teamName +" heeft gewonnen met " + teamFollowers +" followers!</b>";
     }
 }

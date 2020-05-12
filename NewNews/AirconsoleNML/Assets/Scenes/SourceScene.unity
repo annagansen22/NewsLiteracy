@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stampObject: {fileID: 862976234}
+  waitTime: 5
 --- !u!4 &500463337
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,8 +1505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b> Bekijk bronnen om antwoord te vinden op de volgende vraag: </b> \n\n
-    Example Sentence!'
+  m_text: <b> Zoek de bron</b> \n\n Example Sentence!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1574,12 +1574,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2026552953}
-    characterCount: 81
+    characterCount: 34
     spriteCount: 0
-    spaceCount: 16
-    wordCount: 13
+    spaceCount: 8
+    wordCount: 6
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

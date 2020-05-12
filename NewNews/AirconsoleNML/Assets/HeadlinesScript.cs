@@ -71,7 +71,7 @@ public class HeadlinesScript : MonoBehaviour
             {"klimaat", "klimaat"}
         };
 
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> \n\n\n\n\n\n Bedenk je eigen nep titel met de trefwoord '" + keyword + "' met het onderwerp '" + topics[topic] + "'. \n\n Houd de anderen voor de gek door te geloven dat het echt is! </b>";
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> \n\n\n\n\n\n Bedenk je eigen nep titel met het trefwoord '" + keyword + "' met het onderwerp '" + topics[topic] + "'. \n\n Houd de anderen voor de gek door te geloven dat het echt is! </b>";
         GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().fontSize = 72;
         // Send instructions to controller to change to Input layout
         gameLogic.GetComponent<AIComponent>().SetView("view-8");
@@ -105,7 +105,7 @@ public class HeadlinesScript : MonoBehaviour
         if (gameLogic.GetComponent<GameStats>().allTeamsReady() && !showOptions)
         {
             showOptions = true;
-            GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Welke is de echte? </b>";
+            GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Welke van deze nieuwskoppen is afkomstig van een echt nieuwsartikel en is dus niet door een van de teams verzonnen? </b>";
             GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().fontSize = 32;
 
             // reset readiness
