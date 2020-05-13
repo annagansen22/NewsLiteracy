@@ -16,7 +16,7 @@ public class AIComponent : MonoBehaviour
     public string reflectionScene;
     public string informationScene;
     private int hardCodeMiniGame = 0;
-
+    private string abc;
 
     private System.DateTime maxTime;
     private string lastGameScene;
@@ -41,27 +41,29 @@ public class AIComponent : MonoBehaviour
 
     public void AssignTeamNames(int device_id, string teamname)
     {
-
-        if (!AirConsole.instance.IsAirConsoleUnityPluginReady())
-        {
-            Debug.LogWarning("can't assign team names until plugin is ready");
-            return;
-        }
-
-        AirConsole.instance.SetCustomDeviceStateProperty("teamnames", UpdateTeamNames(device_id, teamname));
-    }
-
-    public static JToken UpdateTeamNames(int deviceId, string teamName)
-    {
-
-        //make TeamNameData and store it as a JObject 
         JObject TeamNameData = new JObject();
-        TeamNameData.Add(deviceId.ToString(), teamName);
-
-        //logging and returning the TeamNameData
-        Debug.Log("AssignTeamName for device " + deviceId + " returning new TeamNameData: " + TeamNameData);
-        return TeamNameData;
+        //if (TeamNameData[device_id.ToString()] == null)
+        //{
+        //    TeamNameData.Add(device_id.ToString(), teamname);
+        //}
+        //else
+        //{
+        //    TeamNameData[device_id.ToString()] = teamname;
+        //}
+        //Debug.Log("AssignTeamName for device " + device_id + " returning new TeamNameData: " + TeamNameData);
+        //AirConsole.instance.SetCustomDeviceState(TeamNameData);
+        if(TeamNameData["teamnames"] == null) 
+        {
+            TeamNameData.Add("teamnames", teamname);
+        }
+        else
+        {
+            TeamNameData["teamnames"] = teamname;
+        }
+        AirConsole.instance.Message(device_id,TeamNameData);
     }
+
+
 
     public void personalizedMessage()
     {

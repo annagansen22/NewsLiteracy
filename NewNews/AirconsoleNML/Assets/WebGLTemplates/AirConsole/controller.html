@@ -276,7 +276,7 @@
 
             me.airconsole.onMessage = function (from, data) {
                 console.log("onMessage", from, data);
-                if (from == AirConsole.SCREEN) {
+                if (from == "0") {
                     if (data != null) {
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
@@ -312,6 +312,19 @@
                             for (j = 1; j <= data['buttonNr']; j++) {
                                 document.getElementById('view-4-' + j).firstElementChild.style.color = "white";
                             }
+                        }
+                        else if (data["teamnames"]) {
+                            TeamName = data["teamnames"];
+                            document.getElementById("team-name").innerHTML = "Welkom! Uw teamnaam is " + TeamName;
+                            document.getElementById("view-1-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-2-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-3-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-4-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-5-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-6-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-7-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-8-team-name").innerHTML = "Team: " + TeamName;
+                            document.getElementById("view-9-team-name").innerHTML = "Team: " + TeamName;
                         }
                     }
                 }
@@ -352,32 +365,19 @@
                         }
                         ViewManager.show(device_data);
                     }
-                    if (device_data['teamnames'] != null) {
-                        if (device_data['teamnames'][me.airconsole.getDeviceId()] != null) {
-                            TeamName = device_data['teamnames'][me.airconsole.getDeviceId()];
-                            document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
-                            document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-6-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
-                            document.getElementById("view-9-team-name").textContent = "Team: " + TeamName;
-                        }
-                    };
-                    //if (device_data['realfake'] != null) {
-                    //    if (device_data['realfake'][me.airconsole.getDeviceId()] != null) {
-                    //        feedback = device_data['realfake'][me.airconsole.getDeviceId()];
-                    //        if (feedback == "true") {
-                    //            document.getElementById("feedback-header").textContent = feedback_positive[Math.floor(Math.random() * feedback_positive.length)]
-                    //        }
-                    //        else if (feedback == "false") {
-                    //            document.getElementById("feedback-header").textContent = feedback_negative[Math.floor(Math.random() * feedback_negative.length)]
-                    //        }
-                    //    }
-                    //};
+                    if (device_data[me.airconsole.getDeviceId()] != null && TeamNames.includes(device_data[me.airconsole.getDeviceId()])) {
+                        TeamName = device_data[me.airconsole.getDeviceId()];
+                        document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
+                        document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-6-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
+                        document.getElementById("view-9-team-name").textContent = "Team: " + TeamName;
+                    }
                 };
             };
 
