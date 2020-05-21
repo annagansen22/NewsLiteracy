@@ -16,7 +16,6 @@ public class EntryScreen : MonoBehaviour
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onDisconnect += OnDisconnect;
-
     }
 
 
@@ -41,7 +40,7 @@ public class EntryScreen : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().allTeamsReady())
                         {
                             sendteamnames();
-                            StartCoroutine(WaitForSeconds(10));
+                            StartCoroutine(WaitForSeconds(1));
                             
                         }
                     }

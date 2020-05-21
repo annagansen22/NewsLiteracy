@@ -14,7 +14,10 @@ public class ChosenTopics : MonoBehaviour
         // Set Controller View
         string[] topics = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getChosenTopics();
 
-        string text = "Dit zijn de top 3 onderwerpen geworden waar het spel over zal gaan:\n\n1. "+topics[0] + "\n2. "+ topics[1] +"\n3. "+ topics[2];
+        string text = "Dit zijn de top 3 onderwerpen geworden waar het spel over zal gaan:\n\n1. "
+            + remUnderscoreAndCap(topics[0]) + "\n2. "
+            + remUnderscoreAndCap(topics[1]) + "\n3. "
+            + remUnderscoreAndCap(topics[2]);
 
         GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = text;
 
@@ -33,5 +36,12 @@ public class ChosenTopics : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
 
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().nextScene(SceneManager.GetActiveScene().name);
+    }
+
+    public string remUnderscoreAndCap(string topic)
+    {
+        string result = topic.Substring(0,1).ToUpper() + topic.Substring(1);
+        result = result.Replace("_", " ");
+        return result;
     }
 }

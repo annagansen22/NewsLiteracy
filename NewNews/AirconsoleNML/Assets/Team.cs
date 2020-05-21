@@ -12,6 +12,30 @@ public class Team
     private bool teamReady = false;
     private bool boolAnswer;
     private string stringAnswer;
+    private bool[] votes = new bool[] { false, false, false, false, false, false };
+    //0 = Sport, 1 =  Politiek, 2 =  Actueel Nieuws, 3 = Klimaat, 4 = Showbusiness, 5 = Misdaad
+    //A = Sport, B =  Politiek, C =  Actueel Nieuws, D = Klimaat, E = Showbusiness, F = Misdaad
+
+    public void voteForTopic(int top)
+    {
+        votes[top] = true;
+    }
+
+    public bool hasChosenThreeTopics()
+    {
+        int i = 0;
+        foreach (bool b in votes)
+        {
+            if (b) i++;
+        }
+        return i >= 3;
+    }
+
+    public bool[] getVotes()
+    {
+        return votes;
+    }
+
 
     public int getThreeVotes()
     {
