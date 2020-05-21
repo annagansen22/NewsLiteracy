@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InformationScene.unity
     guid: edc9a0847d4773d4b8ef6bdf69810cb6
+  - enabled: 1
+    path: Assets/Scenes/ChosenTopicScene.unity
+    guid: e0ddb20d36cdc244ca9395d4c2cb911b
   m_configObjects: {}

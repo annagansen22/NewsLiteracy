@@ -81,6 +81,24 @@ public class GamesData : MonoBehaviour
             "SBS past Lachen om Home Video’s aan naar Kijken naar Home Video’s", false),
             new RealFakeData("showbusiness",
             "Morgen DWDD zonder studio, presentator, camera", false),
+            new RealFakeData("showbusiness",
+            "Amy Schumer komt terug op babynaam die klinkt als ‘genital’", true),
+            new RealFakeData("showbusiness",
+            "Jelte blikt terug op bewogen logeerpartij bij boerin Annemiek: ‘Ze stak anders in elkaar’", true),
+            new RealFakeData("showbusiness",
+            "Demi Lovato en Selena Gomez niet langer vriendinnen", true),
+            new RealFakeData("showbusiness",
+            "Faillissement op de loer voor familie Meiland", true),
+            new RealFakeData("showbusiness",
+            "'Gewoon Opnieuw' door Alex Klaasen wint Annie M.G. Schmidtprijs", true),
+            new RealFakeData("showbusiness",
+            "Bibi Breijman openhartig over burn-out, haar relatie met Waylon en ruzie met Monica Geuze", true),
+            new RealFakeData("showbusiness",
+            "Valsspelers, gevaarlijke spelletjes en een nieuw koppel doet z’n intrede: dit was aflevering acht van ‘Temptation Island’", true),
+            new RealFakeData("showbusiness",
+            "Bobbi Eden durft de deur niet meer uit", true),
+            new RealFakeData("showbusiness",
+            "Marco Borsato eist excuses Henny Huisman", true),
 
             new RealFakeData("politics",
             "Kuzu (DENK) beschuldigt 'strijdmakker' Özturk van 'politieke broedermoord'", true),
@@ -90,6 +108,26 @@ public class GamesData : MonoBehaviour
             "Docenten nemen telefoons ministers in en geven ze pas weer terug na oplossing", false),
             new RealFakeData("politics",
             "Woedende RIVM stort bak vol cijfers uit over Malieveld", false),
+            new RealFakeData("politics",
+            "Als je haar maar goed zit – maar hoe krijgt premier Rutte dat voor elkaar?", true),
+            new RealFakeData("politics",
+            "Ruim 5000 leerlingen 'kwijt', minister Slob roept op om te blijven zoeken", true),
+            new RealFakeData("politics",
+            "Slob: we moeten het woord 'coronadiploma' niet meer gebruiken", true),
+            new RealFakeData("politics",
+            "Coronavirus maakt nieuwe bn'ers", true),
+            new RealFakeData("politics",
+            "Testament opstellen moet nu ook via Skype kunnen", true),
+            new RealFakeData("politics",
+            "Karaktermoord op Thierry Baudet", true),
+            new RealFakeData("politics",
+            "Kamerlid: 'Hufterigheid komt tot ontploffing in oudjaarsnacht'", true),
+            new RealFakeData("politics",
+            "Playboy-affaire VVD’ers duikt op in archief: ‘Vunzig. Verwaand. Dom’", true),
+            new RealFakeData("politics",
+            "Turkse asielzoeker moet vanaf 1 mei verplicht inburgeren", true),
+            new RealFakeData("politics",
+            "Rutte: Let op, er wordt dit weekend bekeurd", true),
 
             new RealFakeData("actueel_nieuws",
             "Trumps naam komt op 'coronacheques' die Amerikanen ontvangen", true),
@@ -99,16 +137,49 @@ public class GamesData : MonoBehaviour
             "Neef met slechte internetverbinding door familie verstoten", false),
             new RealFakeData("actueel_nieuws",
             "Zo krijg je superveel matches in de nieuwe corona-app", false),
+            new RealFakeData("actueel_nieuws",
+            "Start Tour de France verschoven naar 29 augustus", true),
+            new RealFakeData("actueel_nieuws",
+            "Op deze school in Brabant wordt alweer les gegeven", true),
+            new RealFakeData("actueel_nieuws",
+            "‘Rouwband’ om eik als wapen tegen processierups: hier willen ze de jeuk voor zijn", true),
+            new RealFakeData("actueel_nieuws",
+            "Aardbeving tijdens quarantaine: ‘Je denkt dat je doodgaat’", true),
+            new RealFakeData("actueel_nieuws",
+            "’Vermoorde man Haarlem is Arubaan’", true),
+            new RealFakeData("actueel_nieuws",
+            "Amsterdam wint strijd tegen meer toeristenwinkels", true),
+            new RealFakeData("actueel_nieuws",
+            "VS stopt financiering gezondheidsorganisatie WHO om 'desinformatie'", true),
+            new RealFakeData("actueel_nieuws",
+            "Jezus blijft in grot: 'onverantwoord om nu uit de dood op te staan'", false),
+            new RealFakeData("actueel_nieuws",
+            "Kernenergie kan helpen bij aanpak klimaat, maar dat gaat wel wat kosten", true),
 
             new RealFakeData("misdaad",
             "530 xtc-pillen tussen de puzzelstukjes", true),
             new RealFakeData("misdaad",
-            "Veroordeelde moordenaar van man in Bredase flat meldt zich bij politie", true),
-            new RealFakeData("misdaad",
             "Klik hier voor een EXCLUSIEVE gratis masterclass ‘mensen online oplichten’", false),
             new RealFakeData("misdaad",
             "Alweer kind (2) met wapen opgepakt", false),
-
+            new RealFakeData("misdaad",
+            "Agenten schieten man in been na melding huiselijk geweld", true),
+            new RealFakeData("misdaad",
+            "Steekpartij bij Penitentiaire Inrichting Alphen aan den Rijn", true),
+            new RealFakeData("misdaad",
+            "Jongen (15) meldt zich bij politie na pesten homostel ", true),
+            new RealFakeData("misdaad",
+            "Vrouw trouwt met man die haar redde tijdens schietpartij in Las Vegas", true),
+            new RealFakeData("misdaad",
+            "Jeugdzorg en Kinderbescherming zien geen toename in meldingen kindermishandeling", true),
+            new RealFakeData("misdaad",
+            "Wijkagent ruikt tijdens gesprek wietgeur en ontdekt hennepkwekerij", true),
+            new RealFakeData("misdaad",
+            "Verdachte van gewelddadige dood fotomodel Carolien (39) blijft vastzitten", true),
+            new RealFakeData("misdaad",
+            "Valse bekentenis in zaak - Arnhemse villamoord", true),
+            new RealFakeData("misdaad",
+            "Vrouw beroofd bij geldautomaat, politie zoekt getuigen", true),
 
             new RealFakeData("sport",
             "Lokomotiv Moskou-speler Samochvalov (22) overleden tijdens training", true),
@@ -117,7 +188,9 @@ public class GamesData : MonoBehaviour
             new RealFakeData("sport",
             "Nederlanders verliezen massaal interesse in darts na aftocht Barney", false),
             new RealFakeData("sport",
-            "Gezondheidsvoordelen van hardlopen blijkt een hoax", false),
+            "'GÉÉN VOETBAL & FESTIVALS TOT EINDE 2021'", false),
+            new RealFakeData("sport",
+            "Oud-Formule 1-coureur Stirling Moss op negentigjarige leeftijd overleden", true),
 
             new RealFakeData("klimaat",
             "Toppen Himalaya door lockdown voor eerst in decennia weer te zien", true),
@@ -126,15 +199,35 @@ public class GamesData : MonoBehaviour
             new RealFakeData("klimaat",
             "Komt door klimaatverandering het tussenjaar in gevaar?", false),
             new RealFakeData("klimaat",
-            "Mannelijke wetenschappers: vrouwen voor 80% verantwoordelijk voor klimaatverandering", false)
+            "Klimaatwetenschappers: ‘Niets doen is een uitstekende optie’", false),
+            new RealFakeData("klimaat",
+            "Mannelijke wetenschappers: vrouwen voor 80% verantwoordelijk voor klimaatverandering", false),
+            new RealFakeData("klimaat",
+            "Klimaatopwarming: winter in Game of Thrones zal maar twee afleveringen duren", false),
+            new RealFakeData("klimaat",
+            "Kabinet laat klimaatdoelen 2030 varen: ‘We gaan wel voor de herkansing’", false),
+            new RealFakeData("klimaat",
+            "'Gezondheid kinderen onder druk door commercie en klimaatverandering'", true),
+            new RealFakeData("klimaat",
+            "'Klimaatcrisis leidt tot meer geweld tegen vrouwen en meisjes'", true),
+            new RealFakeData("klimaat",
+            "’Klimaatplannen even in de ijskast’", true),
+            new RealFakeData("klimaat",
+            "Beter reisklimaat op Antarctica", true),
+            new RealFakeData("klimaat",
+            "Klimaatvraag: Zijn vliegtuigstrepen 'goed' voor het klimaat?", true),
+            new RealFakeData("klimaat",
+            "Eerste Nederlandse vulkaan ‘komt er’", false),
+            new RealFakeData("klimaat",
+            "Warmste 31 januari in De Bilt ooit gemeten", true)
         };
         return data;
     }
 
     private List<string> getHardcodedReflectionData()
     {
-        List<string> data = new List<string>() { 
-            "Hoe vonden jullie deze minigame gaan?", 
+        List<string> data = new List<string>() {
+            "Hoe vonden jullie deze minigame gaan?",
             "Welke strategie hebben jullie gebruikt bij het beantwoorden van de vragen?",
             "Heeft iedereen meegewerkt in het beantwoorden van de vragen?"};
         return data;
@@ -242,17 +335,23 @@ public class GamesData : MonoBehaviour
     private List<HeadlineData> getHardcodedHeadlineData()
     {
         List<HeadlineData> data = new List<HeadlineData>() {
-            new HeadlineData("showbusiness", "Olcay Gulsen", "Komt er nu al een einde aan Shownieuws-avontuur Olcay Gulsen?"),
+            new HeadlineData("showbusiness", "Disney", "Disney stelt première van animatiefilm Soul uit tot 20 november"),
+            new HeadlineData("showbusiness", "James Bond", "Collectie James Bond pistolen ter waarde van ruim 100.000 euro gestolen"),
 
-            new HeadlineData("politics", "Kuzu", "Kuzu (DENK) beschuldigt 'strijdmakker' Özturk van 'politieke broedermoord'"),
+            new HeadlineData("politics", "50Plus", "Er is wéér gedonder bij 50Plus"),
+            new HeadlineData("politics", "wapen", "Tieners grijpen steeds vaker naar wapen in Amsterdam"),
 
-            new HeadlineData("actueel_nieuws", "Trumps naam", "Trumps naam komt op 'coronacheques' die Amerikanen ontvangen"),
+            new HeadlineData("actueel_nieuws", "lockdown", "Mag het noorden als eerste uit de lockdown?"),
+            new HeadlineData("actueel_nieuws", "complottheorieën", "Hoe complottheorieën over 5G en het coronavirus zich verspreiden"),
 
-            new HeadlineData("misdaad", "puzzelstukjes", "530 xtc-pillen tussen de puzzelstukjes"),
+            new HeadlineData("misdaad", "moordenaar", "Veroordeelde moordenaar van man in Bredase flat meldt zich bij politie"),
+            new HeadlineData("misdaad", "straatroof", "Tieners slaan en schoppen slachtoffer gewelddadige straatroof"),
 
-            new HeadlineData("sport", "Lokomotiv", "Lokomotiv Moskou-speler Samochvalov (22) overleden tijdens training"),
+            new HeadlineData("sport", "Titelverdediger", "Titelverdediger Bernal: ‘Vierenhalve maand om in vorm te komen’"),
+            new HeadlineData("sport", "Tyson Fury", "Komt het gevecht van de eeuw er aan? Anthony Joshua daagt Tyson Fury uit"),
 
-            new HeadlineData("klimaat", "Himalaya", "Toppen Himalaya door lockdown voor eerst in decennia weer te zien")
+            new HeadlineData("klimaat", "klimaat", "Ruime meerderheid van Nederlanders denkt dat het klimaat verandert"),
+            new HeadlineData("klimaat", "CO2-uitstoot", "Sterkste afname CO2-uitstoot ooit door corona-pandemie")
         };
         return data;
     }

@@ -15,6 +15,7 @@ public class AIComponent : MonoBehaviour
     public string rankingScene;
     public string reflectionScene;
     public string informationScene;
+    public string chosenTopicScene;
     private int hardCodeMiniGame = 0;
     private string abc;
 
@@ -133,6 +134,7 @@ public class AIComponent : MonoBehaviour
             // OTHERWISE!!!
             // After entryscene do picktopics
             if (currentScene == entryScene) nextScene = pickTopicScene;
+            if (currentScene == pickTopicScene) nextScene = chosenTopicScene;
             //else if (nextScene == "") nextScene = minigameScenes[Random.Range(0, minigameScenes.Count)];
             else if (nextScene == "")
             {
