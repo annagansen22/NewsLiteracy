@@ -37,7 +37,8 @@ public class EntryScreen : MonoBehaviour
                         print("Team " + GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).getTeamName() + " pressed ready (dev id: " + device_id + ")");
                         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
 
-                        if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().allTeamsReady())
+                        if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().allTeamsReady() &&
+                            GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams().Count > 1)
                         {
                             sendteamnames();
                             StartCoroutine(WaitForSeconds(1));

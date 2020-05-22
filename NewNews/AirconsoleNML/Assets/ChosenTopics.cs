@@ -22,7 +22,7 @@ public class ChosenTopics : MonoBehaviour
         GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = text;
 
         //If this is uncommented, the scene works on a 5 sec timer instead of when all teams pressed okay
-        StartCoroutine(WaitForSecondsThenSwitchScene(10));
+        StartCoroutine(WaitForSecondsThenSwitchScene(1));
     }
 
     public IEnumerator WaitForSecondsThenSwitchScene(int sec)

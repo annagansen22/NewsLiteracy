@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using System;
 
 public class AIComponent : MonoBehaviour
 {
@@ -16,28 +17,36 @@ public class AIComponent : MonoBehaviour
     public string reflectionScene;
     public string informationScene;
     public string chosenTopicScene;
-    private int hardCodeMiniGame = 0;
+    private int prevScene = -1;
+    private int[] gameCount = new int[] { 0, 0, 0, 0 };
     private string abc;
 
     private System.DateTime maxTime;
     private string lastGameScene;
     private string lastScene;
+
+    private float reflectionLevel;
+    private float checkingLevel;
+
+    public void addAIData(float refl, float check, bool win)
+    {
+        if (!win)
+        {
+            refl *= -1;
+            check *= -1;
+        }
+        int amountOfTeams = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams().Count;
+        reflectionLevel += refl / amountOfTeams;
+        checkingLevel += check / amountOfTeams;
+
+        //after that assume they learnt anyway to promote diversity
+        reflectionLevel += refl / 2;
+        checkingLevel += check / 2;
+    }
+
     public void setMaxTime(System.DateTime date)
     {
         maxTime = date;
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void AssignTeamNames(int device_id, string teamname)
@@ -138,7 +147,13 @@ public class AIComponent : MonoBehaviour
             //else if (nextScene == "") nextScene = minigameScenes[Random.Range(0, minigameScenes.Count)];
             else if (nextScene == "")
             {
-                switch (hardCodeMiniGame)
+                // AI COMPONENT HARD AT WORK HERE
+                // 0 = realfake, 1 = sourcegame, 2 = headline, 3 = matching
+                int chosenMini = GetNextMiniGame();
+                prevScene = chosenMini;
+                int curGameCount = gameCount[chosenMini];
+                gameCount[chosenMini] = curGameCount + 1; ;
+                switch (chosenMini)
                 {
                     case 0:
                         nextScene = "RealFakeScene";
@@ -157,18 +172,49 @@ public class AIComponent : MonoBehaviour
                         nextScene = "RealFakeScene";
                         break;
                 }
-                hardCodeMiniGame++;
-                if (hardCodeMiniGame >= 3) hardCodeMiniGame = 0;
             }
-            print(Random.Range(0, minigameScenes.Count));
             loadScene(currentScene, nextScene);
         }
         else
         {
             //End game
-            print("GAME SHOULD END!!!");
             loadScene(currentScene, rankingScene);
         }
+    }
+
+    private int GetNextMiniGame()
+    {
+        print("gameCount: ");
+        foreach (var x in gameCount) Debug.Log(x.ToString());
+        print("reflectionLev: " + reflectionLevel + ", checkingLev: " + checkingLevel);
+        //Select randomly be default
+        int nextmini = UnityEngine.Random.Range(0, 4);
+        // 0 = realfake, 1 = sourcegame, 2 = headline, 3 = matching
+        if (reflectionLevel > checkingLevel)
+        {
+            //real fake or sourcegame 
+            if (prevScene == 0) nextmini = 1;
+            else if (prevScene == 1) nextmini = 0;
+            else
+            {
+                if (gameCount[0] > gameCount[1]) nextmini = 1;
+                else nextmini = 0;
+            }
+        }
+        else if (checkingLevel > reflectionLevel)
+        {
+            //headline or matchinh
+            if (prevScene == 2) nextmini = 3;
+            else if (prevScene == 3) nextmini = 2;
+            else
+            {
+                if (gameCount[2] > gameCount[3]) nextmini = 3;
+                else nextmini = 2;
+            }
+        }
+        //Else just do something random
+        print("next minigame is :" + nextmini);
+        return nextmini;
     }
 
     private void loadScene(string currentScene, string nextScene)

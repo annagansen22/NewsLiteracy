@@ -58,7 +58,6 @@ public class GameStats : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         GameObject.FindGameObjectWithTag("Teams").GetComponent<Teams>().instantiateTeams(teams);
-        print("Current Level: " + level);
     }
 
     // Update is called once per frame

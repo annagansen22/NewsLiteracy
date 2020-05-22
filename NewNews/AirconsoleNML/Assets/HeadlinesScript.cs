@@ -143,12 +143,14 @@ public class HeadlinesScript : MonoBehaviour
         }
         else if (gameLogic.GetComponent<GameStats>().allTeamsReady() && onlyDoOnce)
         {
+            AIComponent ai = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>();
             string feedback = "false";
             foreach (var team in gameLogic.GetComponent<GameStats>().getTeams())
             {
                 string answer = team.getStringAnswer();
                 if (answer.Equals(trueAnswer))
                 {
+                    ai.addAIData(0.8f, 0.2f, true);
                     team.addScore(100);
                     feedback = "true";
                     if (feedbackData["headlines"] == null)
@@ -162,6 +164,7 @@ public class HeadlinesScript : MonoBehaviour
                     AirConsole.instance.Message(team.getTeamDeviceID(), feedbackData);
                 }
                 else {
+                    ai.addAIData(0.8f, 0.2f, false);
                     foreach (HeadlineScores h in headlineScores)
                     {
                         if(h.Option.Equals(answer))

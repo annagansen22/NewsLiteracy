@@ -68,6 +68,8 @@ public class SourceGame : MonoBehaviour
             // Show answer
             stampObject.GetComponent<StampScript>().showStamp(trueAnswer);
 
+            AIComponent ai = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>();
+
             //Gather answers and give points
             foreach (Team t in GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams())
             {
@@ -75,6 +77,7 @@ public class SourceGame : MonoBehaviour
                 bool answer = t.getBoolAnswer();
                 if (answer == trueAnswer)
                 {
+                    ai.addAIData(0.0f, 1.0f, true);
                     t.addScore(100);
                     feedback = "true";
                     if (feedbackData["source"] == null)
@@ -89,6 +92,7 @@ public class SourceGame : MonoBehaviour
                 }
                 else
                 {
+                    ai.addAIData(0.0f, 1.0f, false);
                     if (feedbackData["source"] == null)
                     {
                         feedbackData.Add("source", feedback);
