@@ -126,6 +126,12 @@ public class GameL : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setAllTeamsNotReady();
             SceneManager.LoadScene("SourceScene");
         }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            print("Typed H -> Going Headlines Scene");
+            GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().setAllTeamsNotReady();
+            SceneManager.LoadScene("HeadlinesScene");
+        }
         else if (Input.GetKeyDown(KeyCode.T))
         {
             print("Typed T -> Printing topics");

@@ -7,6 +7,8 @@ using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 using UnityEngine.UI;
+using System.Globalization;
+using System;
 
 public class HeadlinesScript : MonoBehaviour
 {
@@ -127,7 +129,15 @@ public class HeadlinesScript : MonoBehaviour
                 int idx = indices[i];
                 headlineScores.Add(new HeadlineScores(team.getTeamDeviceID(), team.getStringAnswer(), 0, options[idx], idx));
                 buttons[idx].SetActive(true);
-                buttons[idx].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = "<b>" + options[idx] + "<b>: " + team.getStringAnswer();
+                string buttonText = "<b>" + options[idx] + "</b>: " + team.getStringAnswer();
+                string tempString = "";
+                foreach (char c in buttonText)
+                {
+                    char newC = c;
+                    if (char.GetUnicodeCategory(c) == UnicodeCategory.SpaceSeparator) tempString += " ";
+                    else tempString += newC;
+                }
+                buttons[idx].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = tempString;
                 print("device" + team.getTeamDeviceID() + " idx" + idx + " headline " + team.getStringAnswer());
                 i++;
             }
@@ -135,7 +145,7 @@ public class HeadlinesScript : MonoBehaviour
             // Set true headline
             trueAnswer = options[indices[i]];
             buttons[indices[i]].SetActive(true);
-            buttons[indices[i]].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = "<b>" + options[indices[i]] + "<b>: " + trueHeadline;
+            buttons[indices[i]].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = "<b>" + options[indices[i]] + "</b>: " + trueHeadline;
 
             print("set view to 4");
             // Send instructions to controller to change to Input layout
@@ -213,7 +223,7 @@ public class HeadlinesScript : MonoBehaviour
     {
         for (int i = 0; i < list.Count; i++)
         {
-            int rnd = Random.Range(0, list.Count);
+            int rnd = UnityEngine.Random.Range(0, list.Count);
             int tempGO = list[rnd];
             list[rnd] = list[i];
             list[i] = tempGO;

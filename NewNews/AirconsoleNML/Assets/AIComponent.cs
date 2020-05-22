@@ -184,6 +184,9 @@ public class AIComponent : MonoBehaviour
 
     private int GetNextMiniGame()
     {
+        //REMOVE THIS!!!
+        if (prevScene == -1) return 2;
+
         print("gameCount: ");
         foreach (var x in gameCount) Debug.Log(x.ToString());
         print("reflectionLev: " + reflectionLevel + ", checkingLev: " + checkingLevel);
