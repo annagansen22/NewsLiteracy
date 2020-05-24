@@ -92,7 +92,7 @@ public class EntryScreen : MonoBehaviour
     {
         //AirConsole.instance.SetActivePlayers();
         //AirConsole.instance.SetCustomDeviceState(1);
-        int t = 10;
+        int t = 1;
         string time = "";
         //time = FindObjectOfType<TMP_InputField>().text;
         print(time);
