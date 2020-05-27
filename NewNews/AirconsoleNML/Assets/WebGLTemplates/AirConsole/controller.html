@@ -16,6 +16,7 @@
     <script type="text/javascript">
         var TeamName;
         var TeamNames = ["De Telegraaf", "De Gelderlander", "Algemeen Dagblad", "De Volkskrant", "Trouw", "Tubantia", "Metro", "De Stentor"]
+        var Topics = ["view-1-section-1-element-0", "view-1-section-1-element-1", "view-1-section-2-element-0", "view-1-section-2-element-1", "view-1-section-3-element-0", "view-1-section-3-element-1"];
         var keyboard;
         var feedback;
         var rf_pf = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?", "Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?", "Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
@@ -25,6 +26,7 @@
         var h_pf = ["Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Jullie hebben flink jullie best gedaan, goed hoor!"]
         var h_nf = ["Denk in het volgende spel eraan dat iedereen van jullie team mee blijft doen!", "Was het lastig om de echte en neppe titels van elkaar te onderscheiden? Volgende keer beter!", "Let erop dat je genoeg met je teamleden blijft overleggen!", "Hoe ziet er echte titel er vaak uit? Bespreek het in jullie groepje."]
         var h_ff = ["Veel groepjes zijn erin getrapt! Jullie hadden een goede titel!"]
+        var picked = new Array();
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
             keyboard.bind("textfield1", {
@@ -49,10 +51,26 @@
             dbt.firstElementChild.style.color = "#ADEE00"
         }
 
+        function disableButton_pt(btn) {
+            var dbt = document.getElementById(btn.id);
+            dbt.style.pointerEvents = "none";
+            dbt.firstElementChild.style.color = "#ADEE00"
+            picked.push(btn.id);
+            if (picked.length == 3) {
+                for (i = 0; i < Topics.length; i++) {
+                    if (Topics[i] != picked[0] && Topics[i] != picked[1] && Topics[i] != picked[2]) {
+                        document.getElementById(Topics[i]).style.pointerEvents = "none";
+                    }
+                }
+                picked = [];
+            }
+        }
+
         function pressed(btn) {
             var dbt = document.getElementById(btn.id);
-            dbt.firstElementChild.style.color = "#ADEE00"
+            dbt.firstElementChild.style.color = "#ADEE00";
         }
+
 
         function start() {
             window.app = new App();
@@ -70,10 +88,8 @@
     <div id="controller-container" class="controller">
 
 
-        <!-- REPLACE_HERE START -->
-
         <div id="view-0" class="view section-view-btn">
-            <h3 class="section-header ">Wacht tot de andere teams verbinding hebben gemaakt</h3>
+            <h3 class="section-header ">Wacht tot de andere teams verbinding hebben gemaakt &#9995</h3>
             <h3 id="team-name" class="teamname-header"></h3>
             <div id="view-0-section-0" class="section " style="height: 100%;">
                 <div id="view-0-section-0-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
@@ -84,29 +100,29 @@
 
         <div id="view-1" class="view" style="display: none;">
             <h3 id="view-1-team-name" class="teamname"></h3>
-            <h3 class="section-header">Kies drie onderwerpen</h3>
+            <h3 class="section-header">Kies drie onderwerpen die je leuk vindt &#128076</h3>
             <div id="view-1-section-0" class="section button-cluster">
                 <div id="view-1-section-1" class="section height-100">
-                    <div id="view-1-section-1-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-1-element-0" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Sport</div>
                     </div>
-                    <div id="view-1-section-1-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-1-element-1" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Klimaat</div>
                     </div>
                 </div>
                 <div id="view-1-section-2" class="section height-100">
-                    <div id="view-1-section-2-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-2-element-0" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Politiek</div>
                     </div>
-                    <div id="view-1-section-2-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-2-element-1" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Beroemdheden</div>
                     </div>
                 </div>
                 <div id="view-1-section-3" class="section height-100">
-                    <div id="view-1-section-3-element-0" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-3-element-0" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Actueeel Nieuws</div>
                     </div>
-                    <div id="view-1-section-3-element-1" class="button-300-150 button-element element" ontouchstart="disableButton(this)">
+                    <div id="view-1-section-3-element-1" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Misdaad</div>
                     </div>
                 </div>
@@ -116,7 +132,8 @@
 
         <div id="view-2" class="view" style="display: none;">
             <h3 id="view-2-team-name" class="teamname"></h3>
-            <h3 class="section-header">Kies of deze nieuwskop afkomstig van een echt nieuwsartikel of niet</h3>
+            <h3 id="hurryup-rf" class="hurryup"></h3>
+            <h3 class="section-header">Kies of deze nieuwskop afkomstig van een echt nieuwsartikel of niet &#9989 &#10060</h3>
             <div id="view-2-section-0" class="section horizontal height-100">
                 <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Echt</div>
@@ -126,7 +143,6 @@
                 </div>
             </div>
         </div>
-
 
 
         <div id="view-3" class="view section-view-btn">
@@ -207,7 +223,8 @@
 
         <div id="view-7" class="view" style="display: none;">
             <h3 id="view-7-team-name" class="teamname"></h3>
-            <h3 class="section-header">Zoek op het internet voor bronnen om het antwoord te vinden op de vraag op het scherm</h3>
+            <h3 id="hurryup-s" class="hurryup"></h3>
+            <h3 class="section-header">Zoek op het internet voor bronnen om het antwoord te vinden op de vraag op het scherm &#9989 &#10060</h3>
             <div id="view-7-section-0" class="section horizontal height-100">
                 <div id="view-7-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Waar</div>
@@ -221,9 +238,10 @@
 
         <div id="view-8" class="view" style="display: none;">
             <h3 id="view-8-team-name" class="teamname"></h3>
-            <h3 class="headline-header">Voer hieronder een titel in</h3>
+            <h3 id="hurryup-h" class="hurryup"></h3>
+            <h3 class="headline-header">Voer hieronder een titel in &#128240</h3>
             <div class="textfield-phone" id="textfield1"></div>
-            <button class="headline-button button-300-150" id="headlineOK" ontouchstart="text_message()">OK</button>
+            <button class="headline-button button-300-150" id="headlineOK" ontouchstart="text_message()">antwoord versturen</button>
             <div id="my_keyboard"></div>
         </div>
 
@@ -232,7 +250,7 @@
             <h3 class="section-header">Discussieer de vraag op het scherm met je team</h3>
             <div id="view-9-section-0" class="section1 " style="height: 70%;">
                 <div id="view-9-section-0-element-0" class="button-300-150 button-element element" ontouchstart="pressed(this)">
-                    <div class="button-text1">OK</div>
+                    <div class="button-text1">we hebben het begrepen</div>
                 </div>
             </div>
         </div>
@@ -243,7 +261,6 @@
         </script>
 
 
-        <!-- REPLACE_HERE END -->
     </div>
 
     <!-- 3rd Party Libs -->
@@ -280,29 +297,29 @@
                     if (data != null) {
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
-                                document.getElementById("feedback-header").textContent = rf_pf[Math.floor(Math.random() * rf_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n"  + rf_pf[Math.floor(Math.random() * rf_pf.length)]
                             }
                             else if (data['realfake'] == "false") {
-                                document.getElementById("feedback-header").textContent = rf_nf[Math.floor(Math.random() * rf_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + rf_nf[Math.floor(Math.random() * rf_nf.length)]
                             }
                         }
                         else if (data['source']) {
                             if (data['source'] == "true") {
-                                document.getElementById("feedback-header").textContent = s_pf[Math.floor(Math.random() * s_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + s_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['source'] == "false") {
-                                document.getElementById("feedback-header").textContent = s_nf[Math.floor(Math.random() * s_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + s_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                         }
                         else if (data['headlines']) {
                             if (data['headlines'] == "true") {
-                                document.getElementById("feedback-header").textContent = h_pf[Math.floor(Math.random() * s_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + h_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['headlines'] == "false") {
-                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random() * s_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n" + h_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                             else if (data['headlines'] == "fooled") {
-                                document.getElementById("feedback-header").textContent = h_nf[Math.floor(Math.random() * h_ff.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie zijn erin geluisd, helaas niet goed ! &#128549 \r\n" + h_nf[Math.floor(Math.random() * h_ff.length)]
                             }
                         }
                         else if (data['buttonNr']) {
@@ -313,9 +330,20 @@
                                 document.getElementById('view-4-' + j).firstElementChild.style.color = "white";
                             }
                         }
+                        else if (data['hurryup']) {
+                            if (data['hurryup'] == "realfake") {
+                                document.getElementById("hurryup-rf").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
+                            }
+                            else if (data['hurryup'] == "headlines") {
+                                document.getElementById("hurryup-h").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
+                            }
+                            else if (data['hurryup'] == "source") {
+                                document.getElementById("hurryup-s").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
+                            }
+                        }
                         else if (data["teamnames"]) {
                             TeamName = data["teamnames"];
-                            document.getElementById("team-name").innerHTML = "Welkom! Uw teamnaam is " + TeamName;
+                            document.getElementById("team-name").innerHTML = "Welkom! Uw teamnaam is " + TeamName + "&#128515";
                             document.getElementById("view-1-team-name").innerHTML = "Team: " + TeamName;
                             document.getElementById("view-2-team-name").innerHTML = "Team: " + TeamName;
                             document.getElementById("view-3-team-name").innerHTML = "Team: " + TeamName;
@@ -352,10 +380,15 @@
                         if (device_data == "view-2") {
                             document.getElementById("view-2-section-0-element-0").firstElementChild.style.color = "white";
                             document.getElementById("view-2-section-1-element-0").firstElementChild.style.color = "white";
+                            document.getElementById("hurryup-rf").innerHTML = "";
                         }
                         else if (device_data == "view-7") {
                             document.getElementById("view-7-section-0-element-0").firstElementChild.style.color = "white";
                             document.getElementById("view-7-section-1-element-0").firstElementChild.style.color = "white";
+                            document.getElementById("hurryup-s").innerHTML = "";
+                        }
+                        else if (device_data == "view-8") {
+                            document.getElementById("hurryup-h").innerHTML = "";
                         }
                         else if (device_data == "view-9") {
                             document.getElementById("view-9-section-0-element-0").firstElementChild.style.color = "white";
@@ -364,20 +397,7 @@
                             document.getElementById("headlineOK").style.color = "white";
                         }
                         ViewManager.show(device_data);
-                    }
-                    if (device_data[me.airconsole.getDeviceId()] != null && TeamNames.includes(device_data[me.airconsole.getDeviceId()])) {
-                        TeamName = device_data[me.airconsole.getDeviceId()];
-                        document.getElementById("team-name").textContent = "Welkom! Uw teamnaam is " + TeamName;
-                        document.getElementById("view-1-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-2-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-3-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-4-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-5-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-6-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-7-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-8-team-name").textContent = "Team: " + TeamName;
-                        document.getElementById("view-9-team-name").textContent = "Team: " + TeamName;
-                    }
+                    };
                 };
             };
 

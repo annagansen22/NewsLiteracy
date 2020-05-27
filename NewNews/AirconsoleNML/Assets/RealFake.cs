@@ -13,11 +13,12 @@ public class RealFake : MonoBehaviour
     private bool trueAnswer;
     private RealFakeData data;
     private bool onlyDoOnce = true;
+    private bool Once = true;
     private GameObject gameLogic;
     public GameObject stampObject;
     public int waitTime = 1;
     private JObject feedbackData = new JObject();
-
+    private JObject hurryUpData = new JObject();
     void Start()
     {
         // Add onMessage
@@ -110,6 +111,24 @@ public class RealFake : MonoBehaviour
             AirConsole.instance.onMessage -= OnMessage;
             StartCoroutine(WaitForSecondsThenSwitchScene(waitTime));
         }
+        else if (gameLogic.GetComponent<GameStats>().halfTeamsReady() && Once)
+        {
+            foreach (string t in gameLogic.GetComponent<GameStats>().NotReadyTeams())
+            {
+                if (hurryUpData["hurryup"] == null)
+                {
+                    hurryUpData.Add("hurryup", "realfake");
+                }
+                else
+                {
+                    hurryUpData["hurryup"] = "realfake";
+                }
+
+                AirConsole.instance.Message(int.Parse(t), hurryUpData);
+            }
+            Once = false;
+        }
+
     }
 
     public IEnumerator WaitForSecondsThenSwitchScene(int sec)

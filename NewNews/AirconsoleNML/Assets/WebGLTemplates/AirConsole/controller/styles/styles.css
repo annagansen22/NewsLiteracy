@@ -99,8 +99,7 @@ h3.section-header{
 h3.teamname-header{
   text-align: center;
   color: #ADEE00;
-  font-size: 4vw
-  padding-bottom: 30px;
+  font-size: 4vw;
 }
 
 h3.feedback-header{
@@ -110,6 +109,7 @@ h3.feedback-header{
   padding-left: 10px;
   color: white;
   font-size: 4vw;
+  white-space: pre-line;
 }
 
 h3.feedback-header1{

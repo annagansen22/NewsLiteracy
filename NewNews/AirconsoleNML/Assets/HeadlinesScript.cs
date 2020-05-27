@@ -14,6 +14,7 @@ public class HeadlinesScript : MonoBehaviour
 {
     private bool showOptions = false;
     private bool onlyDoOnce = true;
+    private bool Once = true;
     private string trueHeadline;
     private string keyword;
     private string topic;
@@ -27,6 +28,7 @@ public class HeadlinesScript : MonoBehaviour
     private string trueAnswer;
     private List<HeadlineScores> headlineScores;
     private JObject feedbackData = new JObject();
+    private JObject hurryUpData = new JObject();
 
     // Start is called before the first frame update
     void Start()
@@ -216,6 +218,23 @@ public class HeadlinesScript : MonoBehaviour
             onlyDoOnce = false;
             AirConsole.instance.onMessage -= OnMessage;
             StartCoroutine(WaitForSecondsThenSwitchScene(waitTime));
+        }
+        else if (gameLogic.GetComponent<GameStats>().halfTeamsReady() && Once)
+        {
+            foreach (string t in gameLogic.GetComponent<GameStats>().NotReadyTeams())
+            {
+                if (hurryUpData["hurryup"] == null)
+                {
+                    hurryUpData.Add("hurryup", "headlines");
+                }
+                else
+                {
+                    hurryUpData["hurryup"] = "headlines";
+                }
+
+                AirConsole.instance.Message(int.Parse(t), hurryUpData);
+            }
+            Once = false;
         }
     }
     

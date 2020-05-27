@@ -13,10 +13,12 @@ public class SourceGame : MonoBehaviour
     private bool trueAnswer;
     private RealFakeData data;
     private bool onlyDoOnce = true;
+    private bool Once = true;
     private GameObject gameLogic;
     public GameObject stampObject;
     public int waitTime = 1;
     private JObject feedbackData = new JObject();
+    private JObject hurryUpData = new JObject();
 
     void Start()
     {
@@ -109,6 +111,23 @@ public class SourceGame : MonoBehaviour
             onlyDoOnce = false;
             AirConsole.instance.onMessage -= OnMessage;
             StartCoroutine(WaitForSecondsThenSwitchScene(waitTime));
+        }
+        else if (gameLogic.GetComponent<GameStats>().halfTeamsReady() && Once)
+        {
+            foreach (string t in gameLogic.GetComponent<GameStats>().NotReadyTeams())
+            {
+                if (hurryUpData["hurryup"] == null)
+                {
+                    hurryUpData.Add("hurryup", "source");
+                }
+                else
+                {
+                    hurryUpData["hurryup"] = "source";
+                }
+
+                AirConsole.instance.Message(int.Parse(t), hurryUpData);
+            }
+            Once = false;
         }
     }
 

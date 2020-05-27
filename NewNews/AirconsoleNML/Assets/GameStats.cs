@@ -18,6 +18,7 @@ public class GameStats : MonoBehaviour
     "Klimaat", "Showbusiness", "Misdaad"};
     private int teamCount = 0;
     private List<Tuple<string, int>> topics = new List<Tuple<string, int>>();
+    private List<string> not_ready_teams = new List<string>();
     public string[] chosenTopics;
 
     private void Awake()
@@ -124,6 +125,12 @@ public class GameStats : MonoBehaviour
         else return amountOfTeams() == amountOfReadyTeams();
     }
 
+    public bool halfTeamsReady()
+    {
+        if (amountOfTeams() < 1) return false;
+        else return (int)Math.Ceiling((double)amountOfTeams() / 2) == amountOfReadyTeams();
+    }
+
     private class teamSort : IComparer<Team>
     {
         int IComparer<Team>.Compare(Team _objA, Team _objB)
@@ -160,6 +167,15 @@ public class GameStats : MonoBehaviour
             if (team.getTeamReady() == true) i += 1;
         }
         return i;
+    }
+
+    public List<string> NotReadyTeams()
+    {
+        foreach (Team team in teams)
+        {
+            if (team.getTeamReady() == false) not_ready_teams.Add(team.getTeamDeviceID().ToString());
+        }
+        return not_ready_teams;
     }
 
     public void setAllTeamsNotReady()

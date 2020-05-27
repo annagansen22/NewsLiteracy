@@ -11,12 +11,13 @@
 }
 
 .headline-button{
-  height: 80px;
-  width: 150px;
+  height: 100px;
+  width: 300px;
   background-color: transparent;
   border: 0;
   color: white;
   margin: 10px;
+  font-size: 3.2vw;
 }
 
 .teamname{
@@ -25,6 +26,14 @@
   padding-right: 10px;
   font-size: 1.1em;
   color: #ADEE00;
+}
+
+.hurryup{
+  height: 2px;
+  text-align: center;
+  padding-right: 10px;
+  font-size: 1.1em;
+  color: red;
 }
 
 .textfield {
@@ -40,10 +49,9 @@
 .textfield-phone {
   display: inline-block;
   border: 1px solid #888888;
-  width: 600px;
+  width: 520px;
   padding: 8px;
   height: 25px;
-  margin-left: 20px;
   background-color:white;
 }
 
