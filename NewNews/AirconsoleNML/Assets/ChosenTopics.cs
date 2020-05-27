@@ -9,20 +9,22 @@ using TMPro;
 
 public class ChosenTopics : MonoBehaviour
 {
+
+    public TextMeshProUGUI topic1;
+    public TextMeshProUGUI topic2;
+    public TextMeshProUGUI topic3;
     void Start()
     {
         // Set Controller View
         string[] topics = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getChosenTopics();
 
-        string text = "Dit zijn de top 3 onderwerpen geworden waar het spel over zal gaan:\n\n1. "
-            + remUnderscoreAndCap(topics[0]) + "\n2. "
-            + remUnderscoreAndCap(topics[1]) + "\n3. "
-            + remUnderscoreAndCap(topics[2]);
-
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = text;
+        // Set topic buttons
+        topic1.text = remUnderscoreAndCap(topics[0]);
+        topic2.text = remUnderscoreAndCap(topics[1]);
+        topic3.text = remUnderscoreAndCap(topics[2]);
 
         //If this is uncommented, the scene works on a 5 sec timer instead of when all teams pressed okay
-        StartCoroutine(WaitForSecondsThenSwitchScene(1));
+        StartCoroutine(WaitForSecondsThenSwitchScene(10));
     }
 
     public IEnumerator WaitForSecondsThenSwitchScene(int sec)

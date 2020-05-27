@@ -78,6 +78,7 @@ public class RealFake : MonoBehaviour
                 bool answer = t.getBoolAnswer();
                 if (answer == trueAnswer)
                 {
+                    //When the team gave a correct answer
                     ai.addAIData(0.0f, 1.0f, true);
                     t.addScore(100);
                     feedback = "true";
@@ -93,6 +94,7 @@ public class RealFake : MonoBehaviour
                 }
                 else
                 {
+                    //When the team gave a wrong answer
                     ai.addAIData(0.0f, 1.0f, false);
                     if (feedbackData["realfake"] == null)
                     {
