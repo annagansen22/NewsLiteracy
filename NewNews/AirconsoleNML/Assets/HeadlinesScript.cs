@@ -15,6 +15,7 @@ public class HeadlinesScript : MonoBehaviour
     private bool showOptions = false;
     private bool onlyDoOnce = true;
     private bool Once = true;
+    private bool transition = false;
     private string trueHeadline;
     private string keyword;
     private string topic;
@@ -152,6 +153,24 @@ public class HeadlinesScript : MonoBehaviour
             print("set view to 4");
             // Send instructions to controller to change to Input layout
             gameLogic.GetComponent<AIComponent>().SetView("view-4");
+            transition = true;
+        }
+        else if (gameLogic.GetComponent<GameStats>().halfTeamsReady() && transition)
+        {
+            foreach (string t in gameLogic.GetComponent<GameStats>().NotReadyTeams())
+            {
+                if (hurryUpData["hurryup"] == null)
+                {
+                    hurryUpData.Add("hurryup", "headlines_choose");
+                }
+                else
+                {
+                    hurryUpData["hurryup"] = "headlines_choose";
+                }
+
+                AirConsole.instance.Message(int.Parse(t), hurryUpData);
+            }
+            transition = false;
         }
         else if (gameLogic.GetComponent<GameStats>().allTeamsReady() && onlyDoOnce)
         {

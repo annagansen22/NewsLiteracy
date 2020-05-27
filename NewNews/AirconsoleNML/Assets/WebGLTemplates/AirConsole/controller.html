@@ -154,6 +154,7 @@
 
         <div id="view-4" class="view" style="display: none;">
             <h3 id="view-4-team-name" class="teamname"></h3>
+            <h3 id="hurryup-hc" class="hurryup"></h3>
             <div class="view-content">
                 <div id="view-4-section-0" class="section height-100">
                     <div id="view-4-1" class="button-300-150 button-element element" ontouchstart="pressed(this)">
@@ -297,29 +298,29 @@
                     if (data != null) {
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n"  + rf_pf[Math.floor(Math.random() * rf_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
                             }
                             else if (data['realfake'] == "false") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + rf_nf[Math.floor(Math.random() * rf_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + rf_nf[Math.floor(Math.random() * rf_nf.length)]
                             }
                         }
                         else if (data['source']) {
                             if (data['source'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + s_pf[Math.floor(Math.random() * s_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + "\r\n" + s_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['source'] == "false") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + s_nf[Math.floor(Math.random() * s_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + s_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                         }
                         else if (data['headlines']) {
                             if (data['headlines'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + h_pf[Math.floor(Math.random() * s_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + "\r\n" + h_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['headlines'] == "false") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n" + h_nf[Math.floor(Math.random() * s_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n" + "\r\n" + h_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                             else if (data['headlines'] == "fooled") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie zijn erin geluisd, helaas niet goed ! &#128549 \r\n" + h_nf[Math.floor(Math.random() * h_ff.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie zijn erin geluisd, helaas niet goed ! &#128549 \r\n" + "\r\n" + h_nf[Math.floor(Math.random() * h_ff.length)]
                             }
                         }
                         else if (data['buttonNr']) {
@@ -336,6 +337,9 @@
                             }
                             else if (data['hurryup'] == "headlines") {
                                 document.getElementById("hurryup-h").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
+                            }
+                            else if (data['hurryup'] == "headlines_choose") {
+                                document.getElementById("hurryup-hc").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
                             }
                             else if (data['hurryup'] == "source") {
                                 document.getElementById("hurryup-s").innerHTML = "De andere teams wachten op jullie antwoord &#9203";
@@ -381,6 +385,9 @@
                             document.getElementById("view-2-section-0-element-0").firstElementChild.style.color = "white";
                             document.getElementById("view-2-section-1-element-0").firstElementChild.style.color = "white";
                             document.getElementById("hurryup-rf").innerHTML = "";
+                        }
+                        else if (device_data == "view-4") {
+                            document.getElementById("hurryup-hc").innerHTML = "";
                         }
                         else if (device_data == "view-7") {
                             document.getElementById("view-7-section-0-element-0").firstElementChild.style.color = "white";
