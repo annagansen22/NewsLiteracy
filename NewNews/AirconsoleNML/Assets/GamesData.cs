@@ -11,6 +11,7 @@ public class GamesData : MonoBehaviour
     public List<HeadlineData> headlineData;
     public List<string> reflectionData;
     public List<InformationData> informationData;
+    public List<MatchingData> matchingData;
 
     private void Start()
     {
@@ -19,6 +20,17 @@ public class GamesData : MonoBehaviour
         headlineData = getHardcodedHeadlineData();
         reflectionData = getHardcodedReflectionData();
         informationData = getHardcodedInformationData();
+        matchingData = getHardcodedMatchingData();
+    }
+
+    public List<MatchingData> getMatchingData()
+    {
+        return matchingData;
+    }
+
+    public void setMatchingData(List<MatchingData> data)
+    {
+        matchingData = data;
     }
 
     public List<string> getReflectionData()
@@ -356,6 +368,49 @@ public class GamesData : MonoBehaviour
 
             new HeadlineData("klimaat", "klimaat", "Ruime meerderheid van Nederlanders denkt dat het klimaat verandert"),
             new HeadlineData("klimaat", "CO2-uitstoot", "Sterkste afname CO2-uitstoot ooit door corona-pandemie")
+        };
+        return data;
+    }
+
+    private List<MatchingData> getHardcodedMatchingData()
+    {
+        List<MatchingData> data = new List<MatchingData>() {
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        }),
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        }),
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        }),
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        }),
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        }),
+            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            {"showbusiness", "show business"},
+            {"politics", "politiek"},
+            {"actueel_nieuws", "actueel nieuws"},
+            {"misdaad", "misdaad"},
+        })
         };
         return data;
     }

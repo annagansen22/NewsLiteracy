@@ -165,7 +165,7 @@ public class AIComponent : MonoBehaviour
                         nextScene = "HeadLinesScene";
                         break;
                     case 3:
-                        nextScene = "RealFakeScene";
+                        nextScene = "MatchingScene";
                         break;
                     /////////////////////////////////////////////
                     default:
@@ -206,7 +206,7 @@ public class AIComponent : MonoBehaviour
         }
         else if (checkingLevel > reflectionLevel)
         {
-            //headline or matchinh
+            //headline or matching
             if (prevScene == 2) nextmini = 3;
             else if (prevScene == 3) nextmini = 2;
             else

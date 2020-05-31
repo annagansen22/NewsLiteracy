@@ -22,7 +22,7 @@ public class HeadlinesScript : MonoBehaviour
     private HeadlineData data;
     private GameObject gameLogic;
     public GameObject headlinesObject;
-    public int waitTime = 1;
+    public int waitTime = 10;
     private List<string> options = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I" };
     private List<GameObject> buttons = new List<GameObject>();
     private List<int> indices;
@@ -68,7 +68,7 @@ public class HeadlinesScript : MonoBehaviour
 
         var topics = new Dictionary<string, string>()
         {
-            {"showbusiness", "beroemdheden"},
+            {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
@@ -176,8 +176,10 @@ public class HeadlinesScript : MonoBehaviour
         {
             AIComponent ai = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>();
             string feedback = "false";
+            // go through all teams 
             foreach (var team in gameLogic.GetComponent<GameStats>().getTeams())
             {
+                // Check if the team voted for the true headline
                 string answer = team.getStringAnswer();
                 if (answer.Equals(trueAnswer))
                 {
@@ -194,11 +196,12 @@ public class HeadlinesScript : MonoBehaviour
                     }
                     AirConsole.instance.Message(team.getTeamDeviceID(), feedbackData);
                 }
+                // when the team did not pick the true headline, they can still get points if other teams voted for their headline
                 else {
                     ai.addAIData(0.8f, 0.2f, false);
                     foreach (HeadlineScores h in headlineScores)
                     {
-                        if(h.Option.Equals(answer))
+                        if(h.Option.Equals(answer) && h.DeviceId != team.getTeamDeviceID())
                         {
                             h.FooledTeams += 1;
                             gameLogic.GetComponent<GameStats>().getTeam(h.DeviceId).addScore(100);
@@ -217,9 +220,10 @@ public class HeadlinesScript : MonoBehaviour
 
             }
 
+            // Send special feedback if people fooled other teams
             foreach (HeadlineScores h in headlineScores) 
             { 
-                if(h.FooledTeams > 2)
+                if(h.FooledTeams > 1)
                 {
                     feedback = "fooled";
                     if (feedbackData["headlines"] == null)
@@ -232,6 +236,17 @@ public class HeadlinesScript : MonoBehaviour
                     }
                 }
             }
+
+            // Show only true headline --> Get buttons and set them to inactive
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                if (i != indices[indices.Count - 1])
+                {
+                    buttons[i].SetActive(false);
+                }
+            }
+            GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Dit is de echte! </b>";
+            GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().fontSize = 72;
 
             // Wait for X seconds and go to next screen
             onlyDoOnce = false;

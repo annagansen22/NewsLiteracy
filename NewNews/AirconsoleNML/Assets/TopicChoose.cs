@@ -14,6 +14,7 @@ public class TopicChoose : MonoBehaviour
     //Tuple<string, int> politiek = new Tuple<string, int>("politiek", 0);
     //Tuple<string, int> klimaat = new Tuple<string, int>("klimaat", 0);
     //Tuple<string, int> misdaad = new Tuple<string, int>("misdaad", 0);
+    private JObject viewData = new JObject();
 
     public void Awake()
     {
@@ -61,9 +62,13 @@ public class TopicChoose : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).hasChosenThreeTopics())
             {
                 GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeam(device_id).setTeamReady(true);
+                // set controller view to waiting
+                if (viewData["view"] == null)
+                {
+                    viewData.Add("view", "view-10");
+                }
+                AirConsole.instance.Message(device_id, viewData);
             }
-            
-            
         }
         //printCount();
     }

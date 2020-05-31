@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class Team
     private bool teamReady = false;
     private bool boolAnswer;
     private string stringAnswer;
+    private List<int> matches = new List<int>();
     private bool[] votes = new bool[] { false, false, false, false, false, false };
     //0 = Sport, 1 =  Politiek, 2 =  Actueel Nieuws, 3 = Klimaat, 4 = Showbusiness, 5 = Misdaad
     //A = Sport, B =  Politiek, C =  Actueel Nieuws, D = Klimaat, E = Showbusiness, F = Misdaad
@@ -131,5 +133,29 @@ public class Team
     public int getTeamRank()
     {
         return teamRank;
+    }
+
+    public bool hasMatchedAll()
+    {
+        return matches.Count == 4;
+    }
+
+    public void voteMatch(int v)
+    {
+        if (!matches.Contains(v))
+        {
+            matches.Add(v);
+            Debug.Log("the list: " + matches);
+        }
+    }
+
+    public List<int> getMatches()
+    {
+        return matches;
+    }
+
+    public void clearMatches()
+    {
+        matches.Clear();
     }
 }
