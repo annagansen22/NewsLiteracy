@@ -381,31 +381,31 @@ public class GamesData : MonoBehaviour
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
         }),
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            new MatchingData("politics", new Dictionary<string, string>() {
             {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
         }),
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            new MatchingData("sport", new Dictionary<string, string>() {
             {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
         }),
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            new MatchingData("misdaad", new Dictionary<string, string>() {
             {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
         }),
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            new MatchingData("actueel_nieuws", new Dictionary<string, string>() {
             {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},
             {"misdaad", "misdaad"},
         }),
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
+            new MatchingData("klimaat", new Dictionary<string, string>() {
             {"showbusiness", "show business"},
             {"politics", "politiek"},
             {"actueel_nieuws", "actueel nieuws"},

@@ -42,6 +42,10 @@ public class AIComponent : MonoBehaviour
         //after that assume they learnt anyway to promote diversity
         reflectionLevel += refl / 2;
         checkingLevel += check / 2;
+
+        print("refl: " + reflectionLevel);
+        print("check: " + checkingLevel);
+
     }
 
     public void setMaxTime(System.DateTime date)
