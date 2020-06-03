@@ -11,13 +11,13 @@
 }
 
 .headline-button{
-  height: 100px;
+  height: 135px;
   width: 300px;
   background-color: transparent;
   border: 0;
   color: white;
   margin: 10px;
-  font-size: 3.2vw;
+  font-size: 3.1vw;
 }
 
 .teamname{
@@ -32,7 +32,7 @@
   height: 2px;
   text-align: center;
   padding-right: 10px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: red;
 }
 
@@ -49,7 +49,7 @@
 .textfield-phone {
   display: inline-block;
   border: 1px solid #888888;
-  width: 520px;
+  width: 700px;
   padding: 8px;
   height: 25px;
   background-color:white;
@@ -65,7 +65,7 @@ h3.margin-60{
 
 .button-text1 {
   width: 100%;
-  font-size: 4vw;
+  font-size: 3.5vw;
   text-align: center;
 }
 

@@ -45,6 +45,8 @@
         function disableButton(btn) {
             var dbt = document.getElementById(btn.id);
             dbt.style.pointerEvents = "none";
+            dbt.firstElementChild.style.color = "#ADEE00";
+
         }
 
         function disableButton_pt(btn) {
@@ -101,7 +103,7 @@
         <div id="view-1" class="view" style="display: none;">
             <h3 id="view-1-team-name" class="teamname"></h3>
             <h3 class="section-header">Kies drie onderwerpen die je leuk vindt &#128076</h3>
-            <div id="view-1-section-0" class="section button-cluster">
+            <div id="view-1-section-0" class="section button-cluster" style="height: 65%">
                 <div id="view-1-section-1" class="section height-100">
                     <div id="view-1-section-1-element-0" class="button-300-150 button-element element" ontouchstart="disableButton_pt(this)">
                         <div class="button-text">Sport</div>
@@ -134,8 +136,8 @@
             <h3 id="view-2-team-name" class="teamname"></h3>
             <h3 id="hurryup-rf" class="hurryup"></h3>
             <h3 class="section-header">Kies of deze nieuwskop afkomstig van een echt nieuwsartikel of niet &#9989 &#10060</h3>
-            <div id="view-2-section-0" class="section horizontal height-100">
-                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
+            <div id="view-2-section-0" class="section horizontal height-100" style="height: 90%">
+                <div id="view-2-section-0-element-0" class="button-300-150 button-element element height-50"  ontouchstart="pressed(this)">
                     <div class="button-text1">Echt</div>
                 </div>
                 <div id="view-2-section-1-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
@@ -232,7 +234,7 @@
             <h3 id="view-7-team-name" class="teamname"></h3>
             <h3 id="hurryup-s" class="hurryup"></h3>
             <h3 class="section-header">Zoek op het internet voor bronnen om het antwoord te vinden op de vraag op het scherm &#9989 &#10060</h3>
-            <div id="view-7-section-0" class="section horizontal height-100">
+            <div id="view-7-section-0" class="section horizontal height-100" style="height: 90%">
                 <div id="view-7-section-0-element-0" class="button-300-150 button-element element height-50" ontouchstart="pressed(this)">
                     <div class="button-text1">Waar</div>
                 </div>
@@ -255,7 +257,7 @@
         <div id="view-9" class="view section-view-btn">
             <h3 id="view-9-team-name" class="teamname"></h3>
             <h3 class="section-header">Discussieer de vraag op het scherm met je team</h3>
-            <div id="view-9-section-0" class="section1 " style="height: 70%;">
+            <div id="view-9-section-0" class="section1 " style="height: 55%;">
                 <div id="view-9-section-0-element-0" class="button-300-150 button-element element" ontouchstart="pressed(this)">
                     <div class="button-text1">We hebben het begrepen</div>
                 </div>
@@ -265,7 +267,7 @@
         <div id="view-10" class="view section-view-btn">
             <h3 id="view-10-team-name" class="teamname"></h3>
             <div id="view-10-section-0" class="section " style="height: 100%">
-                <h3 class="feedback-header1 ">Wacht tot de andere teams reageren!</h3>
+                <h3 class="feedback-header1 ">Wacht tot de andere teams reageren! &#9995</h3>
             </div>
         </div>
 
