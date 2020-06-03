@@ -42,6 +42,9 @@ public class MatchingScript : MonoBehaviour
         purposes = dict.Values.ToList();
         purposes = purposes.OrderBy(x => UnityEngine.Random.value).ToList();
 
+        // Set text
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "\n\n Match de " + data.getItem2() + " aan de " + data.getItem1() + " door A, B, C en D op de juiste volgorde aan te klikken op je scherm!";
+
         // Set Headlines in correct order
         IEnumerator<string> headlinesEnumerator = dict.Keys.GetEnumerator();
         headlinesEnumerator.MoveNext();
@@ -232,17 +235,9 @@ public class MatchingScript : MonoBehaviour
         List<MatchingData> dataList = GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GamesData>().getMatchingData();
 
         List<MatchingData> shuffledData = dataList.OrderBy(x => UnityEngine.Random.value).ToList();
-
-        foreach (MatchingData d in shuffledData)
-        {
-            string topic = d.getTopic();
-            if (topic == chosenTopics[0] || topic == chosenTopics[1] || topic == chosenTopics[2])
-            {
-                data = d;
-                shuffledData.Remove(d);
-                return shuffledData;
-            }
-        }
+        MatchingData d = shuffledData[0];
+        data = d;
+        shuffledData.Remove(d);
         return shuffledData;
     }
 }

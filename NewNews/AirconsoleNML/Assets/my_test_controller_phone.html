@@ -23,9 +23,6 @@
         var rf_nf = ["Check de bron om erachter te komen of nieuws echt of nep is!", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
         var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ", "Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ", "Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
         var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
-        var h_pf = ["Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Jullie hebben flink jullie best gedaan, goed hoor!"]
-        var h_nf = ["Denk in het volgende spel eraan dat iedereen van jullie team mee blijft doen!", "Was het lastig om de echte en neppe titels van elkaar te onderscheiden? Volgende keer beter!", "Let erop dat je genoeg met je teamleden blijft overleggen!", "Hoe ziet er echte titel er vaak uit? Bespreek het in jullie groepje."]
-        var h_ff = ["Veel groepjes zijn erin getrapt! Jullie hadden een goede titel!"]
         var picked = new Array();
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
@@ -314,7 +311,7 @@
                     if (data != null) {
                         if (data['realfake']) {
                             if (data['realfake'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "Je hebt &#128175 nieuwe volgers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
                             }
                             else if (data['realfake'] == "false") {
                                 document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + rf_nf[Math.floor(Math.random() * rf_nf.length)]
@@ -322,7 +319,7 @@
                         }
                         if (data['matching']) {
                             if (data['matching'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "Je hebt &#128175 nieuwe volgers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
                             }
                             else if (data['matching'] == "false") {
                                 document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + rf_nf[Math.floor(Math.random() * rf_nf.length)]
@@ -330,22 +327,14 @@
                         }
                         else if (data['source']) {
                             if (data['source'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + "\r\n" + s_pf[Math.floor(Math.random() * s_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "Je hebt &#128175 nieuwe volgers &#128525 \r\n" + "\r\n" + s_pf[Math.floor(Math.random() * s_pf.length)]
                             }
                             else if (data['source'] == "false") {
                                 document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + s_nf[Math.floor(Math.random() * s_nf.length)]
                             }
                         }
                         else if (data['headlines']) {
-                            if (data['headlines'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "You have &#128175 new followers &#128525 \r\n" + "\r\n" + h_pf[Math.floor(Math.random() * s_pf.length)]
-                            }
-                            else if (data['headlines'] == "false") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n" + "\r\n" + h_nf[Math.floor(Math.random() * s_nf.length)]
-                            }
-                            else if (data['headlines'] == "fooled") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie zijn erin geluisd, helaas niet goed ! &#128549 \r\n" + "\r\n" + h_nf[Math.floor(Math.random() * h_ff.length)]
-                            }
+                            document.getElementById("feedback-header").innerHTML = data['headlines']
                         }
                         else if (data['buttonNr']) {
                             for (i = 9; i > data['buttonNr']; i--) {

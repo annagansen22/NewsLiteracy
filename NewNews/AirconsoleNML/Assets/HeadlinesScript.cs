@@ -30,6 +30,9 @@ public class HeadlinesScript : MonoBehaviour
     private List<HeadlineScores> headlineScores;
     private JObject feedbackData = new JObject();
     private JObject hurryUpData = new JObject();
+    private List<string> h_pf = new List<string>() { "Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Jullie hebben flink jullie best gedaan, goed hoor!" };
+    private List<string> h_nf = new List<string>() { "Denk in het volgende spel eraan dat iedereen van jullie team mee blijft doen!", "Was het lastig om de echte en neppe titels van elkaar te onderscheiden? Volgende keer beter!", "Let erop dat je genoeg met je teamleden blijft overleggen!", "Hoe ziet er echte titel er vaak uit? Bespreek het in jullie groepje." };
+
 
     // Start is called before the first frame update
     void Start()
@@ -185,56 +188,63 @@ public class HeadlinesScript : MonoBehaviour
                 {
                     ai.addAIData(0.8f, 0.2f, true);
                     team.addScore(100);
-                    feedback = "true";
-                    if (feedbackData["headlines"] == null)
+                    foreach (HeadlineScores h in headlineScores)
                     {
-                        feedbackData.Add("headlines", feedback);
+                        if (h.DeviceId == team.getTeamDeviceID())
+                        {
+                            h.Score += 100;
+                        }
                     }
-                    else
-                    {
-                        feedbackData["headlines"] = feedback;
-                    }
-                    AirConsole.instance.Message(team.getTeamDeviceID(), feedbackData);
                 }
                 // when the team did not pick the true headline, they can still get points if other teams voted for their headline
                 else {
                     ai.addAIData(0.8f, 0.2f, false);
                     foreach (HeadlineScores h in headlineScores)
                     {
+                        if (h.DeviceId == team.getTeamDeviceID())
+                        {
+                            h.TrueAnswer = false;
+                        }
                         if(h.Option.Equals(answer) && h.DeviceId != team.getTeamDeviceID())
                         {
                             h.FooledTeams += 1;
                             gameLogic.GetComponent<GameStats>().getTeam(h.DeviceId).addScore(100);
+                            h.Score += 100;
                         }
                     }
-                    if (feedbackData["headlines"] == null)
-                    {
-                        feedbackData.Add("headlines", feedback);
-                    }
-                    else
-                    {
-                        feedbackData["headlines"] = feedback;
-                    }
-                    AirConsole.instance.Message(team.getTeamDeviceID(), feedbackData);
                 }
 
             }
 
             // Send special feedback if people fooled other teams
             foreach (HeadlineScores h in headlineScores) 
-            { 
-                if(h.FooledTeams > 1)
+            {
+                feedback = "";
+                System.Random rnd = new System.Random();
+                if (h.TrueAnswer)
+                    feedback += "Jullie antwoord was goed! &#9989 \r\n " + h_pf[rnd.Next(0, h_pf.Count-1)] + " \r\n  \r\n";
+                else
+                    feedback += "Jullie antwoord was helaas fout &#128549 \r\n \r\n" + h_nf[rnd.Next(0, h_pf.Count - 1)] + " \r\n \r\n ";
+
+                if (h.FooledTeams > 0)
                 {
-                    feedback = "fooled";
-                    if (feedbackData["headlines"] == null)
-                    {
-                        feedbackData.Add("headlines", feedback);
-                    }
-                    else
-                    {
-                        feedbackData["headlines"] = feedback;
-                    }
+                    feedback += "Je team heeft een aantal andere teams voor de gek gehouden, goed gedaan! &#9989 \r\n \r\n";
                 }
+                if (h.Score == 100)
+                    feedback += "Je hebt &#128175 nieuwe volgers &#128525";
+                else if (h.Score != 0)
+                    feedback += "Je hebt " + h.Score + " nieuwe volgers &#128525";
+
+                if (feedbackData["headlines"] == null)
+                {
+                    feedbackData.Add("headlines", feedback);
+                }
+                else
+                {
+                    feedbackData["headlines"] = feedback;
+                }
+                print(feedback);
+                AirConsole.instance.Message(h.DeviceId, feedbackData);
             }
 
             // Show only true headline --> Get buttons and set them to inactive

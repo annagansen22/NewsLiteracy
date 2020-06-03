@@ -375,42 +375,36 @@ public class GamesData : MonoBehaviour
     private List<MatchingData> getHardcodedMatchingData()
     {
         List<MatchingData> data = new List<MatchingData>() {
-            new MatchingData("showbusiness", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        }),
-            new MatchingData("politics", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        }),
-            new MatchingData("sport", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        }),
-            new MatchingData("misdaad", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        }),
-            new MatchingData("actueel_nieuws", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        }),
-            new MatchingData("klimaat", new Dictionary<string, string>() {
-            {"showbusiness", "show business"},
-            {"politics", "politiek"},
-            {"actueel_nieuws", "actueel nieuws"},
-            {"misdaad", "misdaad"},
-        })
+            new MatchingData(new Dictionary<string, string>() {
+            {"www.LINDA.nl", "Amuseren"},
+            {"www.GeenStijl.nl", "Overtuigen"},
+            {"www.degelderlander.nl", "Informeren"},
+            {"www.devolkskrant.nl/recensies", "Opiniëren"},
+        }, "Bronnen", "Doelen"),
+            new MatchingData(new Dictionary<string, string>() {
+            {"Voorzitter politieke partij", "Politieke voorkeur"},
+            {"Moskee eigenaar", "Religieuze achtergrond"},
+            {"Eigenaar van bedrijf", "Verkopen"},
+            {"Vlogger", "Zoveel mogelijk kijkers trekken"},
+        }, "Auteurs", "Vooroordelen"),
+            new MatchingData(new Dictionary<string, string>() {
+            {"nosstories", "Jongeren"},
+            {"Reformatorisch Dagblad", "Christenen"},
+            {"Het Financieele Dagblad", "Ondernemers"},
+            {"Het Parool", "Amsterdammers"},
+        }, "Bronnen", "Doelgroepen"),
+            new MatchingData(new Dictionary<string, string>() {
+            {"Netflix lanceert heftige serie over omstreden Jeffrey Epstein", "Vermaken"},
+            {"Australië in brand – Klimaatverandering? Onzin.", "Overtuigen"},
+            {"Vaker WhatsApp-fraude: 'Je denkt: dit overkomt mij niet'", "Informeren"},
+            {"Dit is op dit moment de favoriete jurk van Meghan Markle", "Verkopen"},
+        }, "Titels", "Doelen"),
+            new MatchingData(new Dictionary<string, string>() {
+            {"www.nrc.nl/index/opinie/", "Opiniëren"},
+            {"De playboy", "Vermaken"},
+            {"www.ad.nl", "Informeren"},
+            {"www.vvd.nl/nieuws/", "Overtuigen"},
+        }, "Bronnen", "Doelen")
         };
         return data;
     }

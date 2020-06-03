@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class MatchingData
 {
-    private string topic;
     private Dictionary<string, string> dict;
+    private string item1;
+    private string item2;
 
-    public MatchingData(string t, Dictionary<string, string> d)
+    public MatchingData(Dictionary<string, string> d, string i1, string i2)
     {
-        topic = t;
         dict = d;
+        item1 = i1;
+        item2 = i2;
     }
-
-    public string getTopic()
+    public string getItem1()
     {
-        return topic;
+        return item1;
     }
 
+    public string getItem2()
+    {
+        return item2;
+    }
     public Dictionary<string, string> getDict()
     {
         return dict;
