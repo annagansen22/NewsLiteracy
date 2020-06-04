@@ -35,7 +35,7 @@ public class RealFake : MonoBehaviour
         trueAnswer = data.getTruth();
 
         // Display question
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Echt of nep? </b> \n\n " + sentence;
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Kies of deze nieuwskop afkomstig is van een echt <b>nieuws</b>artikel of niet! </b> \n\n " + sentence;
 
         // Send instructions to controller to change to "Yes or no layout"
         gameLogic.GetComponent<AIComponent>().SetView("view-2");

@@ -92,14 +92,16 @@ h3.section-header{
   text-align: center;
   padding-top: 20px;
   color: white;
-  font-size: 4vw
+  font-size: 3.7vw;
+  padding-right: 35px;
+  padding-left: 35px;
 }
 
 
 h3.teamname-header{
   text-align: center;
   color: #ADEE00;
-  font-size: 4vw;
+  font-size: 3vw;
 }
 
 h3.feedback-header{
@@ -109,7 +111,7 @@ h3.feedback-header{
   padding-left: 10px;
   width: 100%;
   color: white;
-  font-size: 4vw;
+  font-size: 3.8vw;
   white-space: pre-line;
 }
 
@@ -124,7 +126,7 @@ h3.feedback-header1{
 
 .section-view-btn .button-element, .section-view-btn .button-300-150 {
   position: relative;
-  height: 70%;
+  height: 90%;
   width: 100%;
 }
 
