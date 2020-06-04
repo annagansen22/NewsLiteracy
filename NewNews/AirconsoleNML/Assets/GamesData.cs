@@ -399,7 +399,7 @@ public class GamesData : MonoBehaviour
         }, "Titels", "Doelen"),
             new MatchingData(new Dictionary<string, string>() {
             {"www.nrc.nl/index/opinie/", "Opiniëren"},
-            {"De playboy", "Vermaken"},
+            {"www.story.nl", "Vermaken"},
             {"www.ad.nl", "Informeren"},
             {"www.vvd.nl/nieuws/", "Overtuigen"},
         }, "Bronnen", "Doelen")
