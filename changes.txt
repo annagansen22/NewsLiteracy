@@ -1,6 +1,0 @@
-Worked on:
-AnnaHeadlines:commit 188dd38
-
-Changes made:
-Cosmetic changes to the controller files.
-Made my_test_controller_phone work on a real phone.
