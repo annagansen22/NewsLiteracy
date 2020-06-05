@@ -16,7 +16,7 @@ public class SourceGame : MonoBehaviour
     private bool Once = true;
     private GameObject gameLogic;
     public GameObject stampObject;
-    public int waitTime = 1;
+    public int waitTime = 10;
     private JObject feedbackData = new JObject();
     private JObject hurryUpData = new JObject();
 
@@ -36,7 +36,7 @@ public class SourceGame : MonoBehaviour
         trueAnswer = data.getTruth();
 
         // Display question
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Zoek de bron </b> \n\n " + sentence;
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> Zoek de bron </b> \n\n Zoek op internet om erachter te komen of de onderstaande stelling waar of niet waar is! \n\n '" + sentence + "'";
 
         // Send instructions to controller to change to "Yes or no layout"
         gameLogic.GetComponent<AIComponent>().SetView("view-7");

@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 
 public class EntryScreen : MonoBehaviour
 {
+    private int timeOfGame = 20;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class EntryScreen : MonoBehaviour
                             GameObject.FindGameObjectWithTag("GameLogic").GetComponent<GameStats>().getTeams().Count > 1)
                         {
                             sendteamnames();
-                            StartCoroutine(WaitForSeconds(1));
+                            StartCoroutine(WaitForSeconds(10));
                             
                         }
                     }
@@ -90,16 +91,9 @@ public class EntryScreen : MonoBehaviour
     // If the ready button is pressed by the teacher
     public void startGame()
     {
-        //AirConsole.instance.SetActivePlayers();
-        //AirConsole.instance.SetCustomDeviceState(1);
-        int t = 10;
-        string time = "";
-        //time = FindObjectOfType<TMP_InputField>().text;
-        print(time);
-        if (time != "") t = int.Parse(time);
-        print("Timer set to " + t + " minutes");
+        print("Timer set to " + timeOfGame + " minutes");
         print("Start date is: " + System.DateTime.Now);
-        DateTime maxTime = System.DateTime.Now.AddMinutes(t);
+        DateTime maxTime = System.DateTime.Now.AddMinutes(timeOfGame);
         print("End date is: " + maxTime);
         AirConsole.instance.onMessage -= OnMessage;
         GameObject.FindGameObjectWithTag("GameLogic").GetComponent<AIComponent>().SetView("view-1");

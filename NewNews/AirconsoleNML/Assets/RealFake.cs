@@ -16,7 +16,7 @@ public class RealFake : MonoBehaviour
     private bool Once = true;
     private GameObject gameLogic;
     public GameObject stampObject;
-    public int waitTime = 1;
+    public int waitTime = 10;
     private JObject feedbackData = new JObject();
     private JObject hurryUpData = new JObject();
     void Start()

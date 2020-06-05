@@ -1908,6 +1908,7 @@ MonoBehaviour:
   browserStartMode: 4
   controllerHtml: {fileID: 4900000, guid: 6b915475d507a9943a3ca817433cecaa, type: 3}
   autoScaleCanvas: 1
+  devGameId: 
 --- !u!4 &1053742465
 Transform:
   m_ObjectHideFlags: 0
@@ -2686,7 +2687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.006454468, y: 304.4}
+  m_AnchoredPosition: {x: 0.006454468, y: 290}
   m_SizeDelta: {x: 1000, y: 120.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303974024

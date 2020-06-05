@@ -79,7 +79,7 @@ public class HeadlinesScript : MonoBehaviour
             {"klimaat", "klimaat"}
         };
 
-        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> \n\n\n\n\n\n\n\n\n Bedenk een zo echt mogelijk klinkende titel voor een nieuwsbericht met het woord \n\n '" + keyword + "'\n\n  passend binnen het thema '" + topics[topic] + "'. \n\n De titel mag gaan over iets wat echt gebeurd is, maar mag geen bestaande titel zijn! </b>";
+        GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().text = "<b> \n\n\n\n\n\n\n\n\n\n Bedenk een zo echt mogelijk klinkende titel voor een nieuwsbericht met het woord \n\n '" + keyword + "'\n\n  passend binnen het thema '" + topics[topic] + "'. \n\n De titel mag gaan over iets wat echt gebeurd is, maar mag geen bestaande titel zijn! </b>";
         GameObject.FindGameObjectWithTag("ScreenText").GetComponent<TextMeshProUGUI>().fontSize = 52;
         // Send instructions to controller to change to Input layout
         gameLogic.GetComponent<AIComponent>().SetView("view-8");
