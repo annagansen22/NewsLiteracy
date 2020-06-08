@@ -21,8 +21,10 @@
         var feedback;
         var rf_pf = ["Dit hebben jullie goed gedaan! Was het geluk of hebben jullie een weloverwogen beslissing genomen?", "Dit was een lastige hé? Aan welke elementen kan je zien of een bron echt of nep is?", "Goed dat jullie met de teamleden overlegd hebben! Zo kom je vaak tot het juiste antwoord."]
         var rf_nf = ["Check de bron om erachter te komen of nieuws echt of nep is!", "Ga na of de titel geloofwaardig is; zou dit echt gebeurd kunnen zijn?"]
-        var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken? ", "Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd? ", "Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
+        var s_pf = ["Goed dat jullie actief op het internet hebben gezocht! Hebben jullie meerdere bronnen bekeken?", "Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd?", "Netjes gedaan! Goed dat jullie de juiste informatie hebben gevonden op het internet!"]
         var s_nf = ["https://www.factcheck.nl/ is een website die je kan gebruiken om betrouwbare bronnen te vinden!", "Let op: bekijk meerdere bronnen voordat je een goed antwoord kan formuleren."]
+        var m_pf = ["Jullie hebben flink jullie best gedaan, goed hoor!", "Wat hebben jullie hard gewerkt!", "Wauw, deze score geeft jullie veel volgers!", "Heeft iedereen kunnen meedenken bij het matchen? Het is de bedoeling dat jullie elkaar helpen.", "Je hebt de juiste match gevonden!","Goed gewerkt! Blijf overleggen over de beste keus!"]
+        var m_nf = ["Heeft iedereen kunnen meedenken bij het matchen? Het is de bedoeling dat jullie elkaar helpen.", "Discussiëren helpt om het goede antwoord te vinden! Hebben jullie voldoende overlegd?", "Blijf overleggen over de beste keus!"]
         var picked = new Array();
         function keyboard_init() {
             keyboard = new AirConsoleKeyboard("my_keyboard");
@@ -321,10 +323,10 @@
                         }
                         if (data['matching']) {
                             if (data['matching'] == "true") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "Je hebt &#128175 nieuwe volgers &#128525 \r\n"  + "\r\n" + rf_pf[Math.floor(Math.random() * rf_pf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was goed! &#9989 \r\n " + "Je hebt &#128175 nieuwe volgers &#128525 \r\n"  + "\r\n" + m_pf[Math.floor(Math.random() * m_pf.length)]
                             }
                             else if (data['matching'] == "false") {
-                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + rf_nf[Math.floor(Math.random() * rf_nf.length)]
+                                document.getElementById("feedback-header").innerHTML = "Jullie antwoord was helaas fout &#128549 \r\n "  + "\r\n" + m_nf[Math.floor(Math.random() * m_nf.length)]
                             }
                         }
                         else if (data['source']) {

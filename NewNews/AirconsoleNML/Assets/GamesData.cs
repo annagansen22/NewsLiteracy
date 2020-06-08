@@ -144,7 +144,7 @@ public class GamesData : MonoBehaviour
             new RealFakeData("actueel_nieuws",
             "Trumps naam komt op 'coronacheques' die Amerikanen ontvangen\n\nBron: nu.nl \nDatum: 26-05-2020 \nAuteur: Redactie nu.nl", true),
             new RealFakeData("actueel_nieuws",
-            "Veel meer twintigers en dertigers omgekomen bij verkeersongelukken\n\nBron: nos.nl \nDatum: 15-04-2020 \nAuteur: redachtie nos.nl", true),
+            "Veel meer twintigers en dertigers omgekomen bij verkeersongelukken\n\nBron: nos.nl \nDatum: 15-04-2020 \nAuteur: redactie nos.nl", true),
             new RealFakeData("actueel_nieuws",
             "Neef met slechte internetverbinding door familie verstoten\n\nBron: speld.nl \nDatum: 13-04-2020 \nAuteur: Spanjaarden", false),
             new RealFakeData("actueel_nieuws",
