@@ -313,34 +313,34 @@ public class GamesData : MonoBehaviour
     {
         List<RealFakeData> data = new List<RealFakeData>() {
             new RealFakeData("showbusiness",
-            "Klopt het dat je na een deelname aan temptation island niet meer mee mag doen aan programma's zoals ex on the beach?", false),
+            "Na een deelname aan het programma temptation island kun je niet meer mee mag doen aan programma's zoals ex on the beach.", false),
             new RealFakeData("showbusiness",
-            "Mag het Eurovisie songfestival komende jaren nog wel in Nederland gehouden worden vanwege het corona virus?", true),
+            "Het Eurovisie songfestival mag de komende jaren nog wel in Nederland gehouden worden vanwege het corona virus.", true),
 
             new RealFakeData("politics",
-            "Bestaat de harde kern van de PvdA uit laagopgeleide arbeiders?", false),
+            "De harde kern van de PvdA bestaat uit laagopgeleide arbeiders.", false),
             new RealFakeData("politics",
-            "Heeft de PVV linkse standpunten gehad in de afgelopen jaren?", true),
+            "De PVV heeft linkse standpunten gehad in de afgelopen jaren.", true),
 
             new RealFakeData("actueel_nieuws",
-            "Wordt het corona virus in stand gehouden door het nieuwe 5G netwerk?", false),
+            "Het corona virus wordt in stand gehouden door het nieuwe 5G netwerk.", false),
             new RealFakeData("actueel_nieuws",
-            "Zal de eikenprocessierups dit jaar nog meer overlast veroorzaken dan vorig jaar dankzij het heersende corona virus?", true),
+            "De eikenprocessierups zal dit jaar nog meer overlast veroorzaken dan vorig jaar vanwege het heersende corona virus.", true),
 
             new RealFakeData("misdaad",
-            "Kunnen mensen tussen de 16 en 23 jaar zowel als kind als volwassene beoordeeld worden bij een strafrechtelijk proces", true),
+            "Mensen tussen de 16 en 23 jaar kunnen zowel als kind als volwassene beoordeeld worden bij een strafrechtelijk proces.", true),
             new RealFakeData("misdaad",
-            "Gökmen Tanis heeft levenslang gekregen voor het schietincident in een tram in Utrecht. Klopt het dat levenslang in Nederland eigenlijk betekent dat je 20 jaar de gevangenis in moet?", true),
+            "Gökmen Tanis heeft levenslang gekregen voor het schietincident in een tram in Utrecht. In Nederland betekent levenslang eigenlijk dat je 20 jaar de gevangenis in moet.", false),
 
             new RealFakeData("sport",
-            "Heeft het uitstellen van de olympische spelen in 2020 effect hebben op de olympische spelen in parijs?", false),
+            "Het uitstellen van de olympische spelen in 2020 heeft effect hebben op de olympische spelen in Parijs.", false),
             new RealFakeData("sport",
-            "Kan je topsport niveau bereiken zonder dat je vlees eet of supplementen gebruikt?", true),
+            "Je kan topsport niveau bereiken zonder dat je vlees eet of supplementen gebruikt.", true),
 
             new RealFakeData("klimaat",
-            "Toppen Himalaya door lockdown voor eerst in decennia weer te zien", true),
+            "Een elektrische auto is pas beter voor het milieu na 700.000 kilometer.", false),
             new RealFakeData("klimaat",
-            "Klimaat Placeholder", true),
+            "Vliegtuigstrepen zijn goed voor het klimaat.", false),
         };
         return data;
     }
@@ -360,7 +360,7 @@ public class GamesData : MonoBehaviour
             new HeadlineData("misdaad", "moordenaar", "Veroordeelde moordenaar van man in Bredase flat meldt zich bij politie"),
             new HeadlineData("misdaad", "straatroof", "Tieners slaan en schoppen slachtoffer gewelddadige straatroof"),
 
-            new HeadlineData("sport", "Titelverdediger", "Titelverdediger Bernal: ‘Vierenhalve maand om in vorm te komen’"),
+            new HeadlineData("sport", "titelverdediger", "Titelverdediger Bernal: ‘Vierenhalve maand om in vorm te komen’"),
             new HeadlineData("sport", "Tyson Fury", "Komt het gevecht van de eeuw er aan? Anthony Joshua daagt Tyson Fury uit"),
 
             new HeadlineData("klimaat", "klimaat", "Ruime meerderheid van Nederlanders denkt dat het klimaat verandert"),
